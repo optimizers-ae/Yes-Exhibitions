@@ -66,11 +66,10 @@ const FeatureRow = ({ mobile = false }) => (
           className={
             mobile
               ? 'flex min-w-0 flex-col items-center gap-2 px-1 text-center'
-              : `flex items-center gap-3 px-5 ${index === 0 ? 'pl-0' : ''} ${
-                  index !== staticFeatures.length - 1
-                    ? 'border-r border-slate-200'
-                    : ''
-                }`
+              : `flex items-center gap-3 px-5 ${index === 0 ? 'pl-0' : ''} ${index !== staticFeatures.length - 1
+                ? 'border-r border-slate-200'
+                : ''
+              }`
           }
         >
           <div
@@ -109,7 +108,7 @@ const FeatureRow = ({ mobile = false }) => (
   </div>
 );
 
-const Hero = ({ onOpenQuote = () => {}, onOpenWork = () => {} }) => {
+const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef(null);
@@ -293,11 +292,10 @@ const Hero = ({ onOpenQuote = () => {}, onOpenWork = () => {} }) => {
               {carouselImages.map((item, index) => (
                 <div
                   key={item.id}
-                  className={`absolute inset-0 transition-opacity duration-500 ease-out ${
-                    index === currentSlide
-                      ? 'z-10 opacity-100'
-                      : 'z-0 opacity-0 pointer-events-none'
-                  }`}
+                  className={`absolute inset-0 transition-opacity duration-500 ease-out ${index === currentSlide
+                    ? 'z-10 opacity-100'
+                    : 'z-0 opacity-0 pointer-events-none'
+                    }`}
                   aria-hidden={index !== currentSlide}
                 >
                   <img
@@ -326,11 +324,10 @@ const Hero = ({ onOpenQuote = () => {}, onOpenWork = () => {} }) => {
                   aria-selected={index === currentSlide}
                   aria-label={`Show ${item.title}`}
                   onClick={() => goToSlide(index)}
-                  className={`h-2.5 w-2.5 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D49942] focus-visible:ring-offset-2 ${
-                    index === currentSlide
-                      ? 'bg-[#D89422]'
-                      : 'bg-slate-300 hover:bg-slate-400'
-                  }`}
+                  className={`h-2.5 w-2.5 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D49942] focus-visible:ring-offset-2 ${index === currentSlide
+                    ? 'bg-[#D89422]'
+                    : 'bg-slate-300 hover:bg-slate-400'
+                    }`}
                 />
               ))}
             </div>

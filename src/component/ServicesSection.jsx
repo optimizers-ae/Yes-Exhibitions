@@ -75,7 +75,7 @@ const ServicesSection = ({ onOpenQuote }) => {
       <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-amber-300/15 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <motion.div
           variants={fadeInUp}
@@ -115,12 +115,12 @@ const ServicesSection = ({ onOpenQuote }) => {
                 className="sticky mb-16 sm:mb-24 last:mb-0"
               >
                 <div className="bg-white rounded-3xl border border-gray-200/90 shadow-[0_15px_50px_rgba(0,0,0,0.10)] hover:shadow-[0_25px_65px_rgba(212,153,66,0.22)] transition-all duration-300 overflow-hidden">
-                  
+
                   {/* Top Subtle Gold Accent Line */}
                   <div className="h-2 w-full bg-gradient-to-r from-amber-300 via-[#D49942] to-amber-500" />
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-                    
+
                     {/* Left Side: Image Showcase */}
                     <div
                       data-cursor="view"
@@ -133,7 +133,7 @@ const ServicesSection = ({ onOpenQuote }) => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
                         loading="lazy"
                       />
-                      
+
                       {/* Vignette Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-950/85 via-black/25 to-black/10" />
 

@@ -1,17 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Sparkles, 
-  CheckCircle2, 
-  Check, 
-  ShieldCheck, 
-  ArrowRight, 
-  Award, 
-  Users, 
-  Layers, 
-  Building2, 
-  Clock, 
-  Globe2 
+import {
+  Sparkles,
+  CheckCircle2,
+  Check,
+  ShieldCheck,
+  ArrowRight,
+  Award,
+  Users,
+  Layers,
+  Building2,
+  Clock,
+  Globe2
 } from 'lucide-react';
 import founderImg from '../assets/founder.png';
 
@@ -71,10 +71,10 @@ const AboutSection = ({ onOpenQuote }) => {
       <div className="absolute bottom-10 -right-20 w-[400px] h-[400px] bg-amber-300/20 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Main Split-Screen Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-          
+
           {/* LEFT SIDE: Showcase Imagery & Glassmorphism Stats */}
           <motion.div
             variants={fadeInUp}
@@ -84,7 +84,7 @@ const AboutSection = ({ onOpenQuote }) => {
             className="lg:col-span-5 relative"
           >
             <div className="relative mx-auto max-w-[540px] lg:max-w-none">
-              
+
               {/* Main Visual Image Card */}
               <div
                 data-cursor="view"
@@ -94,14 +94,14 @@ const AboutSection = ({ onOpenQuote }) => {
                 <img
                   src={founderImg}
                   alt="YES Exhibition Stands - Design, Fabrication & Construction"
-                  className="w-full h-[480px] sm:h-[740px] object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
+                  className="w-full h-[580px] sm:h-[740px] object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
                   loading="lazy"
                 />
-                
+
                 {/* Image Gradient Vignette */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
 
-              
+
 
                 {/* Bottom Overlay Info Card */}
                 <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/60 shadow-xl">
@@ -123,14 +123,14 @@ const AboutSection = ({ onOpenQuote }) => {
                 </div>
               </div>
 
-          
+
             </div>
           </motion.div>
 
 
           {/* RIGHT SIDE: Narrative, Capabilities & Clean Checkmark Grid */}
           <div className="lg:col-span-7 space-y-7">
-            
+
             {/* Header & Subheading */}
             <motion.div
               variants={fadeInUp}
@@ -155,7 +155,7 @@ const AboutSection = ({ onOpenQuote }) => {
               </p>
             </motion.div>
 
-         
+
 
             {/* Capabilities Checkmark Grid */}
             <motion.div

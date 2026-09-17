@@ -22,10 +22,10 @@ const GetInTouchSection = () => {
 
 
 
-  
+
   return (
     <section id="contact" className="py-24 bg-white text-gray-900 relative overflow-hidden">
-      
+
       {/* Yellow Radial Gradient Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,_rgba(253,230,138,0.4)_0%,_rgba(253,230,138,0.1)_40%,_transparent_70%)] pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[300px] bg-[radial-gradient(ellipse_at_center,_rgba(251,191,36,0.3)_0%,_transparent_70%)] pointer-events-none blur-3xl" />
@@ -52,7 +52,7 @@ const GetInTouchSection = () => {
 
         {/* Main Grid: Left = Title + Form | Right = Map */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
+
           {/* LEFT COLUMN: Title + Form */}
           <div className="lg:col-span-6 space-y-8">
             <div>
@@ -94,11 +94,10 @@ const GetInTouchSection = () => {
                         onFocus={() => setFocusedField('name')}
                         onBlur={() => setFocusedField(null)}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className={`w-full px-4 py-3 rounded-lg bg-gray-50 border text-gray-900 placeholder-gray-400 text-sm focus:outline-none transition-all duration-300 ${
-                          focusedField === 'name'
+                        className={`w-full px-4 py-3 rounded-lg bg-gray-50 border text-gray-900 placeholder-gray-400 text-sm focus:outline-none transition-all duration-300 ${focusedField === 'name'
                             ? 'border-[#D49942] shadow-[0_0_0_3px_rgba(212,153,66,0.12)] bg-white'
                             : 'border-gray-200'
-                        }`}
+                          }`}
                       />
                     </div>
 
@@ -115,11 +114,10 @@ const GetInTouchSection = () => {
                         onFocus={() => setFocusedField('email')}
                         onBlur={() => setFocusedField(null)}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className={`w-full px-4 py-3 rounded-lg bg-gray-50 border text-gray-900 placeholder-gray-400 text-sm focus:outline-none transition-all duration-300 ${
-                          focusedField === 'email'
+                        className={`w-full px-4 py-3 rounded-lg bg-gray-50 border text-gray-900 placeholder-gray-400 text-sm focus:outline-none transition-all duration-300 ${focusedField === 'email'
                             ? 'border-[#D49942] shadow-[0_0_0_3px_rgba(212,153,66,0.12)] bg-white'
                             : 'border-gray-200'
-                        }`}
+                          }`}
                       />
                     </div>
 
@@ -136,11 +134,10 @@ const GetInTouchSection = () => {
                         onFocus={() => setFocusedField('message')}
                         onBlur={() => setFocusedField(null)}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className={`w-full px-4 py-3 rounded-lg bg-gray-50 border text-gray-900 placeholder-gray-400 text-sm focus:outline-none transition-all duration-300 resize-none ${
-                          focusedField === 'message'
+                        className={`w-full px-4 py-3 rounded-lg bg-gray-50 border text-gray-900 placeholder-gray-400 text-sm focus:outline-none transition-all duration-300 resize-none ${focusedField === 'message'
                             ? 'border-[#D49942] shadow-[0_0_0_3px_rgba(212,153,66,0.12)] bg-white'
                             : 'border-gray-200'
-                        }`}
+                          }`}
                       />
                     </div>
 

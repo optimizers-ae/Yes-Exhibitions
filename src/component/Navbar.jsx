@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown, Menu, X, Building2, Layers, Globe, Shield } from 'lucide-react';
 import logoImg from '../assets/logo.jpeg';
+import { toast } from 'react-toastify';
 
 const services = [
   {
@@ -44,15 +44,11 @@ const Navbar = ({ onOpenQuote }) => {
   }, []);
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
+    <header
+      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm py-3'
           : 'bg-transparent py-4 sm:py-5'
-      }`}
+        }`}
       role="banner"
     >
       <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16">
@@ -112,9 +108,8 @@ const Navbar = ({ onOpenQuote }) => {
                 <span>Services</span>
                 <ChevronDown
                   size={14}
-                  className={`text-gray-500 transition-transform duration-200 ${
-                    servicesDropdownOpen ? 'rotate-180 text-[#D49942]' : ''
-                  }`}
+                  className={`text-gray-500 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180 text-[#D49942]' : ''
+                    }`}
                 />
               </button>
 
@@ -175,9 +170,10 @@ const Navbar = ({ onOpenQuote }) => {
           {/* Desktop Right CTA Button */}
           <div className="hidden md:flex items-center">
             <button
-              onClick={onOpenQuote}
+              // onClick={onOpenQuote}
+              onClick={ ()=>  toast.info("We are working")}
               type="button"
-              className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#D49942]"
+              className=" text-white  px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-gray-950 font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#D49942]"
             >
               <span>GET A QUOTE</span>
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
@@ -187,9 +183,11 @@ const Navbar = ({ onOpenQuote }) => {
           {/* Mobile Menu Toggle Button */}
           <div className="flex md:hidden items-center gap-2">
             <button
-              onClick={onOpenQuote}
+              // onClick={onOpenQuote}
+              onClick={()=> toast.info("We are working")}
+
               type="button"
-              className="px-3 py-1.5 rounded-md bg-gradient-to-r from-[#E6AA4D] to-[#C78326] text-white font-bold text-xs flex items-center gap-1 shadow-sm"
+              className=" text-white px-3 py-1.5 rounded-md bg-gradient-to-r from-[#E6AA4D] to-[#C78326] text-gray-950 font-bold text-xs flex items-center gap-1 shadow-sm"
             >
               <span>Quote</span>
               <ArrowRight size={12} />
@@ -251,7 +249,7 @@ const Navbar = ({ onOpenQuote }) => {
                     setMobileMenuOpen(false);
                     onOpenQuote();
                   }}
-                  className="w-full py-3 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
+                  className="text-white w-full py-3 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-gray-950 font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
                 >
                   <span>GET A QUOTE</span>
                   <ArrowRight size={16} />
@@ -261,7 +259,7 @@ const Navbar = ({ onOpenQuote }) => {
           </div>
         )}
       </div>
-    </motion.header>
+    </header>
   );
 };
 
