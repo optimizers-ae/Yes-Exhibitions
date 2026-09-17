@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { ArrowRight, Play, Gem, Settings, Users } from 'lucide-react';
-import GlowCursor from './GlowCursor';
 import hero1 from '../assets/hero_1.png';
 import hero2 from '../assets/hero_2.png';
 import hero3 from '../assets/hero_3.png';
@@ -133,31 +132,6 @@ const Hero = ({ onOpenQuote, onOpenWork }) => {
 
         {/* Subtle Ambient Vignette */}
         <div className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-t from-white/20 via-transparent to-white/10" />
-      </div>
-
-      {/* ========================================================================= */}
-      {/* LAYER 1: GLOW CURSOR (Desktop only, pointer-events: none, golden trail)    */}
-      {/* ========================================================================= */}
-      <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
-        <GlowCursor
-          color="#F6CE72"
-          secondaryColor="#C78326"
-          trailLength={38}
-          trailWidth={7.5}
-          trailTaper={0.8}
-          followSpeed={0.16}
-          glowIntensity={1.9}
-          glowSpread={1.2}
-          hotspot={0.7}
-          brightness={1.3}
-          opacity={0.95}
-          pulseSpeed={1.1}
-          noiseStrength={0.03}
-          idleFade={true}
-          idleTimeout={600}
-          fadeDuration={800}
-          blendMode="normal"
-        />
       </div>
 
       {/* Floating Right Vertical Tagline */}
