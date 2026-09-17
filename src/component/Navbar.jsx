@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, ChevronDown, Menu, X, Sparkles, Building2, Layers, Globe, Shield } from 'lucide-react';
+import { ArrowRight, ChevronDown, Menu, X, Building2, Layers, Globe, Shield } from 'lucide-react';
 import logoImg from '../assets/logo.jpeg';
 
 const services = [
@@ -44,14 +44,14 @@ const Navbar = ({ onOpenQuote }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm py-3'
           : 'bg-transparent py-4 sm:py-5'
       }`}
       role="banner"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a
@@ -79,7 +79,7 @@ const Navbar = ({ onOpenQuote }) => {
 
           {/* Desktop Navigation */}
           <nav
-            className="hidden md:flex items-center space-x-7 lg:space-x-9"
+            className="hidden md:flex items-center space-x-7 lg:space-x-10"
             aria-label="Main Navigation"
           >
             {/* Home Link (Active) */}
@@ -103,7 +103,7 @@ const Navbar = ({ onOpenQuote }) => {
                 onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                 aria-expanded={servicesDropdownOpen}
                 aria-haspopup="true"
-                className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-gray-950 transition-colors py-1 focus-visible:ring-2 focus-visible:ring-[#D49942] rounded"
+                className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-gray-950 transition-colors py-1 focus-visible:ring-2 focus-visible:ring-[#D49942] rounded cursor-pointer"
               >
                 <span>Services</span>
                 <ChevronDown
@@ -173,7 +173,7 @@ const Navbar = ({ onOpenQuote }) => {
             <button
               onClick={onOpenQuote}
               type="button"
-              className="text-white px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-gray-950 font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#D49942]"
+              className=" text-white  px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-gray-950 font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#D49942]"
             >
               <span>GET A QUOTE</span>
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
@@ -185,7 +185,7 @@ const Navbar = ({ onOpenQuote }) => {
             <button
               onClick={onOpenQuote}
               type="button"
-              className="px-3 py-1.5 text-white rounded-md bg-gradient-to-r from-[#E6AA4D] to-[#C78326] text-gray-950 font-bold text-xs flex items-center gap-1 shadow-sm"
+              className=" text-white px-3 py-1.5 rounded-md bg-gradient-to-r from-[#E6AA4D] to-[#C78326] text-gray-950 font-bold text-xs flex items-center gap-1 shadow-sm"
             >
               <span>Quote</span>
               <ArrowRight size={12} />
@@ -247,7 +247,7 @@ const Navbar = ({ onOpenQuote }) => {
                     setMobileMenuOpen(false);
                     onOpenQuote();
                   }}
-                  className="w-full py-3 rounded-lg bg-gradient-to-r text-white from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-gray-950 font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
+                  className="text-white w-full py-3 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-gray-950 font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
                 >
                   <span>GET A QUOTE</span>
                   <ArrowRight size={16} />

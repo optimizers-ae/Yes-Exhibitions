@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Mesh, Program, Renderer, Triangle } from 'ogl';
 import './GlowCursor.css';
 
@@ -152,6 +152,22 @@ const GlowCursor = ({
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const propsRef = useRef({});
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    // Detect mobile / touch devices
+    const checkTouch = () => {
+      const isTouch =
+        window.matchMedia('(pointer: coarse)').matches ||
+        window.matchMedia('(max-width: 1024px)').matches ||
+        'ontouchstart' in window ||
+        navigator.maxTouchPoints > 0;
+      setIsTouchDevice(isTouch);
+    };
+    checkTouch();
+    window.addEventListener('resize', checkTouch, { passive: true });
+    return () => window.removeEventListener('resize', checkTouch);
+  }, []);
 
   propsRef.current = {
     color,
@@ -172,20 +188,29 @@ const GlowCursor = ({
     fadeDuration,
     maxDevicePixelRatio,
     blendMode,
-    enabled
+    enabled: enabled && !isTouchDevice
   };
 
   useEffect(() => {
+    if (isTouchDevice) return;
+
     const container = containerRef.current;
     const canvas = canvasRef.current;
     if (!container || !canvas) return;
 
     const initialConfig = propsRef.current;
-    const renderer = new Renderer({
-      canvas,
-      alpha: true,
-      dpr: Math.min(window.devicePixelRatio || 1, initialConfig.maxDevicePixelRatio)
-    });
+    let renderer;
+    try {
+      renderer = new Renderer({
+        canvas,
+        alpha: true,
+        dpr: Math.min(window.devicePixelRatio || 1, initialConfig.maxDevicePixelRatio)
+      });
+    } catch (e) {
+      console.warn("WebGL not supported for GlowCursor", e);
+      return;
+    }
+
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
 
@@ -253,6 +278,7 @@ const GlowCursor = ({
     };
 
     const updatePointer = event => {
+      if (event.pointerType === 'touch') return;
       const rect = container.getBoundingClientRect();
       const x = clamp(event.clientX - rect.left, 0, rect.width);
       const y = clamp(rect.height - (event.clientY - rect.top), 0, rect.height);
@@ -335,17 +361,24 @@ const GlowCursor = ({
       container.removeEventListener('pointermove', updatePointer);
       container.removeEventListener('pointerenter', updatePointer);
       container.removeEventListener('pointerleave', onPointerLeave);
-      mesh.geometry.remove();
-      program.remove();
+      try {
+        mesh.geometry.remove();
+        program.remove();
+      } catch (e) {
+        // cleanup safe
+      }
     };
-  }, [maxDevicePixelRatio]);
+  }, [maxDevicePixelRatio, isTouchDevice]);
 
   return (
     <div ref={containerRef} className={`glow-cursor${className ? ` ${className}` : ''}`} style={style} {...rest}>
-      <canvas ref={canvasRef} className="glow-cursor__canvas" style={{ mixBlendMode: blendMode }} aria-hidden="true" />
+      {!isTouchDevice && (
+        <canvas ref={canvasRef} className="glow-cursor__canvas" style={{ mixBlendMode: blendMode }} aria-hidden="true" />
+      )}
       {children && <div className="glow-cursor__content">{children}</div>}
     </div>
   );
 };
 
 export default GlowCursor;
+
