@@ -1,5 +1,26 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, FileText, Mail, MapPin, Phone, Send, CheckCircle2 } from 'lucide-react';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 35 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
+};
 
 const GetInTouchSection = ({ onOpenQuote }) => {
   const [formData, setFormData] = useState({
@@ -30,7 +51,13 @@ const GetInTouchSection = ({ onOpenQuote }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
           
           {/* Left Column: Title, Info Grid & CTA */}
-          <div className="lg:col-span-6 space-y-8">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            className="lg:col-span-6 space-y-8"
+          >
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white uppercase">
                 GET IN <span className="gold-gradient-text">TOUCH</span>
@@ -38,8 +65,14 @@ const GetInTouchSection = ({ onOpenQuote }) => {
             </div>
 
             {/* Info Grid with Icons */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
-              <div className="flex items-center gap-3">
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2"
+            >
+              <motion.div variants={fadeInUp} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-white/5 border border-amber-500/30 flex items-center justify-center text-[#D49942]">
                   <Phone className="w-4 h-4" />
                 </div>
@@ -49,9 +82,9 @@ const GetInTouchSection = ({ onOpenQuote }) => {
                     Quick Call Here
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center gap-3">
+              <motion.div variants={fadeInUp} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-white/5 border border-amber-500/30 flex items-center justify-center text-[#D49942]">
                   <Mail className="w-4 h-4" />
                 </div>
@@ -61,9 +94,9 @@ const GetInTouchSection = ({ onOpenQuote }) => {
                     YES@exhibition.com
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center gap-3">
+              <motion.div variants={fadeInUp} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-white/5 border border-amber-500/30 flex items-center justify-center text-[#D49942]">
                   <FileText className="w-4 h-4" />
                 </div>
@@ -73,9 +106,9 @@ const GetInTouchSection = ({ onOpenQuote }) => {
                     Customization Form
                   </span>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center gap-3">
+              <motion.div variants={fadeInUp} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-white/5 border border-amber-500/30 flex items-center justify-center text-[#D49942]">
                   <MapPin className="w-4 h-4" />
                 </div>
@@ -85,24 +118,30 @@ const GetInTouchSection = ({ onOpenQuote }) => {
                     YES Exhibition Stands
                   </span>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Quote Button */}
-            <div className="pt-4">
+            <motion.div variants={fadeInUp} className="pt-4">
               <button
                 type="button"
                 onClick={onOpenQuote}
-                className="px-8 py-3.5 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-gray-950 font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+                className="px-8 py-3.5 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
               >
                 <span>GET A QUOTE</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column: Contact Form Box */}
-          <div className="lg:col-span-6">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            className="lg:col-span-6"
+          >
             <div className="bg-[#181818] p-6 sm:p-8 rounded-2xl border border-amber-500/30 shadow-2xl relative">
               {submitted ? (
                 <div className="py-12 text-center space-y-4">
@@ -147,7 +186,7 @@ const GetInTouchSection = ({ onOpenQuote }) => {
                   <div>
                     <button
                       type="submit"
-                      className="px-8 py-2.5 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-gray-950 font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity cursor-pointer flex items-center gap-2"
+                      className="px-8 py-2.5 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-white font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity cursor-pointer flex items-center gap-2"
                     >
                       <span>Send</span>
                       <Send className="w-3.5 h-3.5" />
@@ -156,11 +195,17 @@ const GetInTouchSection = ({ onOpenQuote }) => {
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Map Container */}
-        <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-[#1A1A1A]">
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-[#1A1A1A]"
+        >
           {/* Map Title Bar */}
           <div className="bg-white text-gray-900 px-6 py-3 flex items-center justify-between border-b border-gray-200">
             <div>
@@ -194,7 +239,7 @@ const GetInTouchSection = ({ onOpenQuote }) => {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

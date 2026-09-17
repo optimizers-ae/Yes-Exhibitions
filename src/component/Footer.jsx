@@ -1,5 +1,19 @@
+import { motion } from 'framer-motion';
 import { Globe, Mail, MapPin, Phone } from 'lucide-react';
 import logoImg from '../assets/logo.jpeg';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (idx = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      delay: idx * 0.08,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  })
+};
 
 const Footer = () => {
   return (
@@ -10,7 +24,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-gray-800/80">
           
           {/* Brand Info & Social Icons Column */}
-          <div className="lg:col-span-4 space-y-5">
+          <motion.div
+            custom={0}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            className="lg:col-span-4 space-y-5"
+          >
             <a href="/" className="flex items-center gap-3 group">
               <img
                 src={logoImg}
@@ -68,10 +89,17 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links Column */}
-          <div className="lg:col-span-2 space-y-4">
+          <motion.div
+            custom={1}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            className="lg:col-span-2 space-y-4"
+          >
             <h4 className="text-sm font-bold text-white tracking-wider uppercase">
               Quick Links
             </h4>
@@ -83,10 +111,17 @@ const Footer = () => {
               <li><a href="#exhibition" className="hover:text-white transition-colors">Exhibition</a></li>
               <li><a href="#blog" className="hover:text-white transition-colors">Blog</a></li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Services Column */}
-          <div className="lg:col-span-2 space-y-4">
+          <motion.div
+            custom={2}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            className="lg:col-span-2 space-y-4"
+          >
             <h4 className="text-sm font-bold text-white tracking-wider uppercase">
               Services
             </h4>
@@ -97,10 +132,17 @@ const Footer = () => {
               <li><a href="#3d" className="hover:text-white transition-colors">3D Design</a></li>
               <li><a href="#modular" className="hover:text-white transition-colors">Modular Stands</a></li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Industries Served Column */}
-          <div className="lg:col-span-2 space-y-4">
+          <motion.div
+            custom={3}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            className="lg:col-span-2 space-y-4"
+          >
             <h4 className="text-sm font-bold text-white tracking-wider uppercase">
               Industries served
             </h4>
@@ -109,10 +151,17 @@ const Footer = () => {
               <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
               <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact Info Column */}
-          <div className="lg:col-span-2 space-y-4">
+          <motion.div
+            custom={4}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            className="lg:col-span-2 space-y-4"
+          >
             <h4 className="text-sm font-bold text-white tracking-wider uppercase">
               Contact Info
             </h4>
@@ -134,14 +183,21 @@ const Footer = () => {
                 <a href="https://yesexhibitionstands.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">https://yesexhibitionstands.com</a>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
         </div>
 
         {/* Bottom Copyright Bar */}
-        <div className="pt-6 text-center text-[11px] text-gray-500 font-medium">
+        <motion.div
+          custom={5}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="pt-6 text-center text-[11px] text-gray-500 font-medium"
+        >
           © {new Date().getFullYear()} YES Exhibition Stands. All Rights Reserved.
-        </div>
+        </motion.div>
 
       </div>
     </footer>

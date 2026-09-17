@@ -40,7 +40,7 @@ const Home = () => {
         <ServicesSection onOpenQuote={() => setIsQuoteOpen(true)} />
 
         {/* Our Impact & Results Section (From Design Image) */}
-        <ImpactResultsSection />
+        <ImpactResultsSection onOpenQuote={() => setIsQuoteOpen(true)} />
 
         {/* Get In Touch & Map Section (From Design Image) */}
         <GetInTouchSection onOpenQuote={() => setIsQuoteOpen(true)} />
@@ -64,4 +64,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Home;

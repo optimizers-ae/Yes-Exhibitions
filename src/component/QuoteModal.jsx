@@ -272,7 +272,7 @@ const QuoteModal = ({ isOpen, onClose }) => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 px-6 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-gray-950 font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#D49942]"
+                  className="w-full py-3.5 px-6 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#D49942]"
                 >
                   <Send size={18} /> Submit Quote Request
                 </button>

@@ -14,7 +14,7 @@
     font-family: var(--font-sansation);
     color: #111827;
     background-color: #FFFFFF;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6, button, input, textarea, select {
@@ -63,4 +63,39 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #B97C2A;
+}
+
+/* Mouse Click Ripple Animation */
+@keyframes mouseRipple {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.85;
+    border-width: 2px;
+  }
+  100% {
+    width: 64px;
+    height: 64px;
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+.animate-mouseRipple {
+  animation: mouseRipple 0.55s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

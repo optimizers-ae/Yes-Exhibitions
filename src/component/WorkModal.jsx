@@ -127,7 +127,7 @@ const WorkModal = ({ isOpen, onClose, onOpenQuote }) => {
                         onClose();
                         if (onOpenQuote) onOpenQuote();
                       }}
-                      className="w-full py-2 bg-white hover:bg-gray-100 text-gray-900 font-bold text-xs border border-gray-300 rounded-lg flex items-center justify-center gap-1.5 transition-colors group-hover:border-[#D49942]"
+                      className="w-full py-2 bg-gray-900 hover:bg-black text-white font-bold text-xs rounded-lg flex items-center justify-center gap-1.5 transition-colors"
                     >
                       Inquire Similar Design <ExternalLink size={12} />
                     </button>
