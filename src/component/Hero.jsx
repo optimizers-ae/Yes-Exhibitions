@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { ArrowRight, Play, Gem, Settings, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import GlowCursor from './GlowCursor';
 import hero1 from '../assets/hero_1.png';

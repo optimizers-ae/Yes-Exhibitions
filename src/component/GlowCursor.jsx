@@ -153,27 +153,29 @@ const GlowCursor = ({
   const canvasRef = useRef(null);
   const propsRef = useRef({});
 
-  propsRef.current = {
-    color,
-    secondaryColor,
-    trailLength,
-    trailWidth,
-    trailTaper,
-    followSpeed,
-    glowIntensity,
-    glowSpread,
-    hotspot,
-    brightness,
-    opacity,
-    pulseSpeed,
-    noiseStrength,
-    idleFade,
-    idleTimeout,
-    fadeDuration,
-    maxDevicePixelRatio,
-    blendMode,
-    enabled
-  };
+  useEffect(() => {
+    propsRef.current = {
+      color,
+      secondaryColor,
+      trailLength,
+      trailWidth,
+      trailTaper,
+      followSpeed,
+      glowIntensity,
+      glowSpread,
+      hotspot,
+      brightness,
+      opacity,
+      pulseSpeed,
+      noiseStrength,
+      idleFade,
+      idleTimeout,
+      fadeDuration,
+      maxDevicePixelRatio,
+      blendMode,
+      enabled
+    };
+  });
 
   useEffect(() => {
     const container = containerRef.current;

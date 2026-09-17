@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { X, Award, CheckCircle, ExternalLink, Sparkles, MapPin } from 'lucide-react';
 import hero1 from '../assets/hero_1.png';
 import hero2 from '../assets/hero_2.png';

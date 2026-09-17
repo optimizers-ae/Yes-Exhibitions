@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { X, CheckCircle2, Sparkles, Send, Building2, Calendar, Phone, Mail, User } from 'lucide-react';
 
 const QuoteModal = ({ isOpen, onClose }) => {

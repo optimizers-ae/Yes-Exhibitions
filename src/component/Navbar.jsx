@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, ChevronDown, Menu, X, Sparkles, Building2, Layers, Globe, Shield } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowRight, ChevronDown, Menu, X, Building2, Layers, Globe, Shield } from 'lucide-react';
 import logoImg from '../assets/logo.jpeg';
 
 const services = [

@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navbar from '../component/Navbar';
 import Hero from '../component/Hero';
+import AboutSection from '../component/AboutSection';
+import ServicesSection from '../component/ServicesSection';
+import ImpactResultsSection from '../component/ImpactResultsSection';
+import GetInTouchSection from '../component/GetInTouchSection';
+import Footer from '../component/Footer';
 import QuoteModal from '../component/QuoteModal';
 import WorkModal from '../component/WorkModal';
 
@@ -27,7 +32,22 @@ const Home = () => {
           onOpenQuote={() => setIsQuoteOpen(true)}
           onOpenWork={() => setIsWorkOpen(true)}
         />
+
+        {/* About Section */}
+        <AboutSection onOpenQuote={() => setIsQuoteOpen(true)} />
+
+        {/* Services Section */}
+        <ServicesSection onOpenQuote={() => setIsQuoteOpen(true)} />
+
+        {/* Our Impact & Results Section (From Design Image) */}
+        <ImpactResultsSection />
+
+        {/* Get In Touch & Map Section (From Design Image) */}
+        <GetInTouchSection onOpenQuote={() => setIsQuoteOpen(true)} />
       </main>
+
+      {/* Footer (From Design Image) */}
+      <Footer />
 
       {/* Interactive Modals */}
       <QuoteModal
