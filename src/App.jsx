@@ -2,7 +2,10 @@ import Router from "./Router"
 
 const App = () => {
   return (
-    <Router />
+    <div className="font-sansation">
+      <Router />
+
+    </div>
   )
 }
 
