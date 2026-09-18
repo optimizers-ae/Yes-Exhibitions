@@ -25,28 +25,28 @@ const staggerContainer = {
 
 const capabilities = [
   {
-    title: 'Bespoke 3D Stand Architecture',
-    desc: 'Photorealistic renderings, space optimization, and structural blueprints tailored to your brand.'
+    title: 'Creative Exhibition Stand Design',
+    desc: 'Custom exhibition concepts designed to bring your brand vision to life and create engaging spaces.'
   },
   {
-    title: 'In-House Precision Fabrication',
-    desc: 'Automated CNC woodworking, high-gloss joinery, and durable aluminum modular systems.'
+    title: '3D Visualization',
+    desc: 'Detailed 3D visualizations that help you experience and refine your exhibition stand before it is built.'
   },
   {
-    title: 'Turnkey Venue & Authority Approvals',
-    desc: 'Comprehensive civil defense permits, structural calculations, and electrical sign-offs.'
+    title: 'Precision Fabrication',
+    desc: 'Expert fabrication focused on quality, precision, durability, and attention to every detail.'
   },
   {
-    title: 'Dedicated On-Site Project Management',
-    desc: 'Single point of contact from initial concept brief through final venue handover and teardown.'
+    title: 'Professional Installation',
+    desc: 'Reliable on-site installation with careful execution to ensure your stand is ready on time.'
   },
   {
-    title: 'High-Impact AV & Illumination',
-    desc: 'Integrated curved LED video walls, ambient accent lighting, and interactive touchpoints.'
+    title: 'On-Site Project Support',
+    desc: 'Dedicated support throughout the project, from the first conversation to final handover.'
   },
   {
-    title: 'Global Delivery & Multi-City Tours',
-    desc: 'Delivering turnkey booths across UAE, Saudi Arabia, Europe, and major world venues.'
+    title: 'End-to-End Exhibition Solutions',
+    desc: 'Complete exhibition solutions covering design, visualization, fabrication, installation, and support.'
   }
 ];
 
@@ -100,11 +100,11 @@ const AboutSection = () => {
                       </div>
                       <div>
                         <h4 className="font-extrabold text-gray-950 text-sm sm:text-base leading-tight">
-                          Excellence in Execution
+                          More Than Stands, We Build Experiences
                         </h4>
-                        <p className="text-xs text-gray-600 mt-0.5">
-                          We are your trusted partner for global trade show pavilions
-                        </p>
+                       <p className="text-xs text-gray-600 mt-0.5">
+  Creating impactful spaces that connect brands with people
+</p>
                       </div>
                     </div>
                   </div>
@@ -139,8 +139,7 @@ const AboutSection = () => {
               </h2>
 
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
-                YES Exhibition Stands is a premier turnkey exhibition stand design and build contractor. From photorealistic 3D architectural renders to CNC woodwork, high-resolution graphics, and on-site assembly, we deliver extraordinary trade show experiences on time, every time.
-              </p>
+YES Exhibition Stands specializes in designing and building custom exhibition stands that bring your brand to life. From concept and design to fabrication, installation and on-site support, we create impactful environments that combine creativity, functionality and precision.              </p>
             </motion.div>
 
 
@@ -192,7 +191,7 @@ const AboutSection = () => {
 
               <div className="flex items-center gap-2 text-xs font-semibold text-gray-700 bg-emerald-50/80 border border-emerald-200/80 px-4 py-3 rounded-xl">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>100% On-Time Delivery Guaranteed</span>
+                <span>From Concept to Final Handover</span>
               </div>
             </motion.div>
 
