@@ -4,6 +4,7 @@ import Hero from '../component/Hero';
 import AboutSection from '../component/AboutSection';
 import ServicesSection from '../component/ServicesSection';
 import ImpactResultsSection from '../component/ImpactResultsSection';
+import Faq from '../component/Faq';
 import GetInTouchSection from '../component/GetInTouchSection';
 import Footer from '../component/Footer';
 import WorkModal from '../component/WorkModal';
@@ -36,6 +37,9 @@ const Home = () => {
 
         {/* Our Impact & Results Section */}
         <ImpactResultsSection />
+
+         {/* FAQ Section */}
+        <Faq />
 
         {/* Get In Touch & Map Section */}
         <GetInTouchSection />
