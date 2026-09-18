@@ -787,8 +787,6 @@ const Contact = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };

@@ -46,10 +46,7 @@ const About = () => {
       {/* 9. Quality & Execution: From 3D to Reality (Slide 10) */}
       <AboutExecution />
 
-      {/* 10. Executive Leadership: Sherif Mostafa (Slide 12 & 13) */}
-      <AboutLeadership />
-
-      {/* 11. Our Commitment & CTA (Slide 15 & Slide 16) */}
+      {/* 10. Our Commitment & CTA (Slide 15 & Slide 16) */}
       <AboutCommitment />
     </div>
   );
