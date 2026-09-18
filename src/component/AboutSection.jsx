@@ -1,13 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import {
-  Sparkles,
-  CheckCircle2,
-  Check,
-  ArrowRight,
-  Award
-} from 'lucide-react';
+import { Sparkles, CheckCircle2, Check, ArrowRight, Award } from 'lucide-react';
 import founderImg from '../assets/about_banner.png';
 
 const fadeInUp = {
@@ -57,12 +50,13 @@ const capabilities = [
   }
 ];
 
-const AboutSection = ({ onOpenQuote }) => {
+
+const AboutSection = () => {
   return (
-    <section id="about" className="py-20 sm:py-28 bg-gradient-to-b from-white via-amber-50/25 to-white relative overflow-hidden">
+    <section id="about" className="py-20 sm:py-28 bg-linear-to-b from-white via-amber-50/25 to-white relative overflow-hidden">
       {/* Background Soft Glow Accents */}
-      <div className="absolute top-1/4 -left-20 w-[450px] h-[450px] bg-amber-200/25 rounded-full blur-[110px] pointer-events-none" />
-      <div className="absolute bottom-10 -right-20 w-[400px] h-[400px] bg-amber-300/20 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-20 w-112.5 h-112.5 bg-amber-200/25 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute bottom-10 -right-20 w-100 h-100 bg-amber-300/20 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -77,7 +71,7 @@ const AboutSection = ({ onOpenQuote }) => {
             viewport={{ once: true, margin: '-60px' }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative mx-auto max-w-[540px] lg:max-w-none">
+            <div className="relative mx-auto max-w-135 lg:max-w-none">
 
               {/* Main Visual Image Card */}
               <div
@@ -88,18 +82,18 @@ const AboutSection = ({ onOpenQuote }) => {
                 <img
                   src={founderImg}
                   alt="YES Exhibition Stands - Design, Fabrication & Construction"
-                  className="w-full h-[580px] sm:h-[740px] object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
+                  className="w-full h-145 sm:h-185 object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
                   loading="lazy"
                 />
 
                 {/* Image Gradient Vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-black/10" />
 
                 {/* Bottom Overlay Info Card */}
                 <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/60 shadow-xl">
                   <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3.5 text-left">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-white flex items-center justify-center shadow-md shrink-0">
+                    <div className="flex items-center gap-3.5">
+                      <div className="w-12 h-12 rounded-xl bg-linear-to-br from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-white flex items-center justify-center shadow-md shrink-0">
                         <Award className="w-6 h-6" />
                       </div>
                       <div>
@@ -160,7 +154,7 @@ const AboutSection = ({ onOpenQuote }) => {
                   className="p-4 rounded-2xl bg-white border border-gray-100/90 shadow-xs hover:shadow-md hover:border-amber-200 transition-all duration-300 flex items-start gap-3 group"
                 >
                   <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-200/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                    <Check className="w-4 h-4 stroke-[3]" />
+                    <Check className="w-4 h-4 stroke-3" />
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-gray-900 group-hover:text-[#B2771D] transition-colors leading-snug">
@@ -183,8 +177,8 @@ const AboutSection = ({ onOpenQuote }) => {
               className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-4"
             >
               <Link
-                to="/quote"
-                className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer w-full sm:w-auto"
+                to="/contact-us"
+                className="px-7 py-3.5 rounded-xl bg-linear-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
               >
                 <span>Get Custom Stand Proposal</span>
                 <ArrowRight size={15} />

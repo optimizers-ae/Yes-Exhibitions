@@ -116,7 +116,7 @@ const FeatureRow = ({ mobile = false }) => (
   </div>
 );
 
-const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
+const Hero = ({ onOpenWork = () => { } }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef(null);
@@ -240,10 +240,10 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
               className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start sm:gap-4"
             >
               <Link
-                to="/quote"
+                to="/contact-us"
                 className="group inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-md bg-[#D99A2B] px-6 text-xs sm:text-sm font-bold uppercase tracking-[0.03em] text-white transition-colors duration-200 hover:bg-[#C9881D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D49942] focus-visible:ring-offset-2 sm:min-h-14 sm:w-auto sm:px-7"
               >
-                Get a quote
+                Contact us
                 <ArrowRight
                   size={18}
                   className="transition-transform duration-200 group-hover:translate-x-1"

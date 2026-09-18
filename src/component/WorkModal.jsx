@@ -56,7 +56,7 @@ const WorkModal = ({ isOpen, onClose }) => {
 
   const handleInquire = () => {
     onClose();
-    navigate('/quote');
+    navigate('/contact-us');
   };
 
   return (

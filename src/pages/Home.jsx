@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import Navbar from '../component/Navbar';
 import Hero from '../component/Hero';
 import AboutSection from '../component/AboutSection';
 import ServicesSection from '../component/ServicesSection';
 import ImpactResultsSection from '../component/ImpactResultsSection';
 import Faq from '../component/Faq';
 import GetInTouchSection from '../component/GetInTouchSection';
-import Footer from '../component/Footer';
 import WorkModal from '../component/WorkModal';
 
 const Home = () => {
@@ -22,9 +20,7 @@ const Home = () => {
         Skip to main content
       </a>
 
-      {/* Header / Navigation */}
-      <Navbar />
-
+      
       {/* Main Content Area */}
       <main id="main-content" className="flex-1 w-full" role="main">
         <Hero onOpenWork={() => setIsWorkOpen(true)} />
@@ -45,9 +41,7 @@ const Home = () => {
         <GetInTouchSection />
       </main>
 
-      {/* Footer */}
-      <Footer />
-
+      
       {/* Work Portfolio Modal */}
       <WorkModal
         isOpen={isWorkOpen}

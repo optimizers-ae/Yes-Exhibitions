@@ -33,6 +33,9 @@ const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
+  const isAboutPage = location.pathname.startsWith('/about');
+  const isContactPage = location.pathname.startsWith('/contact');
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -44,10 +47,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const getSectionHref = (hash) => {
-    return isHomePage ? hash : `/${hash}`;
-  };
 
   return (
     <header
@@ -93,7 +92,7 @@ const Navbar = () => {
             <Link
               to="/"
               className={`relative text-sm font-bold transition-colors py-1 group ${
-                isHomePage ? 'text-gray-900 hover:text-[#D49942]' : 'text-gray-700 hover:text-[#D49942]'
+                isHomePage ? 'text-[#D49942]' : 'text-gray-700 hover:text-[#D49942]'
               }`}
               aria-current={isHomePage ? 'page' : undefined}
             >
@@ -109,10 +108,10 @@ const Navbar = () => {
               onMouseEnter={() => setServicesDropdownOpen(true)}
               onMouseLeave={() => setServicesDropdownOpen(false)}
             >
-              <a
-                href={getSectionHref('#services')}
+              <Link
+                to="/#services"
                 onClick={() => setServicesDropdownOpen(false)}
-                className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-gray-950 transition-colors py-1 focus-visible:ring-2 focus-visible:ring-[#D49942] rounded cursor-pointer"
+                className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-[#D49942] transition-colors py-1 focus-visible:ring-2 focus-visible:ring-[#D49942] rounded cursor-pointer"
               >
                 <span>Services</span>
                 <ChevronDown
@@ -121,7 +120,7 @@ const Navbar = () => {
                     servicesDropdownOpen ? 'rotate-180 text-[#D49942]' : ''
                   }`}
                 />
-              </a>
+              </Link>
 
               {/* Dropdown Menu */}
               {servicesDropdownOpen && (
@@ -130,9 +129,9 @@ const Navbar = () => {
                     {services.map((item, idx) => {
                       const Icon = item.icon;
                       return (
-                        <a
+                        <Link
                           key={idx}
-                          href={getSectionHref('#services')}
+                          to="/#services"
                           onClick={() => setServicesDropdownOpen(false)}
                           className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-amber-50/70 transition-colors group"
                         >
@@ -147,7 +146,7 @@ const Navbar = () => {
                               {item.desc}
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       );
                     })}
                   </div>
@@ -155,35 +154,47 @@ const Navbar = () => {
               )}
             </div>
 
-            <a
-              href={getSectionHref('#portfolio')}
-              className="text-sm font-semibold text-gray-700 hover:text-gray-950 transition-colors"
+            <Link
+              to="/#portfolio"
+              className="text-sm font-semibold text-gray-700 hover:text-[#D49942] transition-colors py-1"
             >
               Portfolio
-            </a>
+            </Link>
 
-            <a
-              href={getSectionHref('#about')}
-              className="text-sm font-semibold text-gray-700 hover:text-gray-950 transition-colors"
+            <Link
+              to="/about"
+              className={`relative text-sm font-semibold transition-colors py-1 ${
+                isAboutPage ? 'text-[#D49942] font-bold' : 'text-gray-700 hover:text-[#D49942]'
+              }`}
+              aria-current={isAboutPage ? 'page' : undefined}
             >
               About
-            </a>
+              {isAboutPage && (
+                <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#D49942] rounded-full"></span>
+              )}
+            </Link>
 
-            <a
-              href={getSectionHref('#contact')}
-              className="text-sm font-semibold text-gray-700 hover:text-gray-950 transition-colors"
+            <Link
+              to="/contact-us"
+              className={`relative text-sm font-semibold transition-colors py-1 ${
+                isContactPage ? 'text-[#D49942] font-bold' : 'text-gray-700 hover:text-[#D49942]'
+              }`}
+              aria-current={isContactPage ? 'page' : undefined}
             >
               Contact
-            </a>
+              {isContactPage && (
+                <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#D49942] rounded-full"></span>
+              )}
+            </Link>
           </nav>
 
           {/* Desktop Right CTA Button */}
           <div className="hidden md:flex items-center">
             <Link
-              to="/quote"
+              to="/contact-us"
               className="text-white px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#D49942]"
             >
-              <span>GET A QUOTE</span>
+              <span>CONTACT US</span>
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -191,10 +202,10 @@ const Navbar = () => {
           {/* Mobile Menu Toggle Button */}
           <div className="flex md:hidden items-center gap-2">
             <Link
-              to="/quote"
+              to="/contact-us"
               className="text-white px-3 py-1.5 rounded-md bg-gradient-to-r from-[#E6AA4D] to-[#C78326] font-bold text-xs flex items-center gap-1 shadow-sm"
             >
-              <span>Quote</span>
+              <span>Contact</span>
               <ArrowRight size={12} />
             </Link>
             <button
@@ -221,42 +232,46 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              <a
-                href={getSectionHref('#services')}
+              <Link
+                to="/#services"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-800 font-semibold text-sm"
               >
                 Services
-              </a>
-              <a
-                href={getSectionHref('#portfolio')}
+              </Link>
+              <Link
+                to="/#portfolio"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-800 font-semibold text-sm"
               >
                 Portfolio
-              </a>
-              <a
-                href={getSectionHref('#about')}
+              </Link>
+              <Link
+                to="/about"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-800 font-semibold text-sm"
+                className={`px-3 py-2 rounded-lg font-semibold text-sm ${
+                  isAboutPage ? 'bg-amber-50 text-[#D49942] font-bold' : 'text-gray-800 hover:bg-gray-50'
+                }`}
               >
                 About
-              </a>
-              <a
-                href={getSectionHref('#contact')}
+              </Link>
+              <Link
+                to="/contact-us"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-800 font-semibold text-sm"
+                className={`px-3 py-2 rounded-lg font-semibold text-sm ${
+                  isContactPage ? 'bg-amber-50 text-[#D49942] font-bold' : 'text-gray-800 hover:bg-gray-50'
+                }`}
               >
                 Contact
-              </a>
+              </Link>
 
               <div className="pt-2">
                 <Link
-                  to="/quote"
+                  to="/contact-us"
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-white w-full py-3 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
                 >
-                  <span>GET A QUOTE</span>
+                  <span>CONTACT US</span>
                   <ArrowRight size={16} />
                 </Link>
               </div>

@@ -68,7 +68,7 @@ const fadeInUp = {
   }
 };
 
-const ServicesSection = ({ onOpenQuote }) => {
+const ServicesSection = () => {
   return (
     <section id="services" className="py-24 sm:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative">
       {/* Background Decorative Ambient Elements */}
@@ -187,7 +187,7 @@ From creative stand design and 3D visualization to fabrication, installation, an
                       {/* Card Footer with CTA */}
                       <div className="pt-8 mt-6 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4">
                         <Link
-                          to="/quote"
+                          to="/contact-us"
                           className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
                         >
                           <span>Inquire This Stand</span>
