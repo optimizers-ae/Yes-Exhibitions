@@ -136,7 +136,7 @@ const Footer = () => {
             <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm font-medium">
               {[
                 { label: 'Home', href: '/' },
-                { label: 'Request a Quote', href: '/quote', isRoute: true },
+                { label: 'Contact Us', href: '/contact-us', isRoute: true },
                 { label: 'Services', href: '/#services' },
                 { label: 'Portfolio', href: '/#portfolio' },
                 { label: 'About Us', href: '/#about' },

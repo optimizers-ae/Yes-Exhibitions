@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft,
@@ -21,14 +21,12 @@ import {
   Users,
   Coffee,
   Lightbulb,
-  FileText,
-  HelpCircle,
   ChevronRight,
+  ChevronDown,
   MapPin
 } from 'lucide-react';
 import Navbar from '../component/Navbar';
 import Footer from '../component/Footer';
-import logoImg from '../assets/logo.jpeg';
 
 const standTypes = [
   {
@@ -83,22 +81,9 @@ const featureAddons = [
   { id: 'storage', label: 'Secure Storage & Lockable Pantry', icon: ShieldCheck }
 ];
 
-const faqs = [
-  {
-    q: 'How fast can I receive a 3D design concept?',
-    a: 'Our in-house 3D design team typically delivers an initial tailored 3D render concept with itemized cost estimate within 24 to 48 hours of receiving your brief.'
-  },
-  {
-    q: 'Do you handle venue approvals and electrical permits?',
-    a: 'Yes, our turnkey service covers all show organizer submissions, structural engineering calculations, risk assessments, and electrical permits.'
-  },
-  {
-    q: 'In which countries and regions do you build?',
-    a: 'We operate directly across the UAE (Dubai, Abu Dhabi), Saudi Arabia (Riyadh, Jeddah), Qatar, Oman, Germany, the UK, and premier international exhibition hubs worldwide.'
-  }
-];
 
-const Quote = () => {
+
+const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [selectedFeatures, setSelectedFeatures] = useState([]);
@@ -163,9 +148,6 @@ const Quote = () => {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-gray-900 font-sansation flex flex-col selection:bg-[#D49942]/30 selection:text-gray-950">
-      {/* Header / Navigation */}
-      <Navbar />
-
       {/* Main Content Area */}
       <main className="flex-1 pt-24 sm:pt-28 pb-16 sm:pb-24">
         {/* Top Breadcrumb & Back Link */}
@@ -182,7 +164,7 @@ const Quote = () => {
             <div className="hidden sm:flex items-center gap-2 text-xs font-semibold text-gray-500">
               <span>Home</span>
               <ChevronRight size={14} className="text-gray-400" />
-              <span className="text-[#D49942] font-bold">Request a Quote</span>
+              <span className="text-[#D49942] font-bold">Contact Us</span>
             </div>
           </div>
         </div>
@@ -230,7 +212,7 @@ const Quote = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
-            {/* LEFT COLUMN: Quote Request Form / Success State */}
+            {/* LEFT COLUMN: Contact & Inquiry Form / Success State */}
             <div className="lg:col-span-8">
               {submitted ? (
                 /* Success Confirmation State */
@@ -304,7 +286,7 @@ const Quote = () => {
                   </div>
                 </div>
               ) : (
-                /* Main Quote Form */
+                /* Main Contact / Inquiry Form */
                 <form
                   onSubmit={handleSubmit}
                   className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-200/90 shadow-xl space-y-8 sm:space-y-10"
@@ -424,18 +406,16 @@ const Quote = () => {
                               key={type.id}
                               type="button"
                               onClick={() => setFormData((prev) => ({ ...prev, standType: type.name }))}
-                              className={`p-4 rounded-2xl border text-left transition-all duration-200 flex items-start gap-3.5 cursor-pointer ${
-                                isSelected
+                              className={`p-4 rounded-2xl border text-left transition-all duration-200 flex items-start gap-3.5 cursor-pointer ${isSelected
                                   ? 'border-[#D49942] bg-amber-50/50 shadow-md shadow-amber-500/10 ring-2 ring-[#D49942]/20'
                                   : 'border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50/50'
-                              }`}
+                                }`}
                             >
                               <div
-                                className={`p-2.5 rounded-xl shrink-0 transition-colors ${
-                                  isSelected
+                                className={`p-2.5 rounded-xl shrink-0 transition-colors ${isSelected
                                     ? 'bg-[#D49942] text-white'
                                     : 'bg-gray-100 text-gray-600'
-                                }`}
+                                  }`}
                               >
                                 <Icon size={20} />
                               </div>
@@ -458,38 +438,44 @@ const Quote = () => {
                         <label htmlFor="standSize" className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
                           Approximate Stand Size
                         </label>
-                        <select
-                          id="standSize"
-                          name="standSize"
-                          value={formData.standSize}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 focus:bg-white focus:border-[#D49942] focus:ring-2 focus:ring-[#D49942]/20 focus:outline-none transition-all font-medium"
-                        >
-                          {standSizes.map((s, idx) => (
-                            <option key={idx} value={s.value}>
-                              {s.label}
-                            </option>
-                          ))}
-                        </select>
+                        <div className="relative">
+                          <select
+                            id="standSize"
+                            name="standSize"
+                            value={formData.standSize}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 focus:bg-white focus:border-[#D49942] focus:ring-2 focus:ring-[#D49942]/20 focus:outline-none transition-all font-medium appearance-none"
+                          >
+                            {standSizes.map((s, idx) => (
+                              <option key={idx} value={s.value}>
+                                {s.label}
+                              </option>
+                            ))}
+                          </select>
+                          <ChevronDown size={16} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#D49942] pointer-events-none" />
+                        </div>
                       </div>
 
                       <div>
                         <label htmlFor="budget" className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
                           Target Budget Range
                         </label>
-                        <select
-                          id="budget"
-                          name="budget"
-                          value={formData.budget}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 focus:bg-white focus:border-[#D49942] focus:ring-2 focus:ring-[#D49942]/20 focus:outline-none transition-all font-medium"
-                        >
-                          {budgetOptions.map((b, idx) => (
-                            <option key={idx} value={b.value}>
-                              {b.label}
-                            </option>
-                          ))}
-                        </select>
+                        <div className="relative">
+                          <select
+                            id="budget"
+                            name="budget"
+                            value={formData.budget}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 focus:bg-white focus:border-[#D49942] focus:ring-2 focus:ring-[#D49942]/20 focus:outline-none transition-all font-medium appearance-none"
+                          >
+                            {budgetOptions.map((b, idx) => (
+                              <option key={idx} value={b.value}>
+                                {b.label}
+                              </option>
+                            ))}
+                          </select>
+                          <ChevronDown size={16} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#D49942] pointer-events-none" />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -583,16 +569,14 @@ const Quote = () => {
                               key={feat.id}
                               type="button"
                               onClick={() => toggleFeature(feat.label)}
-                              className={`p-3 rounded-xl border text-left flex items-center gap-2.5 text-xs font-bold transition-all cursor-pointer ${
-                                isChecked
+                              className={`p-3 rounded-xl border text-left flex items-center gap-2.5 text-xs font-bold transition-all cursor-pointer ${isChecked
                                   ? 'border-[#D49942] bg-amber-50 text-gray-950 shadow-xs'
                                   : 'border-gray-200 bg-gray-50 text-gray-700 hover:bg-white hover:border-gray-300'
-                              }`}
+                                }`}
                             >
                               <div
-                                className={`p-1.5 rounded-lg shrink-0 ${
-                                  isChecked ? 'bg-[#D49942] text-white' : 'bg-gray-200 text-gray-600'
-                                }`}
+                                className={`p-1.5 rounded-lg shrink-0 ${isChecked ? 'bg-[#D49942] text-white' : 'bg-gray-200 text-gray-600'
+                                  }`}
                               >
                                 <Icon size={14} />
                               </div>
@@ -623,27 +607,42 @@ const Quote = () => {
                       <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
                         Preferred Contact Method for 3D Proposal
                       </label>
-                      <div className="flex flex-wrap items-center gap-3">
-                        {['WhatsApp', 'Email', 'Phone Call'].map((method) => (
-                          <label
-                            key={method}
-                            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs font-bold cursor-pointer transition-all ${
-                              formData.contactPreference === method
-                                ? 'border-[#D49942] bg-amber-50 text-[#B2771D] ring-1 ring-[#D49942]'
-                                : 'border-gray-200 bg-gray-50 text-gray-700 hover:bg-white'
-                            }`}
-                          >
-                            <input
-                              type="radio"
-                              name="contactPreference"
-                              value={method}
-                              checked={formData.contactPreference === method}
-                              onChange={handleChange}
-                              className="text-[#D49942] focus:ring-[#D49942]"
-                            />
-                            <span>{method}</span>
-                          </label>
-                        ))}
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        {['WhatsApp', 'Email', 'Phone Call'].map((method) => {
+                          const isSelected = formData.contactPreference === method;
+                          return (
+                            <label
+                              key={method}
+                              className={`flex items-center gap-3 px-4 py-3 rounded-xl border text-xs font-bold cursor-pointer transition-all duration-200 ${
+                                isSelected
+                                  ? 'border-[#D49942] bg-gradient-to-r from-amber-50/90 to-orange-50/50 text-[#965e0f] ring-2 ring-[#D49942]/30 shadow-sm'
+                                  : 'border-gray-200 bg-gray-50/70 text-gray-700 hover:border-amber-300/80 hover:bg-amber-50/30'
+                              }`}
+                            >
+                              {/* Custom Gold Radio Circle */}
+                              <div
+                                className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${
+                                  isSelected
+                                    ? 'border-[#D49942] bg-white'
+                                    : 'border-gray-300 bg-white'
+                                }`}
+                              >
+                                {isSelected && (
+                                  <div className="w-2 h-2 rounded-full bg-gradient-to-tr from-[#C78326] to-[#E6AA4D]" />
+                                )}
+                              </div>
+                              <input
+                                type="radio"
+                                name="contactPreference"
+                                value={method}
+                                checked={isSelected}
+                                onChange={handleChange}
+                                className="sr-only"
+                              />
+                              <span className="leading-none">{method}</span>
+                            </label>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -663,22 +662,22 @@ const Quote = () => {
                       ) : (
                         <>
                           <Send size={18} />
-                          <span>Submit Quote Request for 3D Proposal</span>
+                          <span>Submit Inquiry for 3D Proposal</span>
                         </>
                       )}
                     </button>
 
                     <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-gray-500 mt-3.5">
                       <span className="flex items-center gap-1">
-                        🔒 Confidential & Secure
+                        Confidential & Secure
                       </span>
                       <span>•</span>
                       <span className="flex items-center gap-1">
-                        ⚡ 24h Turnaround
+                        24h Turnaround
                       </span>
                       <span>•</span>
                       <span className="flex items-center gap-1">
-                        ✨ No Obligation Estimate
+                        No Obligation Estimate
                       </span>
                     </div>
                   </div>
@@ -696,13 +695,13 @@ const Quote = () => {
                   <MessageCircle size={13} /> Instant VIP Assistance
                 </div>
                 <h3 className="text-xl font-bold leading-tight">
-                  Need an Urgent Stand Quote?
+                  Need an Urgent Stand Consultation?
                 </h3>
                 <p className="text-xs text-emerald-100 mt-2 leading-relaxed">
                   Chat directly with our senior exhibition project director on WhatsApp for immediate availability and venue estimates.
                 </p>
                 <a
-                  href="https://wa.me/971500000000?text=Hi%20YES%20Exhibition%20Team,%20I%20would%20like%20to%20request%20a%20stand%20quote."
+                  href="https://wa.me/971500000000?text=Hi%20YES%20Exhibition%20Team,%20I%20would%20like%20to%20discuss%20an%20exhibition%20stand."
                   target="_blank"
                   rel="noreferrer"
                   className="mt-4 w-full py-3 px-4 bg-white hover:bg-emerald-50 text-emerald-900 font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center gap-2"
@@ -782,26 +781,6 @@ const Quote = () => {
                 </div>
               </div>
 
-              {/* Frequently Asked Questions */}
-              <div className="bg-white rounded-3xl p-6 sm:p-7 border border-gray-200/90 shadow-md space-y-4">
-                <div className="flex items-center gap-2 text-xs font-bold text-gray-900 uppercase tracking-wider">
-                  <HelpCircle size={16} className="text-[#D49942]" />
-                  <span>Frequently Asked</span>
-                </div>
-
-                <div className="space-y-3.5 divide-y divide-gray-100 text-xs">
-                  {faqs.map((faq, idx) => (
-                    <div key={idx} className={idx > 0 ? 'pt-3' : ''}>
-                      <div className="font-bold text-gray-900 leading-snug mb-1">
-                        {faq.q}
-                      </div>
-                      <p className="text-gray-500 leading-relaxed">
-                        {faq.a}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
             </div>
 
@@ -815,4 +794,4 @@ const Quote = () => {
   );
 };
 
-export default Quote;
+export default Contact;

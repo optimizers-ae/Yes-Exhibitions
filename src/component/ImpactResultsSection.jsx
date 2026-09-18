@@ -1,39 +1,5 @@
-import { Star } from 'lucide-react';
 import ScrollExpand from './ui/ScrollExpand';
 import hero1Img from '../assets/hero_1.png';
-
-const stats = [
-  { value: '100+', label: 'Custom Stands Built' },
-  { value: '50+', label: 'Global Exhibitions' },
-  { value: '98%', label: 'Client Satisfaction' }
-];
-
-const testimonials = [
-  {
-    logo: 'EXHIBIT LAB',
-    logoBg: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-    tag: 'DUBAI',
-    quote: '"We engaged YES Exhibition Stands to design and build our main booth, and the execution and quality exceeded all expectations. Seamless setup!"',
-    rating: 5
-  },
-  {
-    logo: 'TECH GLOBAL',
-    logoBg: 'bg-blue-50 text-blue-700 border-blue-200',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
-    tag: 'GERMANY',
-    quote: '"The stand arrangement increased traffic and floor engagement across all days. Exceptional build quality and precise turnaround timing."',
-    rating: 5
-  },
-  {
-    logo: 'NEXUS INNOV',
-    logoBg: 'bg-purple-50 text-purple-700 border-purple-200',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
-    tag: 'RIYADH',
-    quote: '"We showcase our flagship products each year; their team delivers unmatched consistency and innovative 3D concepts. Highly recommended!"',
-    rating: 5
-  }
-];
 
 const ImpactResultsSection = () => {
   return (
@@ -44,9 +10,9 @@ const ImpactResultsSection = () => {
       scrollHint="Scroll to explore"
       useWindowScroll
     >
-      <div className="relative z-20 flex min-h-[80svh] sm:min-h-[100svh] w-full items-end">
+      <div className="relative z-20 flex min-h-[80svh] sm:min-h-svh w-full items-end">
         {/* Dark readability gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/45 to-transparent pointer-events-none" />
 
         {/* Content */}
         <div className="relative z-10 w-full px-6 pb-10 sm:px-10 sm:pb-14 lg:px-16 lg:pb-16">
