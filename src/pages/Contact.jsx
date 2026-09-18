@@ -25,7 +25,6 @@ import {
   ChevronDown,
   MapPin
 } from 'lucide-react';
-import Navbar from '../component/Navbar';
 import Footer from '../component/Footer';
 
 const standTypes = [
@@ -766,7 +765,7 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-xl bg-blue-50 text-blue-600 shrink-0 mt-0.5 border border-blue-100">
+                    <div className="p-2 rounded-xl bg-amber-50 text-[#D49942] shrink-0 mt-0.5 border border-amber-100">
                       <Globe size={16} />
                     </div>
                     <div>
