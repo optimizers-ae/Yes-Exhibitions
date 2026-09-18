@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, ChevronDown, Menu, X, Building2, Layers, Globe, Shield } from 'lucide-react';
 import logoImg from '../assets/logo.jpeg';
-import { toast } from 'react-toastify';
 
 const services = [
   {
@@ -26,10 +26,12 @@ const services = [
   }
 ];
 
-const Navbar = ({ onOpenQuote }) => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,19 +45,24 @@ const Navbar = ({ onOpenQuote }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const getSectionHref = (hash) => {
+    return isHomePage ? hash : `/${hash}`;
+  };
+
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${isScrolled
+      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
+        isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm py-3'
           : 'bg-transparent py-4 sm:py-5'
-        }`}
+      }`}
       role="banner"
     >
       <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a
-            href="/"
+          <Link
+            to="/"
             className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-[#D49942] focus-visible:outline-none rounded-lg"
             aria-label="YES Exhibition Stands Homepage"
           >
@@ -75,22 +82,26 @@ const Navbar = ({ onOpenQuote }) => {
                 Design • Build • Inspire
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav
             className="hidden md:flex items-center space-x-7 lg:space-x-10"
             aria-label="Main Navigation"
           >
-            {/* Home Link (Active) */}
-            <a
-              href="/"
-              className="relative text-sm font-bold text-gray-900 hover:text-[#D49942] transition-colors py-1 group"
-              aria-current="page"
+            {/* Home Link */}
+            <Link
+              to="/"
+              className={`relative text-sm font-bold transition-colors py-1 group ${
+                isHomePage ? 'text-gray-900 hover:text-[#D49942]' : 'text-gray-700 hover:text-[#D49942]'
+              }`}
+              aria-current={isHomePage ? 'page' : undefined}
             >
               Home
-              <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#D49942] rounded-full"></span>
-            </a>
+              {isHomePage && (
+                <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#D49942] rounded-full"></span>
+              )}
+            </Link>
 
             {/* Services with Dropdown */}
             <div
@@ -98,20 +109,19 @@ const Navbar = ({ onOpenQuote }) => {
               onMouseEnter={() => setServicesDropdownOpen(true)}
               onMouseLeave={() => setServicesDropdownOpen(false)}
             >
-              <button
-                type="button"
-                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                aria-expanded={servicesDropdownOpen}
-                aria-haspopup="true"
+              <a
+                href={getSectionHref('#services')}
+                onClick={() => setServicesDropdownOpen(false)}
                 className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-gray-950 transition-colors py-1 focus-visible:ring-2 focus-visible:ring-[#D49942] rounded cursor-pointer"
               >
                 <span>Services</span>
                 <ChevronDown
                   size={14}
-                  className={`text-gray-500 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180 text-[#D49942]' : ''
-                    }`}
+                  className={`text-gray-500 transition-transform duration-200 ${
+                    servicesDropdownOpen ? 'rotate-180 text-[#D49942]' : ''
+                  }`}
                 />
-              </button>
+              </a>
 
               {/* Dropdown Menu */}
               {servicesDropdownOpen && (
@@ -122,7 +132,7 @@ const Navbar = ({ onOpenQuote }) => {
                       return (
                         <a
                           key={idx}
-                          href="#services"
+                          href={getSectionHref('#services')}
                           onClick={() => setServicesDropdownOpen(false)}
                           className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-amber-50/70 transition-colors group"
                         >
@@ -146,21 +156,21 @@ const Navbar = ({ onOpenQuote }) => {
             </div>
 
             <a
-              href="#portfolio"
+              href={getSectionHref('#portfolio')}
               className="text-sm font-semibold text-gray-700 hover:text-gray-950 transition-colors"
             >
               Portfolio
             </a>
 
             <a
-              href="#about"
+              href={getSectionHref('#about')}
               className="text-sm font-semibold text-gray-700 hover:text-gray-950 transition-colors"
             >
               About
             </a>
 
             <a
-              href="#contact"
+              href={getSectionHref('#contact')}
               className="text-sm font-semibold text-gray-700 hover:text-gray-950 transition-colors"
             >
               Contact
@@ -169,29 +179,24 @@ const Navbar = ({ onOpenQuote }) => {
 
           {/* Desktop Right CTA Button */}
           <div className="hidden md:flex items-center">
-            <button
-              // onClick={onOpenQuote}
-              onClick={ ()=>  toast.info("We are working")}
-              type="button"
-              className=" text-white  px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-gray-950 font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#D49942]"
+            <Link
+              to="/quote"
+              className="text-white px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#D49942]"
             >
               <span>GET A QUOTE</span>
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle Button */}
           <div className="flex md:hidden items-center gap-2">
-            <button
-              // onClick={onOpenQuote}
-              onClick={()=> toast.info("We are working")}
-
-              type="button"
-              className=" text-white px-3 py-1.5 rounded-md bg-gradient-to-r from-[#E6AA4D] to-[#C78326] text-gray-950 font-bold text-xs flex items-center gap-1 shadow-sm"
+            <Link
+              to="/quote"
+              className="text-white px-3 py-1.5 rounded-md bg-gradient-to-r from-[#E6AA4D] to-[#C78326] font-bold text-xs flex items-center gap-1 shadow-sm"
             >
               <span>Quote</span>
               <ArrowRight size={12} />
-            </button>
+            </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
@@ -207,36 +212,38 @@ const Navbar = ({ onOpenQuote }) => {
         {mobileMenuOpen && (
           <div className="md:hidden mt-3 pt-3 border-t border-gray-200/60 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl animate-fadeIn">
             <nav className="flex flex-col space-y-3" aria-label="Mobile Navigation">
-              <a
-                href="/"
+              <Link
+                to="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg bg-amber-50 text-[#D49942] font-bold text-sm"
+                className={`px-3 py-2 rounded-lg font-bold text-sm ${
+                  isHomePage ? 'bg-amber-50 text-[#D49942]' : 'text-gray-800 hover:bg-gray-50'
+                }`}
               >
                 Home
-              </a>
+              </Link>
               <a
-                href="#services"
+                href={getSectionHref('#services')}
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-800 font-semibold text-sm"
               >
                 Services
               </a>
               <a
-                href="#portfolio"
+                href={getSectionHref('#portfolio')}
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-800 font-semibold text-sm"
               >
                 Portfolio
               </a>
               <a
-                href="#about"
+                href={getSectionHref('#about')}
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-800 font-semibold text-sm"
               >
                 About
               </a>
               <a
-                href="#contact"
+                href={getSectionHref('#contact')}
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-800 font-semibold text-sm"
               >
@@ -244,16 +251,14 @@ const Navbar = ({ onOpenQuote }) => {
               </a>
 
               <div className="pt-2">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenQuote();
-                  }}
-                  className="text-white w-full py-3 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-gray-950 font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
+                <Link
+                  to="/quote"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-white w-full py-3 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
                 >
                   <span>GET A QUOTE</span>
                   <ArrowRight size={16} />
-                </button>
+                </Link>
               </div>
             </nav>
           </div>

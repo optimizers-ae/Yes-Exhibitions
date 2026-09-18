@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Globe, Mail, MapPin, Phone, ArrowUpRight } from 'lucide-react';
 import logoImg from '../assets/logo.jpeg';
@@ -135,19 +136,30 @@ const Footer = () => {
             <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm font-medium">
               {[
                 { label: 'Home', href: '/' },
-                { label: 'Services', href: '#services' },
-                { label: 'Portfolio', href: '#portfolio' },
-                { label: 'About Us', href: '#about' },
-                { label: 'Contact', href: '#contact' },
+                { label: 'Request a Quote', href: '/quote', isRoute: true },
+                { label: 'Services', href: '/#services' },
+                { label: 'Portfolio', href: '/#portfolio' },
+                { label: 'About Us', href: '/#about' },
+                { label: 'Contact', href: '/#contact' },
               ].map((l) => (
                 <li key={l.label}>
-                  <a
-                    href={l.href}
-                    className="group inline-flex items-center gap-2 text-gray-600 hover:text-gray-950 transition-colors"
-                  >
-                    <span className="w-0 h-[1.5px] bg-[#D49942] group-hover:w-3 transition-all duration-300" />
-                    {l.label}
-                  </a>
+                  {l.isRoute ? (
+                    <Link
+                      to={l.href}
+                      className="group inline-flex items-center gap-2 text-gray-600 hover:text-[#D49942] transition-colors"
+                    >
+                      <span className="w-0 h-[1.5px] bg-[#D49942] group-hover:w-3 transition-all duration-300" />
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={l.href}
+                      className="group inline-flex items-center gap-2 text-gray-600 hover:text-gray-950 transition-colors"
+                    >
+                      <span className="w-0 h-[1.5px] bg-[#D49942] group-hover:w-3 transition-all duration-300" />
+                      {l.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

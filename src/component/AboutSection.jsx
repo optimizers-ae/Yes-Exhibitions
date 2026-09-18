@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Sparkles,
@@ -13,7 +14,7 @@ import {
   Clock,
   Globe2
 } from 'lucide-react';
-import founderImg from '../assets/founder.png';
+import founderImg from '../assets/about_banner.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -193,16 +194,13 @@ YES Exhibition Stands specializes in designing and building custom exhibition st
               viewport={{ once: true }}
               className="pt-3 flex flex-wrap items-center gap-4"
             >
-              {onOpenQuote && (
-                <button
-                  type="button"
-                  onClick={onOpenQuote}
-                  className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
-                >
-                  <span>Get Your Exhibition Stand Proposal</span>
-                  <ArrowRight size={15} />
-                </button>
-              )}
+              <Link
+                to="/quote"
+                className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+              >
+                <span>Get Custom Stand Proposal</span>
+                <ArrowRight size={15} />
+              </Link>
 
               <div className="flex items-center gap-2 text-xs font-semibold text-gray-700 bg-emerald-50/80 border border-emerald-200/80 px-4 py-3 rounded-xl">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />

@@ -7,6 +7,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     watch: {
+      usePolling: true,
+      interval: 1000,
       ignored: ['**/.git/**', '**/node_modules/**'],
     },
   },

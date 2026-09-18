@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Building2, Globe, Layers, LayoutGrid, Monitor, ShieldCheck, Sparkles } from 'lucide-react';
 
@@ -186,14 +187,13 @@ const ServicesSection = ({ onOpenQuote }) => {
 
                       {/* Card Footer with CTA */}
                       <div className="pt-8 mt-6 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4">
-                        <button
-                          type="button"
-                          onClick={onOpenQuote}
+                        <Link
+                          to="/quote"
                           className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
                         >
                           <span>Inquire This Stand</span>
                           <ArrowUpRight className="w-4 h-4" />
-                        </button>
+                        </Link>
 
                         <div className="text-xs font-semibold text-gray-500">
                           100% Turnkey Execution
