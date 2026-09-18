@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Gem, Settings, Users } from 'lucide-react';
 
@@ -231,9 +232,8 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
               animate="visible"
               className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
             >
-              <button
-                type="button"
-                onClick={onOpenQuote}
+              <Link
+                to="/quote"
                 className="group inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-md bg-[#D99A2B] px-6 text-xs font-bold uppercase tracking-[0.03em] text-white transition-colors duration-200 hover:bg-[#C9881D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D49942] focus-visible:ring-offset-2 sm:min-h-14 sm:w-auto sm:px-7 sm:text-sm"
               >
                 Get a quote
@@ -241,7 +241,7 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
                   size={18}
                   className="transition-transform duration-200 group-hover:translate-x-1"
                 />
-              </button>
+              </Link>
 
               <button
                 type="button"

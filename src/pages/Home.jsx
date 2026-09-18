@@ -6,11 +6,9 @@ import ServicesSection from '../component/ServicesSection';
 import ImpactResultsSection from '../component/ImpactResultsSection';
 import GetInTouchSection from '../component/GetInTouchSection';
 import Footer from '../component/Footer';
-import QuoteModal from '../component/QuoteModal';
 import WorkModal from '../component/WorkModal';
 
 const Home = () => {
-  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [isWorkOpen, setIsWorkOpen] = useState(false);
 
   return (
@@ -24,41 +22,32 @@ const Home = () => {
       </a>
 
       {/* Header / Navigation */}
-      <Navbar onOpenQuote={() => setIsQuoteOpen(true)} />
+      <Navbar />
 
       {/* Main Content Area */}
       <main id="main-content" className="flex-1 w-full" role="main">
-        <Hero
-          onOpenQuote={() => setIsQuoteOpen(true)}
-          onOpenWork={() => setIsWorkOpen(true)}
-        />
+        <Hero onOpenWork={() => setIsWorkOpen(true)} />
 
         {/* About Section */}
-        <AboutSection onOpenQuote={() => setIsQuoteOpen(true)} />
+        <AboutSection />
 
         {/* Services Section */}
-        <ServicesSection onOpenQuote={() => setIsQuoteOpen(true)} />
+        <ServicesSection />
 
-        {/* Our Impact & Results Section (From Design Image) */}
-        <ImpactResultsSection onOpenQuote={() => setIsQuoteOpen(true)} />
+        {/* Our Impact & Results Section */}
+        <ImpactResultsSection />
 
-        {/* Get In Touch & Map Section (From Design Image) */}
-        <GetInTouchSection onOpenQuote={() => setIsQuoteOpen(true)} />
+        {/* Get In Touch & Map Section */}
+        <GetInTouchSection />
       </main>
 
-      {/* Footer (From Design Image) */}
+      {/* Footer */}
       <Footer />
 
-      {/* Interactive Modals */}
-      <QuoteModal
-        isOpen={isQuoteOpen}
-        onClose={() => setIsQuoteOpen(false)}
-      />
-
+      {/* Work Portfolio Modal */}
       <WorkModal
         isOpen={isWorkOpen}
         onClose={() => setIsWorkOpen(false)}
-        onOpenQuote={() => setIsQuoteOpen(true)}
       />
     </div>
   );

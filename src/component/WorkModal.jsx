@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { X, Award, CheckCircle, ExternalLink, Sparkles, MapPin } from 'lucide-react';
 import hero1 from '../assets/hero_1.png';
 import hero2 from '../assets/hero_2.png';
@@ -34,7 +35,9 @@ const projects = [
   }
 ];
 
-const WorkModal = ({ isOpen, onClose, onOpenQuote }) => {
+const WorkModal = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -50,6 +53,11 @@ const WorkModal = ({ isOpen, onClose, onOpenQuote }) => {
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
+
+  const handleInquire = () => {
+    onClose();
+    navigate('/quote');
+  };
 
   return (
     <div
@@ -123,11 +131,8 @@ const WorkModal = ({ isOpen, onClose, onOpenQuote }) => {
 
                   <div className="pt-4 mt-4 border-t border-gray-200">
                     <button
-                      onClick={() => {
-                        onClose();
-                        if (onOpenQuote) onOpenQuote();
-                      }}
-                      className="w-full py-2 bg-gray-900 hover:bg-black text-white font-bold text-xs rounded-lg flex items-center justify-center gap-1.5 transition-colors"
+                      onClick={handleInquire}
+                      className="w-full py-2 bg-gray-900 hover:bg-black text-white font-bold text-xs rounded-lg flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                     >
                       Inquire Similar Design <ExternalLink size={12} />
                     </button>
@@ -148,11 +153,8 @@ const WorkModal = ({ isOpen, onClose, onOpenQuote }) => {
               </div>
             </div>
             <button
-              onClick={() => {
-                onClose();
-                if (onOpenQuote) onOpenQuote();
-              }}
-              className="px-5 py-2.5 bg-[#D49942] hover:bg-[#C78326] text-white font-bold text-xs rounded-lg transition-colors whitespace-nowrap shadow-sm"
+              onClick={handleInquire}
+              className="px-5 py-2.5 bg-[#D49942] hover:bg-[#C78326] text-white font-bold text-xs rounded-lg transition-colors whitespace-nowrap shadow-sm cursor-pointer"
             >
               Get Custom Proposal
             </button>
