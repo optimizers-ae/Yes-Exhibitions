@@ -55,7 +55,7 @@ const FeatureRow = ({ mobile = false }) => (
     className={
       mobile
         ? 'grid grid-cols-3 gap-2 border-t border-slate-200 pt-5'
-        : 'grid max-w-[590px] grid-cols-3 gap-0 border-t border-slate-200 pt-6'
+        : 'grid w-full max-w-[590px] grid-cols-3 gap-0 border-t border-slate-200 pt-4 sm:pt-5 lg:pt-5 xl:pt-6'
     }
   >
     {staticFeatures.map((feature, index) => {
@@ -66,21 +66,28 @@ const FeatureRow = ({ mobile = false }) => (
           key={`${feature.line1}-${feature.line2}`}
           className={
             mobile
-              ? 'flex min-w-0 flex-col items-center gap-2 px-1 text-center'
-              : `flex items-center gap-3 px-5 ${index === 0 ? 'pl-0' : ''} ${index !== staticFeatures.length - 1
-                ? 'border-r border-slate-200'
-                : ''
-              }`
+              ? 'flex min-w-0 flex-col items-center gap-1.5 px-1 text-center'
+              : `flex items-center gap-2 lg:gap-2.5 xl:gap-3 px-2 lg:px-2.5 xl:px-4 ${
+                  index === 0 ? 'pl-0' : ''
+                } ${
+                  index !== staticFeatures.length - 1
+                    ? 'border-r border-slate-200'
+                    : ''
+                }`
           }
         >
           <div
             className={
               mobile
-                ? 'flex h-9 w-9 shrink-0 items-center justify-center text-[#D89422]'
-                : 'flex h-11 w-11 shrink-0 items-center justify-center text-[#D89422]'
+                ? 'flex h-8 w-8 shrink-0 items-center justify-center text-[#D89422]'
+                : 'flex h-9 w-9 lg:h-9 lg:w-9 xl:h-11 xl:w-11 shrink-0 items-center justify-center text-[#D89422]'
             }
           >
-            <Icon size={mobile ? 24 : 29} strokeWidth={1.6} />
+            <Icon
+              size={mobile ? 20 : 23}
+              className="xl:w-[27px] xl:h-[27px]"
+              strokeWidth={1.6}
+            />
           </div>
 
           <div className="min-w-0 leading-tight">
@@ -88,7 +95,7 @@ const FeatureRow = ({ mobile = false }) => (
               className={
                 mobile
                   ? 'text-[11px] font-semibold text-slate-900 sm:text-xs'
-                  : 'text-sm font-semibold text-slate-900'
+                  : 'text-xs lg:text-[13px] xl:text-sm font-semibold text-slate-900'
               }
             >
               {feature.line1}
@@ -97,7 +104,7 @@ const FeatureRow = ({ mobile = false }) => (
               className={
                 mobile
                   ? 'mt-0.5 text-[10px] text-slate-500 sm:text-[11px]'
-                  : 'mt-1 text-sm text-slate-600'
+                  : 'mt-0.5 text-[11px] lg:text-xs xl:text-sm text-slate-600'
               }
             >
               {feature.line2}
@@ -170,7 +177,7 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
 
   return (
     <section
-      className="relative isolate overflow-hidden bg-white"
+      className="relative isolate overflow-hidden bg-white pt-24 sm:pt-28 lg:pt-28 xl:pt-32 pb-8 sm:pb-12 lg:pb-14 xl:pb-16 flex flex-col justify-center"
       aria-label="YES Exhibition Stands hero"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -184,16 +191,16 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
         className="pointer-events-none absolute inset-0 -z-20 bg-white"
       />
 
-      <div className="mx-auto grid w-full max-w-[1600px] grid-cols-1 items-center gap-8 px-4 py-8 sm:gap-10 sm:px-6 sm:py-10 md:px-8 lg:min-h-[calc(100svh-80px)] lg:grid-cols-12 lg:gap-8 lg:px-10 lg:py-10 xl:px-14 2xl:px-16 ">
+      <div className="mx-auto grid w-full max-w-[1536px] grid-cols-1 items-center gap-8 px-4 sm:px-6 md:px-8 lg:grid-cols-12 lg:gap-8 lg:px-10 xl:gap-12 xl:px-12 2xl:gap-16 2xl:px-16">
         {/* LEFT CONTENT */}
-        <div className="relative z-10 lg:col-span-5 xl:col-span-5">
-          <div className="mx-auto max-w-[610px] lg:mx-0">
+        <div className="relative z-10 lg:col-span-6 xl:col-span-6 2xl:col-span-5">
+          <div className="mx-auto max-w-[620px] lg:max-w-none">
             <motion.div
               custom={1}
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="mb-4 flex items-center gap-3 sm:mb-5 mt-10 sm:gap-4"
+              className="mb-3 sm:mb-4 flex items-center gap-3 sm:gap-4"
             >
               <span className="text-[9px] font-semibold uppercase tracking-[0.24em] sm:block hidden text-slate-500 min-[380px]:text-[10px] sm:text-xs sm:tracking-[0.30em]">
                 Custom Exhibition Stands
@@ -206,7 +213,7 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="max-w-[620px] text-[clamp(2.45rem,11.5vw,4rem)] font-bold leading-[0.98] tracking-[-0.045em] text-[#101010] sm:text-[58px] md:text-[68px] lg:text-[62px] xl:text-[72px] 2xl:text-[76px]"
+              className="text-[clamp(2.15rem,6.5vw,3.75rem)] sm:text-5xl lg:text-[40px] xl:text-[52px] 2xl:text-[66px] font-bold leading-[1.04] sm:leading-[1.02] lg:leading-[1.05] xl:leading-[1.0] tracking-[-0.035em] text-[#101010]"
             >
               Build exhibition
               <span className="block">stands with</span>
@@ -218,7 +225,7 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="mt-5 max-w-[575px] text-[14px] font-normal leading-6 text-slate-600 sm:mt-6 sm:text-base sm:leading-7 md:text-[17px]"
+              className="mt-4 sm:mt-5 text-[14px] font-normal leading-6 text-slate-600 sm:text-base sm:leading-7 lg:text-[15px] lg:leading-6 xl:text-[16px] xl:leading-7 max-w-[540px]"
             >
               We help brands design, build and deliver premium custom exhibition
               stands that attract attention, create meaningful experiences and
@@ -230,11 +237,11 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+              className="mt-5 sm:mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
             >
               <Link
                 to="/quote"
-                className="group inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-md bg-[#D99A2B] px-6 text-xs font-bold uppercase tracking-[0.03em] text-white transition-colors duration-200 hover:bg-[#C9881D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D49942] focus-visible:ring-offset-2 sm:min-h-14 sm:w-auto sm:px-7 sm:text-sm"
+                className="group inline-flex min-h-11 sm:min-h-12 lg:min-h-[46px] xl:min-h-14 w-full items-center justify-center gap-3 rounded-md bg-[#D99A2B] px-5 sm:px-6 xl:px-7 text-xs sm:text-sm font-bold uppercase tracking-[0.03em] text-white transition-colors duration-200 hover:bg-[#C9881D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D49942] focus-visible:ring-offset-2 sm:w-auto"
               >
                 Get a quote
                 <ArrowRight
@@ -246,7 +253,7 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
               <button
                 type="button"
                 onClick={onOpenWork}
-                className="group inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-md border border-slate-300 bg-white px-6 text-xs font-bold uppercase tracking-[0.03em] text-[#111] transition-colors duration-200 hover:border-slate-500 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 sm:min-h-14 sm:w-auto sm:px-7 sm:text-sm"
+                className="group inline-flex min-h-11 sm:min-h-12 lg:min-h-[46px] xl:min-h-14 w-full items-center justify-center gap-3 rounded-md border border-slate-300 bg-white px-5 sm:px-6 xl:px-7 text-xs sm:text-sm font-bold uppercase tracking-[0.03em] text-[#111] transition-colors duration-200 hover:border-slate-500 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 sm:w-auto cursor-pointer"
               >
                 See our work
                 <Play
@@ -262,7 +269,7 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="mt-9 hidden lg:block"
+              className="mt-6 sm:mt-8 hidden lg:block"
             >
               <FeatureRow />
             </motion.div>
@@ -274,15 +281,15 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
           initial={{ opacity: 0, y: 30, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 lg:col-span-7 xl:col-span-7"
+          className="relative z-10 lg:col-span-6 xl:col-span-6 2xl:col-span-7 flex flex-col justify-center"
         >
           <div
-            className="relative mx-auto w-full max-w-[900px] lg:max-w-none"
+            className="relative mx-auto w-full max-w-[800px] lg:max-w-none"
             aria-roledescription="carousel"
             aria-label="Exhibition stand showcase"
           >
             <div
-              className="relative aspect-[4/3] w-full touch-pan-y overflow-hidden rounded-2xl border border-slate-200 bg-[#f5f5f5] shadow-[0_16px_45px_rgba(15,23,42,0.10)] min-[500px]:aspect-[16/10] sm:rounded-[24px] lg:aspect-[1.22/1] lg:rounded-[28px] xl:aspect-[1.34/1] 2xl:aspect-[1.42/1] cursor-pointer"
+              className="relative aspect-[4/3] min-[500px]:aspect-[16/10] lg:aspect-[4/3] xl:aspect-[16/11] 2xl:aspect-[1.4/1] w-full max-h-[440px] xl:max-h-[500px] 2xl:max-h-[560px] touch-pan-y overflow-hidden rounded-2xl border border-slate-200 bg-[#f5f5f5] shadow-[0_16px_45px_rgba(15,23,42,0.10)] sm:rounded-[24px] lg:rounded-[24px] xl:rounded-[28px] cursor-pointer"
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
               onClick={nextSlide}
@@ -292,10 +299,11 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
               {carouselImages.map((item, index) => (
                 <div
                   key={item.id}
-                  className={`absolute inset-0 transition-opacity duration-500 ease-out ${index === currentSlide
-                    ? 'z-10 opacity-100'
-                    : 'z-0 opacity-0 pointer-events-none'
-                    }`}
+                  className={`absolute inset-0 transition-opacity duration-500 ease-out ${
+                    index === currentSlide
+                      ? 'z-10 opacity-100'
+                      : 'z-0 opacity-0 pointer-events-none'
+                  }`}
                   aria-hidden={index !== currentSlide}
                 >
                   <img
@@ -312,7 +320,7 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
 
             {/* 3 clean carousel dots */}
             <div
-              className="mt-4 flex items-center justify-center gap-2.5 sm:mt-5 sm:gap-3"
+              className="mt-3.5 sm:mt-4 flex items-center justify-center gap-2.5 sm:gap-3"
               role="tablist"
               aria-label="Choose exhibition stand image"
             >
@@ -324,10 +332,11 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
                   aria-selected={index === currentSlide}
                   aria-label={`Show ${item.title}`}
                   onClick={() => goToSlide(index)}
-                  className={`h-2.5 w-2.5 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D49942] focus-visible:ring-offset-2 ${index === currentSlide
-                    ? 'bg-[#D89422]'
-                    : 'bg-slate-300 hover:bg-slate-400'
-                    }`}
+                  className={`h-2.5 w-2.5 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D49942] focus-visible:ring-offset-2 cursor-pointer ${
+                    index === currentSlide
+                      ? 'bg-[#D89422]'
+                      : 'bg-slate-300 hover:bg-slate-400'
+                  }`}
                 />
               ))}
             </div>
@@ -338,7 +347,7 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
           </div>
         </motion.div>
 
-        {/* Mobile/tablet feature row — placed after carousel for better mobile flow */}
+        {/* Mobile/tablet feature row */}
         <motion.div
           custom={6}
           variants={fadeInUp}
