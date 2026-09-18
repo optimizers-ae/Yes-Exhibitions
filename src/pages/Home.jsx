@@ -36,7 +36,7 @@ const Home = () => {
 
          {/* FAQ Section */}
         <Faq />
-
+    
         {/* Get In Touch & Map Section */}
         <GetInTouchSection />
       </main>
