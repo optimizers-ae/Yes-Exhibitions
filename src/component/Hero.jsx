@@ -185,24 +185,24 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
       onBlurCapture={() => setIsPaused(false)}
       onKeyDown={handleKeyDown}
     >
-      {/* Clean background only. No cursor glow, ambient glow, blur glow, or image overlay. */}
+      {/* Clean background */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-20 bg-white"
       />
 
-      <div className="mx-auto grid w-full max-w-[1600px] grid-cols-1 items-center gap-8 px-4 sm:px-6 md:px-8 lg:grid-cols-12 lg:gap-8 lg:px-10 xl:gap-12 xl:px-12 2xl:gap-16 2xl:px-16 my-auto">
-        {/* LEFT CONTENT */}
-        <div className="relative z-10 lg:col-span-6 xl:col-span-5 2xl:col-span-5">
+      <div className="mx-auto grid w-full max-w-[1600px] grid-cols-1 items-center gap-8 px-4 sm:px-6 md:px-8 lg:grid-cols-12 lg:gap-8 lg:px-10 xl:gap-12 lg:px-12 2xl:gap-16 2xl:px-16 my-auto">
+        {/* LEFT CONTENT - Centered on small screens */}
+        <div className="relative z-10 lg:col-span-6 xl:col-span-5 2xl:col-span-5 text-center lg:text-left">
           <div className="mx-auto max-w-[620px] lg:max-w-none">
             <motion.div
               custom={1}
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="mb-3 sm:mb-4 flex items-center gap-3 sm:gap-4"
+              className="mb-3 sm:mb-4 flex items-center justify-center lg:justify-start gap-3 sm:gap-4"
             >
-              <span className="text-[9px] font-semibold uppercase tracking-[0.24em] sm:block hidden text-slate-500 min-[380px]:text-[10px] sm:text-xs sm:tracking-[0.30em]">
+              <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.24em] sm:tracking-[0.30em] text-slate-500">
                 Custom Exhibition Stands
               </span>
               <span className="h-px w-10 shrink-0 bg-[#D89A2B] sm:w-14" />
@@ -225,7 +225,7 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="mt-4 sm:mt-5 lg:mt-5 xl:mt-6 text-[14px] font-normal leading-6 text-slate-600 sm:text-base sm:leading-7 lg:text-[15px] lg:leading-relaxed xl:text-[17px] xl:leading-relaxed max-w-[560px]"
+              className="mt-4 sm:mt-5 lg:mt-5 xl:mt-6 text-[14px] font-normal leading-6 text-slate-600 sm:text-base sm:leading-7 lg:text-[15px] lg:leading-relaxed xl:text-[17px] xl:leading-relaxed max-w-[560px] mx-auto lg:mx-0"
             >
               We help brands design, build and deliver premium custom exhibition
               stands that attract attention, create meaningful experiences and
@@ -237,7 +237,7 @@ const Hero = ({ onOpenQuote = () => { }, onOpenWork = () => { } }) => {
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+              className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start sm:gap-4"
             >
               <Link
                 to="/quote"

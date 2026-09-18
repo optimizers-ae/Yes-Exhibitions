@@ -20,9 +20,6 @@ const GetInTouchSection = () => {
     }, 4000);
   };
 
-
-
-
   return (
     <section id="contact" className="py-24 bg-white text-gray-900 relative overflow-hidden">
 
@@ -41,8 +38,8 @@ const GetInTouchSection = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header Badge */}
-        <div className="flex items-center gap-3 mb-6">
+        {/* Section Header Badge - Small Screen par Center */}
+        <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
           <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#D49942]" />
           <span className="text-[11px] font-semibold tracking-[0.25em] text-[#D49942] uppercase">
             Contact
@@ -55,18 +52,19 @@ const GetInTouchSection = () => {
 
           {/* LEFT COLUMN: Title + Form */}
           <div className="lg:col-span-6 space-y-8">
-            <div>
+            {/* Heading & Description - Small Screen par Center */}
+            <div className="text-center lg:text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-extrabold tracking-tight text-gray-900 uppercase leading-[1.1]">
                 GET IN <span className="gold-gradient-text">TOUCH</span>
               </h2>
-              <p className="mt-4 text-sm text-gray-600 max-w-md leading-relaxed">
+              <p className="mt-4 text-sm text-gray-600 max-w-md mx-auto lg:mx-0 leading-relaxed">
                 Let's craft an unforgettable exhibition experience together. Reach out and our
                 team will respond within 24 hours.
               </p>
             </div>
 
             {/* Contact Form Box */}
-            <div className="group relative">
+            <div className="group relative text-left">
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-amber-500/40 via-amber-500/5 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500 blur-[2px]" />
               <div className="relative bg-white p-6 sm:p-8 rounded-2xl border border-amber-500/20 shadow-xl">
                 {submitted ? (
@@ -145,7 +143,7 @@ const GetInTouchSection = () => {
                     <div className="pt-1">
                       <button
                         type="submit"
-                        className="group/btn relative w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-gray-950 font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-all cursor-pointer flex items-center justify-center gap-2 overflow-hidden shadow-lg shadow-amber-500/20"
+                        className="group/btn relative w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-white font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-all cursor-pointer flex items-center justify-center gap-2 overflow-hidden shadow-lg shadow-amber-500/20"
                       >
                         <span className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
                         <span className="relative">Send Message</span>
@@ -190,7 +188,7 @@ const GetInTouchSection = () => {
                       href="https://maps.google.com"
                       target="_blank"
                       rel="noreferrer"
-                      className="group/link inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-gray-950 bg-gradient-to-r from-[#E6AA4D] to-[#C78326] hover:opacity-90 px-4 py-2 rounded-full transition-all shadow-lg shadow-amber-500/20"
+                      className="group/link inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#E6AA4D] to-[#C78326] hover:opacity-90 px-4 py-2 rounded-full transition-all shadow-lg shadow-amber-500/20"
                     >
                       <span>Directions</span>
                       <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />

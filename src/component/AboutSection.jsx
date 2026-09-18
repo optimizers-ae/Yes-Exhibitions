@@ -5,14 +5,8 @@ import {
   Sparkles,
   CheckCircle2,
   Check,
-  ShieldCheck,
   ArrowRight,
-  Award,
-  Users,
-  Layers,
-  Building2,
-  Clock,
-  Globe2
+  Award
 } from 'lucide-react';
 import founderImg from '../assets/about_banner.png';
 
@@ -63,7 +57,6 @@ const capabilities = [
   }
 ];
 
-
 const AboutSection = ({ onOpenQuote }) => {
   return (
     <section id="about" className="py-20 sm:py-28 bg-gradient-to-b from-white via-amber-50/25 to-white relative overflow-hidden">
@@ -102,12 +95,10 @@ const AboutSection = ({ onOpenQuote }) => {
                 {/* Image Gradient Vignette */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
 
-
-
                 {/* Bottom Overlay Info Card */}
                 <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/60 shadow-xl">
                   <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3.5">
+                    <div className="flex items-center gap-3.5 text-left">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-white flex items-center justify-center shadow-md shrink-0">
                         <Award className="w-6 h-6" />
                       </div>
@@ -115,22 +106,20 @@ const AboutSection = ({ onOpenQuote }) => {
                         <h4 className="font-extrabold text-gray-950 text-sm sm:text-base leading-tight">
                           More Than Stands, We Build Experiences
                         </h4>
-                       <p className="text-xs text-gray-600 mt-0.5">
-  Creating impactful spaces that connect brands with people
-</p>
+                        <p className="text-xs text-gray-600 mt-0.5">
+                          Creating impactful spaces that connect brands with people
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-
             </div>
           </motion.div>
 
-
           {/* RIGHT SIDE: Narrative, Capabilities & Clean Checkmark Grid */}
-          <div className="lg:col-span-7 space-y-7">
+          <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
 
             {/* Header & Subheading */}
             <motion.div
@@ -138,9 +127,9 @@ const AboutSection = ({ onOpenQuote }) => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-60px' }}
-              className="space-y-3.5"
+              className="space-y-3.5 flex flex-col items-center lg:items-start"
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/80 border border-amber-300/70 shadow-2xs">
+              <div className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/80 border border-amber-300/70 shadow-2xs">
                 <Sparkles className="w-4 h-4 text-[#D49942]" />
                 <span className="text-xs font-bold uppercase tracking-widest text-[#B2771D]">
                   ABOUT YES EXHIBITION STANDS
@@ -151,11 +140,10 @@ const AboutSection = ({ onOpenQuote }) => {
                 Transforming Brand Visions Into <span className="gold-gradient-text">Award-Winning Stands</span>
               </h2>
 
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
-YES Exhibition Stands specializes in designing and building custom exhibition stands that bring your brand to life. From concept and design to fabrication, installation and on-site support, we create impactful environments that combine creativity, functionality and precision.              </p>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl font-normal mx-auto lg:mx-0">
+                YES Exhibition Stands specializes in designing and building custom exhibition stands that bring your brand to life. From concept and design to fabrication, installation and on-site support, we create impactful environments that combine creativity, functionality and precision.
+              </p>
             </motion.div>
-
-
 
             {/* Capabilities Checkmark Grid */}
             <motion.div
@@ -163,7 +151,7 @@ YES Exhibition Stands specializes in designing and building custom exhibition st
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-left"
             >
               {capabilities.map((item, idx) => (
                 <motion.div
@@ -192,17 +180,17 @@ YES Exhibition Stands specializes in designing and building custom exhibition st
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="pt-3 flex flex-wrap items-center gap-4"
+              className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-4"
             >
               <Link
                 to="/quote"
-                className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+                className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer w-full sm:w-auto"
               >
                 <span>Get Custom Stand Proposal</span>
                 <ArrowRight size={15} />
               </Link>
 
-              <div className="flex items-center gap-2 text-xs font-semibold text-gray-700 bg-emerald-50/80 border border-emerald-200/80 px-4 py-3 rounded-xl">
+              <div className="flex items-center justify-center gap-2 text-xs font-semibold text-gray-700 bg-emerald-50/80 border border-emerald-200/80 px-4 py-3 rounded-xl w-full sm:w-auto">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>From Concept to Final Handover</span>
               </div>

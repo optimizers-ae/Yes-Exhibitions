@@ -6,56 +6,56 @@ const servicesList = [
   {
     id: '01',
     title: 'Custom Exhibition Stands',
-    category: 'Bespoke Architecture',
-    desc: 'Tailor-made stand designs built with premium joinery, custom illumination, interactive touchpoints, and immersive layout engineering tailored to elevate your brand presence.',
+    category: 'Bespoke Stand Design',
+    desc: 'Custom-designed exhibition stands created around your brand, objectives, space, and visitor experience — from concept to final build.',
     icon: Building2,
     image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
-    tags: ['Custom Joinery', 'LED Walls', 'VIP Lounges', 'Turnkey Setup']
+    tags: ['Custom Design', 'Branding', 'Lighting', 'Turnkey Build']
   },
   {
     id: '02',
     title: 'Double Decker Stands',
-    category: 'Multi-Level Spaces',
-    desc: 'Maximize footprint efficiency with structural two-story exhibition stands featuring private executive meeting suites, VIP hospitality lounges, and command views of the venue.',
+    category: 'Multi-Level Exhibition',
+    desc: 'Striking two-level exhibition stands designed to maximize your floor space while providing dedicated areas for meetings, hospitality, and brand engagement.',
     icon: Layers,
     image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80',
-    tags: ['Structural Engineering', 'Private Lounges', 'High Visibility', 'Safety Certified']
+    tags: ['Two-Level Design', 'Meeting Areas', 'Hospitality', 'Space Optimization']
   },
   {
     id: '03',
     title: 'Country & Trade Pavilions',
-    category: 'Large Scale Turnkey',
-    desc: 'Turnkey national pavilions designed for government trade bodies, export councils, and corporate clusters exhibiting across major international trade shows.',
+    category: 'Large-Scale Exhibition',
+    desc: 'Large-scale pavilion solutions designed to bring multiple brands, organizations, or exhibitors together within a cohesive and impactful exhibition environment.',
     icon: Globe,
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80',
-    tags: ['Multi-Exhibitor Spaces', 'Shared Hospitality', 'National Branding', 'Group Logistics']
+    tags: ['Trade Pavilions', 'Multi-Exhibitor', 'Brand Integration', 'Turnkey Delivery']
   },
   {
     id: '04',
-    title: 'Turnkey Project Management',
+    title: 'Turnkey Exhibition Solutions',
     category: 'End-to-End Service',
-    desc: 'Complete project lifecycle management: 3D concept, structural approval, electrical permits, venue logistics, on-site installation, continuous maintenance & handover.',
+    desc: 'A complete exhibition journey covering stand design, planning, fabrication, logistics, installation, on-site coordination, and final handover.',
     icon: ShieldCheck,
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
-    tags: ['Venue Approvals', 'On-Site Build', 'Dismantling & Storage', '24/7 Support']
+    tags: ['Project Management', 'Fabrication', 'Installation', 'Final Handover']
   },
   {
     id: '05',
-    title: '3D Design & Rendering',
-    category: 'Visualization',
-    desc: 'Photorealistic 3D visualization, VR walk-throughs, and detailed CAD engineering drawings allowing you to explore and approve every angle of your stand before fabrication.',
+    title: '3D Design & Visualization',
+    category: 'Creative & Visualization',
+    desc: 'Detailed 3D concepts and visualizations that allow you to preview your exhibition stand, refine the design, and approve the final vision before production.',
     icon: Monitor,
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
-    tags: ['CAD Blueprints', 'VR Walkthroughs', 'Lighting Simulation', 'High-Res Renders']
+    tags: ['3D Concepts', 'Visualizations', 'CAD Design', 'Design Approval']
   },
   {
     id: '06',
-    title: 'Modular Stand Systems',
-    category: 'Eco-Friendly & Versatile',
-    desc: 'Flexible, reconfigurable modular frame architecture ideal for multi-city show tours, fast installation schedules, and budget-conscious brand activations.',
+    title: 'Modular Exhibition Stands',
+    category: 'Flexible Exhibition Solutions',
+    desc: 'Flexible modular stand systems designed for brands looking for practical, adaptable, and efficient exhibition solutions across different events and locations.',
     icon: LayoutGrid,
     image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80',
-    tags: ['Reusable Frames', 'Fast Installation', 'Compact Logistics', 'Sustainable Build']
+    tags: ['Modular Systems', 'Reusable Design', 'Flexible Layouts', 'Easy Installation']
   }
 ];
 
@@ -95,8 +95,7 @@ const ServicesSection = ({ onOpenQuote }) => {
             Elevate Your Brand With <span className="gold-gradient-text">Bespoke Excellence</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
-            From initial architectural rendering to turnkey venue handover, scroll down to explore our range of exhibition services.
-          </p>
+From creative stand design and 3D visualization to fabrication, installation, and complete turnkey delivery, we provide end-to-end exhibition solutions designed to make your brand stand out.          </p>
         </motion.div>
 
         {/* Card Stacking Container */}
