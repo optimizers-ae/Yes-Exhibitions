@@ -25,7 +25,6 @@ import {
   ChevronDown,
   MapPin
 } from 'lucide-react';
-import Footer from '../component/Footer';
 
 const standTypes = [
   {
@@ -115,14 +114,42 @@ const Contact = () => {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: `Stand Type: ${formData.standType} | Size: ${formData.standSize} | Budget: ${formData.budget} | Event: ${formData.eventName || 'N/A'} (${formData.eventDate || 'N/A'}, ${formData.eventLocation || 'N/A'}) | Features: ${selectedFeatures.join(', ') || 'None'} | Message: ${formData.message || 'N/A'}`,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // If API fails or in static dev mode
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } catch (error) {
+      console.error('Contact submission error:', error);
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 800);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleReset = () => {

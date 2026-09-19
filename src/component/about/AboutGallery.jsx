@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Maximize2, X, ChevronLeft, ChevronRight, Sparkles, Filter } from 'lucide-react';
+import { ArrowRight, Maximize2, X, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 import hero1 from '../../assets/hero_1.png';
 import hero2 from '../../assets/hero_2.png';
