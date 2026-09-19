@@ -1,8 +1,29 @@
-import hero1 from '../assets/hero_1.png';
-import hero2 from '../assets/hero_2.png';
-import hero3 from '../assets/hero_3.png';
-import aboutBannerJpg from '../assets/AboutBanner.jpeg';
-import aboutBannerPng from '../assets/about_banner.png';
+// Dynamically import all real event images from assets/evet_images
+const rawEventImages = import.meta.glob('../assets/evet_images/*.jpeg', {
+  eager: true,
+  import: 'default',
+});
+const eventImageList = Object.values(rawEventImages);
+
+const getEventImage = (pattern, fallbackIdx = 0) => {
+  const matchKey = Object.keys(rawEventImages).find((key) => key.includes(pattern));
+  return matchKey ? rawEventImages[matchKey] : (eventImageList[fallbackIdx] || '');
+};
+
+// Select distinct event images for each service
+const customStandsBg = getEventImage('9.58.07 PM.jpeg', 11);
+const doubleDeckerBg = getEventImage('9.58.30 PM (1)', 20);
+const countryPavilionBg = getEventImage('9.58.35 PM.jpeg', 33);
+const turnkeyBg = getEventImage('9.58.32 PM (1)', 25);
+const threeDDesignBg = getEventImage('9.58.30 PM.jpeg', 21);
+const modularStandsBg = getEventImage('11.13.34 AM', 53);
+
+const showcase1 = getEventImage('9.58.03 PM.jpeg', 8);
+const showcase2 = getEventImage('9.58.09 PM (2)', 15);
+const showcase3 = getEventImage('9.58.10 PM (1)', 17);
+const showcase4 = getEventImage('9.58.08 PM.jpeg', 13);
+const showcase5 = getEventImage('11.13.55 AM', 54);
+const showcase6 = getEventImage('9.58.33 PM.jpeg', 29);
 
 import {
   Building2,
@@ -29,10 +50,15 @@ export const servicesData = {
     title: 'Custom Exhibition Stands',
     highlightTitle: 'Stands Architecture',
     subtitle: 'Bespoke stand architecture tailored to your brand identity',
-    bannerImage: hero1,
-    showcaseImage: hero2,
-    secondaryImage: hero3,
     category: 'Bespoke Stand Design',
+    desc: 'Custom-designed exhibition stands created around your brand, objectives, space, and visitor experience — from concept to final build.',
+    icon: Building2,
+    bannerImage: customStandsBg,
+    cardImage: customStandsBg,
+    image: customStandsBg,
+    showcaseImage: showcase1,
+    secondaryImage: showcase2,
+    tags: ['Custom Design', 'Branding', 'Lighting', 'Turnkey Build'],
     heading: 'Tailored Architecture for Maximum Brand Impact',
     description:
       'At YES Exhibition, we design and construct bespoke custom exhibition stands crafted around your exact brand identity, product showcase requirements, and visitor engagement strategy. Combining high-end fabrication, precision spatial engineering, and custom branding solutions, we transform floor space into immersive branded environments that attract foot traffic and deliver measurable event ROI.',
@@ -86,10 +112,15 @@ export const servicesData = {
     title: 'Double Decker Stands',
     highlightTitle: 'Multi-Level Presence',
     subtitle: 'Two-story exhibition structures designed for maximum brand presence and footprint utilization',
-    bannerImage: hero2,
-    showcaseImage: hero3,
-    secondaryImage: hero1,
     category: 'Multi-Level Architecture',
+    desc: 'Striking two-level exhibition stands designed to maximize your floor space while providing dedicated areas for meetings, hospitality, and brand engagement.',
+    icon: Layers,
+    bannerImage: doubleDeckerBg,
+    cardImage: doubleDeckerBg,
+    image: doubleDeckerBg,
+    showcaseImage: showcase2,
+    secondaryImage: showcase3,
+    tags: ['Two-Level Design', 'VIP Lounge', 'Space Optimization', 'Structural Steel'],
     heading: 'Expand Vertically to Dominate the Exhibition Floor',
     description:
       'Double decker stands double your available floor area without doubling your booth footprint fees. Create executive VIP meeting suites, private hospitality lounges, and elevated product demonstration stages that command attention across the entire hall.',
@@ -139,10 +170,15 @@ export const servicesData = {
     title: 'Country & Trade Pavilions',
     highlightTitle: 'Global Pavilion Solutions',
     subtitle: 'National pavilions and large-scale group exhibition spaces uniting global brands',
-    bannerImage: hero3,
-    showcaseImage: aboutBannerPng,
-    secondaryImage: hero1,
     category: 'Large-Scale Group Exhibition',
+    desc: 'Large-scale pavilion solutions designed to bring multiple brands, organizations, or exhibitors together within a cohesive and impactful exhibition environment.',
+    icon: Globe,
+    bannerImage: countryPavilionBg,
+    cardImage: countryPavilionBg,
+    image: countryPavilionBg,
+    showcaseImage: showcase3,
+    secondaryImage: showcase4,
+    tags: ['Trade Pavilions', 'Multi-Exhibitor', 'National Identity', 'Turnkey Delivery'],
     heading: 'Unified Architectural Identity for Group Exhibitors',
     description:
       'We conceptualize, engineer, and build large-scale country pavilions and group exhibition areas for governments, export councils, and industry trade associations. Our designs balance strong unified national branding with individualized exhibitor sub-booths.',
@@ -188,10 +224,15 @@ export const servicesData = {
     title: 'Turnkey Project Management',
     highlightTitle: 'End-to-End Execution',
     subtitle: '3D design, engineering, approvals, fabrication & complete on-site build',
-    bannerImage: aboutBannerJpg,
-    showcaseImage: hero1,
-    secondaryImage: hero2,
     category: 'Full Service Project Management',
+    desc: 'A complete exhibition journey covering stand design, planning, fabrication, logistics, installation, on-site coordination, and final handover.',
+    icon: ShieldCheck,
+    bannerImage: turnkeyBg,
+    cardImage: turnkeyBg,
+    image: turnkeyBg,
+    showcaseImage: showcase4,
+    secondaryImage: showcase5,
+    tags: ['Project Management', 'Fabrication', 'Installation', 'Final Handover'],
     heading: 'Zero-Stress Exhibition Execution from Concept to Handover',
     description:
       'Our turnkey service gives you a single dedicated project manager handling 100% of your exhibition project — design renderings, venue documentation, structural calculations, fabrication, freight logistics, build-up, and final show handover.',
@@ -237,10 +278,15 @@ export const servicesData = {
     title: '3D Design & Visualization',
     highlightTitle: 'Photorealistic 3D Renders',
     subtitle: 'Detailed 3D concepts and visualizations allowing you to preview your stand before build',
-    bannerImage: hero1,
-    showcaseImage: hero3,
-    secondaryImage: hero2,
     category: 'Creative Design & CAD',
+    desc: 'Detailed 3D concepts and visualizations that allow you to preview your exhibition stand, refine the design, and approve the final vision before production.',
+    icon: Monitor,
+    bannerImage: threeDDesignBg,
+    cardImage: threeDDesignBg,
+    image: threeDDesignBg,
+    showcaseImage: showcase5,
+    secondaryImage: showcase6,
+    tags: ['3D Concepts', 'Photorealistic Renders', 'CAD Blueprints', 'Design Approval'],
     heading: 'Experience Your Exhibition Stand in Photorealistic 3D',
     description:
       'Our architectural design studio creates hyper-realistic 3D renders, spatial floor plans, and 360-degree fly-through animations. Preview lighting effects, material textures, graphic placements, and visitor sightlines before a single panel is built.',
@@ -286,10 +332,15 @@ export const servicesData = {
     title: 'Modular Exhibition Stands',
     highlightTitle: 'Flexible & Reusable',
     subtitle: 'Adaptable modular stand systems engineered for multi-event efficiency and sustainability',
-    bannerImage: aboutBannerPng,
-    showcaseImage: hero2,
-    secondaryImage: hero1,
     category: 'Flexible Exhibition Systems',
+    desc: 'Flexible modular stand systems designed for brands looking for practical, adaptable, and efficient exhibition solutions across different events and locations.',
+    icon: LayoutGrid,
+    bannerImage: modularStandsBg,
+    cardImage: modularStandsBg,
+    image: modularStandsBg,
+    showcaseImage: showcase6,
+    secondaryImage: showcase1,
+    tags: ['Modular Systems', 'Reusable Architecture', 'Tension Fabric', 'Fast Assembly'],
     heading: 'Smart Reusable Stand Architecture for Multiple Events',
     description:
       'For brands exhibiting across multiple trade shows per year, our modular stand systems offer reusable, reconfigurable, and eco-friendly booth designs. Reframe components to fit 3x3m, 6x3m, or 6x6m spaces effortlessly while cutting cost per show.',
@@ -330,4 +381,5 @@ export const servicesData = {
   }
 };
 
+export const servicesList = Object.values(servicesData);
 export const defaultServiceSlug = 'custom-exhibition-stands';

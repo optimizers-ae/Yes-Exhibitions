@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowRight, ChevronDown, Menu, X, Building2, Layers, Globe, Shield } from 'lucide-react';
+import { ArrowRight, ChevronDown, Menu, X, Building2, Layers, Globe, Shield, Monitor, LayoutGrid } from 'lucide-react';
 import logoImg from '../assets/logo.jpeg';
 
 const services = [
@@ -27,6 +27,18 @@ const services = [
     desc: '3D design, engineering, approvals, fabrication & on-site build',
     icon: Shield,
     path: '/services/turnkey-project-management'
+  },
+  {
+    title: '3D Design & Visualization',
+    desc: 'Photorealistic 3D renders and spatial CAD floor planning',
+    icon: Monitor,
+    path: '/services/3d-design-visualization'
+  },
+  {
+    title: 'Modular Exhibition Stands',
+    desc: 'Flexible and sustainable modular stand architecture',
+    icon: LayoutGrid,
+    path: '/services/modular-exhibition-stands'
   }
 ];
 
@@ -35,11 +47,22 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
 
+  const isHomePage = location.pathname === '/';
   const isGalleryPage = location.pathname.startsWith('/gallery');
   const isAboutPage = location.pathname.startsWith('/about');
   const isContactPage = location.pathname.startsWith('/contact');
+
+  const isServicePage =
+    location.pathname.startsWith('/services') ||
+    [
+      '/custom-exhibition-stands',
+      '/double-decker-stands',
+      '/country-trade-pavilions',
+      '/turnkey-project-management',
+      '/3d-design-visualization',
+      '/modular-exhibition-stands'
+    ].includes(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,11 +76,16 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Determine text color mode: Dark theme text for service page hero when not scrolled
+  const isDarkHero = isServicePage && !isScrolled;
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm py-3'
+          : isDarkHero
+          ? 'bg-black/20 backdrop-blur-[2px] py-4 sm:py-5'
           : 'bg-transparent py-4 sm:py-5'
       }`}
       role="banner"
@@ -73,16 +101,24 @@ const Navbar = () => {
             <img
               src={logoImg}
               alt="YES Exhibition Stands Logo - Design • Build • Inspire"
-              className="h-10 sm:h-12 w-auto object-contain rounded-full shadow-sm group-hover:scale-105 transition-transform"
+              className="h-10 sm:h-12 w-auto object-contain rounded-full shadow-sm group-hover:scale-105 transition-transform ring-2 ring-[#D49942]/40"
               width="48"
               height="48"
               loading="eager"
             />
             <div className="hidden sm:flex flex-col">
-              <span className="text-base font-bold tracking-tight text-gray-900 leading-none">
+              <span
+                className={`text-base font-bold tracking-tight leading-none transition-colors ${
+                  isDarkHero ? 'text-white' : 'text-gray-900'
+                }`}
+              >
                 YES <span className="text-[#D49942]">EXHIBITION</span>
               </span>
-              <span className="text-[9px] tracking-[0.2em] font-semibold text-gray-500 uppercase mt-0.5">
+              <span
+                className={`text-[9px] tracking-[0.2em] font-semibold uppercase mt-0.5 transition-colors ${
+                  isDarkHero ? 'text-gray-300' : 'text-gray-500'
+                }`}
+              >
                 Design • Build • Inspire
               </span>
             </div>
@@ -97,7 +133,11 @@ const Navbar = () => {
             <Link
               to="/"
               className={`relative text-sm font-bold transition-colors py-1 group ${
-                isHomePage ? 'text-[#D49942]' : 'text-gray-700 hover:text-[#D49942]'
+                isHomePage
+                  ? 'text-[#D49942]'
+                  : isDarkHero
+                  ? 'text-white/90 hover:text-[#D49942]'
+                  : 'text-gray-700 hover:text-[#D49942]'
               }`}
               aria-current={isHomePage ? 'page' : undefined}
             >
@@ -116,15 +156,28 @@ const Navbar = () => {
               <Link
                 to="/#services"
                 onClick={() => setServicesDropdownOpen(false)}
-                className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-[#D49942] transition-colors py-1 focus-visible:ring-2 focus-visible:ring-[#D49942] rounded cursor-pointer"
+                className={`flex items-center gap-1 text-sm font-semibold transition-colors py-1 focus-visible:ring-2 focus-visible:ring-[#D49942] rounded cursor-pointer ${
+                  isServicePage
+                    ? 'text-[#D49942] font-bold'
+                    : isDarkHero
+                    ? 'text-white/90 hover:text-[#D49942]'
+                    : 'text-gray-700 hover:text-[#D49942]'
+                }`}
               >
                 <span>Services</span>
                 <ChevronDown
                   size={14}
-                  className={`text-gray-500 transition-transform duration-200 ${
-                    servicesDropdownOpen ? 'rotate-180 text-[#D49942]' : ''
+                  className={`transition-transform duration-200 ${
+                    servicesDropdownOpen
+                      ? 'rotate-180 text-[#D49942]'
+                      : isDarkHero
+                      ? 'text-white/80'
+                      : 'text-gray-500'
                   }`}
                 />
+                {isServicePage && (
+                  <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#D49942] rounded-full"></span>
+                )}
               </Link>
 
               {/* Dropdown Menu */}
@@ -162,7 +215,11 @@ const Navbar = () => {
             <Link
               to="/gallery"
               className={`relative text-sm font-semibold transition-colors py-1 ${
-                isGalleryPage ? 'text-[#D49942] font-bold' : 'text-gray-700 hover:text-[#D49942]'
+                isGalleryPage
+                  ? 'text-[#D49942] font-bold'
+                  : isDarkHero
+                  ? 'text-white/90 hover:text-[#D49942]'
+                  : 'text-gray-700 hover:text-[#D49942]'
               }`}
               aria-current={isGalleryPage ? 'page' : undefined}
             >
@@ -175,7 +232,11 @@ const Navbar = () => {
             <Link
               to="/about"
               className={`relative text-sm font-semibold transition-colors py-1 ${
-                isAboutPage ? 'text-[#D49942] font-bold' : 'text-gray-700 hover:text-[#D49942]'
+                isAboutPage
+                  ? 'text-[#D49942] font-bold'
+                  : isDarkHero
+                  ? 'text-white/90 hover:text-[#D49942]'
+                  : 'text-gray-700 hover:text-[#D49942]'
               }`}
               aria-current={isAboutPage ? 'page' : undefined}
             >
@@ -188,7 +249,11 @@ const Navbar = () => {
             <Link
               to="/contact-us"
               className={`relative text-sm font-semibold transition-colors py-1 ${
-                isContactPage ? 'text-[#D49942] font-bold' : 'text-gray-700 hover:text-[#D49942]'
+                isContactPage
+                  ? 'text-[#D49942] font-bold'
+                  : isDarkHero
+                  ? 'text-white/90 hover:text-[#D49942]'
+                  : 'text-gray-700 hover:text-[#D49942]'
               }`}
               aria-current={isContactPage ? 'page' : undefined}
             >
@@ -223,7 +288,9 @@ const Navbar = () => {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
               aria-expanded={mobileMenuOpen}
-              className="p-2 rounded-lg text-gray-800 hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-[#D49942]"
+              className={`p-2 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-[#D49942] ${
+                isDarkHero ? 'text-white hover:bg-white/10' : 'text-gray-800 hover:bg-gray-100'
+              }`}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -246,7 +313,9 @@ const Navbar = () => {
               <Link
                 to="/#services"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-800 font-semibold text-sm"
+                className={`px-3 py-2 rounded-lg font-semibold text-sm ${
+                  isServicePage ? 'bg-amber-50 text-[#D49942] font-bold' : 'hover:bg-gray-50 text-gray-800'
+                }`}
               >
                 Services
               </Link>

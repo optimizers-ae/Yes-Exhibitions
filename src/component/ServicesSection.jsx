@@ -1,77 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Building2, Globe, Layers, LayoutGrid, Monitor, ShieldCheck, Sparkles } from 'lucide-react';
-
-// Import local hero & showcase images from assets
-import hero1 from '../assets/hero_1.png';
-import hero2 from '../assets/hero_2.png';
-import hero3 from '../assets/hero_3.png';
-import aboutBannerJpg from '../assets/AboutBanner.jpeg';
-import aboutBannerPng from '../assets/about_banner.png';
-
-const servicesList = [
-  {
-    id: '01',
-    slug: 'custom-exhibition-stands',
-    title: 'Custom Exhibition Stands',
-    category: 'Bespoke Stand Design',
-    desc: 'Custom-designed exhibition stands created around your brand, objectives, space, and visitor experience — from concept to final build.',
-    icon: Building2,
-    image: hero1,
-    tags: ['Custom Design', 'Branding', 'Lighting', 'Turnkey Build']
-  },
-  {
-    id: '02',
-    slug: 'double-decker-stands',
-    title: 'Double Decker Stands',
-    category: 'Multi-Level Exhibition',
-    desc: 'Striking two-level exhibition stands designed to maximize your floor space while providing dedicated areas for meetings, hospitality, and brand engagement.',
-    icon: Layers,
-    image: hero2,
-    tags: ['Two-Level Design', 'Meeting Areas', 'Hospitality', 'Space Optimization']
-  },
-  {
-    id: '03',
-    slug: 'country-trade-pavilions',
-    title: 'Country & Trade Pavilions',
-    category: 'Large-Scale Exhibition',
-    desc: 'Large-scale pavilion solutions designed to bring multiple brands, organizations, or exhibitors together within a cohesive and impactful exhibition environment.',
-    icon: Globe,
-    image: hero3,
-    tags: ['Trade Pavilions', 'Multi-Exhibitor', 'Brand Integration', 'Turnkey Delivery']
-  },
-  {
-    id: '04',
-    slug: 'turnkey-project-management',
-    title: 'Turnkey Exhibition Solutions',
-    category: 'End-to-End Service',
-    desc: 'A complete exhibition journey covering stand design, planning, fabrication, logistics, installation, on-site coordination, and final handover.',
-    icon: ShieldCheck,
-    image: aboutBannerJpg,
-    tags: ['Project Management', 'Fabrication', 'Installation', 'Final Handover']
-  },
-  {
-    id: '05',
-    slug: '3d-design-visualization',
-    title: '3D Design & Visualization',
-    category: 'Creative & Visualization',
-    desc: 'Detailed 3D concepts and visualizations that allow you to preview your exhibition stand, refine the design, and approve the final vision before production.',
-    icon: Monitor,
-    image: hero1,
-    tags: ['3D Concepts', 'Visualizations', 'CAD Design', 'Design Approval']
-  },
-  {
-    id: '06',
-    slug: 'modular-exhibition-stands',
-    title: 'Modular Exhibition Stands',
-    category: 'Flexible Exhibition Solutions',
-    desc: 'Flexible modular stand systems designed for brands looking for practical, adaptable, and efficient exhibition solutions across different events and locations.',
-    icon: LayoutGrid,
-    image: aboutBannerPng,
-    tags: ['Modular Systems', 'Reusable Design', 'Flexible Layouts', 'Easy Installation']
-  }
-];
+import { ArrowUpRight, Sparkles } from 'lucide-react';
+import { servicesList } from '../data/servicesData';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 35 },
@@ -85,7 +16,7 @@ const fadeInUp = {
 const ServicesSection = () => {
   return (
     <section id="services" className="py-24 sm:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative">
-      {/* Background Decorative Ambient Elements */}
+      {/* Background Decorative Warm Golden Ambient Elements (No Blue) */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-amber-300/15 rounded-full blur-[120px] pointer-events-none" />
 
@@ -119,10 +50,11 @@ const ServicesSection = () => {
             const Icon = service.icon;
             // Incremental sticky offset so the header tabs cascade neatly
             const topOffset = 80 + idx * 30;
+            const serviceImg = service.cardImage || service.bannerImage || service.image;
 
             return (
               <div
-                key={service.id}
+                key={service.id || service.slug}
                 style={{
                   top: `${topOffset}px`,
                   zIndex: idx + 10
@@ -142,13 +74,13 @@ const ServicesSection = () => {
                       className="lg:col-span-6 relative h-64 sm:h-80 lg:h-full min-h-[280px] sm:min-h-[380px] bg-gray-950 overflow-hidden block cursor-pointer"
                     >
                       <img
-                        src={service.image}
-                        alt={service.title}
+                        src={serviceImg}
+                        alt={`${service.title} - YES Exhibition`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
                         loading="lazy"
                       />
 
-                      {/* Vignette Overlay */}
+                      {/* Warm Vignette Overlay (No Blue) */}
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-950/85 via-black/25 to-black/10" />
 
                       {/* Top Left Category Badge */}
@@ -164,9 +96,11 @@ const ServicesSection = () => {
                       </div>
 
                       {/* Floating Circular Icon Badge */}
-                      <div className="absolute bottom-5 left-5 w-13 h-13 rounded-2xl bg-gradient-to-br from-[#1E1E1E] to-[#0A0A0A] border-2 border-[#D49942] text-[#E6AA4D] flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                        <Icon className="w-6 h-6" />
-                      </div>
+                      {Icon && (
+                        <div className="absolute bottom-5 left-5 w-13 h-13 rounded-2xl bg-gradient-to-br from-[#1E1E1E] to-[#0A0A0A] border-2 border-[#D49942] text-[#E6AA4D] flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                      )}
                     </Link>
 
                     {/* Right Side: Content & Actions */}
@@ -185,20 +119,22 @@ const ServicesSection = () => {
                         </Link>
 
                         <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
-                          {service.desc}
+                          {service.desc || service.subtitle}
                         </p>
 
                         {/* Feature Tags */}
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          {service.tags.map((tag, i) => (
-                            <span
-                              key={i}
-                              className="text-[11px] font-bold bg-amber-50 text-[#965E0C] px-3.5 py-1 rounded-full border border-amber-200/80 shadow-2xs"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
+                        {service.tags && service.tags.length > 0 && (
+                          <div className="flex flex-wrap gap-2 pt-2">
+                            {service.tags.map((tag, i) => (
+                              <span
+                                key={i}
+                                className="text-[11px] font-bold bg-amber-50 text-[#965E0C] px-3.5 py-1 rounded-full border border-amber-200/80 shadow-2xs"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                       </div>
 
                       {/* Card Footer with CTA */}
