@@ -119,16 +119,29 @@ const Contact = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/api/contact.php', {
+      const payload = {
+        ...formData,
+        selectedFeatures,
+      };
+
+      let response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          selectedFeatures,
-        }),
+        body: JSON.stringify(payload),
       });
+
+      // Fallback to PHP endpoint if on Hostinger / Apache server where /api/contact is 404/405
+      if (response.status === 404 || response.status === 405) {
+        response = await fetch('/api/contact.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+      }
 
       const data = await response.json();
 

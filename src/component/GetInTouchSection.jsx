@@ -19,13 +19,24 @@ const GetInTouchSection = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/api/contact.php', {
+      let response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
+
+      // Fallback to PHP endpoint if on Hostinger / Apache server where /api/contact is 404/405
+      if (response.status === 404 || response.status === 405) {
+        response = await fetch('/api/contact.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+      }
 
       const data = await response.json();
 
