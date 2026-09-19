@@ -116,7 +116,7 @@ const FeatureRow = ({ mobile = false }) => (
   </div>
 );
 
-const Hero = ({ onOpenWork = () => { } }) => {
+const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef(null);
@@ -250,17 +250,16 @@ const Hero = ({ onOpenWork = () => { } }) => {
                 />
               </Link>
 
-              <button
-                type="button"
-                onClick={onOpenWork}
-                className="group inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-md border border-slate-300 bg-white px-6 text-xs sm:text-sm font-bold uppercase tracking-[0.03em] text-[#111] transition-colors duration-200 hover:border-slate-500 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 sm:min-h-14 sm:w-auto sm:px-7 cursor-pointer"
+              <Link
+                to="/gallery"
+                className="group inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-md border border-slate-300 bg-white px-6 text-xs sm:text-sm font-bold uppercase tracking-[0.03em] text-[#111] transition-colors duration-200 hover:border-slate-500 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 sm:min-h-14 sm:w-auto sm:px-7"
               >
                 See our work
                 <Play
                   size={14}
                   className="fill-current transition-transform duration-200 group-hover:translate-x-0.5"
                 />
-              </button>
+              </Link>
             </motion.div>
 
             {/* Desktop feature row */}

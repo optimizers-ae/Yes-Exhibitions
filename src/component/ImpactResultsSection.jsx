@@ -10,7 +10,7 @@ const ImpactResultsSection = () => {
       scrollHint="Scroll to explore"
       useWindowScroll
     >
-      <div className="relative z-20 flex min-h-[80svh] sm:min-h-svh w-full items-end">
+          <div className="relative z-20 flex max-h-[40vh] sm:min-h-svh w-full items-end">
         {/* Dark readability gradient */}
         <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/45 to-transparent pointer-events-none" />
 

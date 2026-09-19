@@ -36,7 +36,7 @@ const Footer = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Main Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 pb-12 sm:pb-14 border-b border-gray-200/90">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-13 gap-8 sm:gap-10 lg:gap-12 pb-12 sm:pb-14 border-b border-gray-200/90">
 
           {/* Brand Info Column - Mobile Centered */}
           <motion.div
@@ -123,7 +123,7 @@ const Footer = () => {
                 { label: 'Home', href: '/' },
                 { label: 'Contact Us', href: '/contact-us', isRoute: true },
                 { label: 'Services', href: '/#services' },
-                { label: 'Portfolio', href: '/#portfolio' },
+                { label: 'Gallery', href: '/gallery', isRoute: true },
                 { label: 'About Us', href: '/#about' },
                 { label: 'Contact', href: '/#contact' },
               ].map((l) => (
@@ -231,7 +231,7 @@ const Footer = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeUpVariants}
-            className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 space-y-4 sm:space-y-5"
+            className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3 space-y-4 sm:space-y-5"
           >
             <div>
               <h4 className="text-xs sm:text-sm font-bold text-gray-900 tracking-wider uppercase">
@@ -273,7 +273,7 @@ const Footer = () => {
                   href="mailto:info@yesexhibitionstands.com"
                   className="hover:text-gray-950 transition-colors text-gray-600 font-medium break-all"
                 >
-                  yes.exhibitions@gmail.com
+                  info@yes-exhibitions.com
                 </a>
               </li>
             </ul>
@@ -294,19 +294,19 @@ const Footer = () => {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-gray-500">
-            <a
-              href="#privacy"
+            <Link
+              to="/privacy-policy"
               className="hover:text-[#D49942] transition-colors"
             >
               Privacy Policy
-            </a>
+            </Link>
             <span className="w-1 h-1 rounded-full bg-gray-300" />
-            <a
-              href="#terms"
+            <Link
+              to="/terms-and-conditions"
               className="hover:text-[#D49942] transition-colors"
             >
-              Terms of Service
-            </a>
+              Terms & Conditions
+            </Link>
           </div>
         </motion.div>
 

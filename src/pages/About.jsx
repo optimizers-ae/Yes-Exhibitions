@@ -6,9 +6,7 @@ import AboutCapabilities from '../component/about/AboutCapabilities';
 import AboutDesignPurpose from '../component/about/AboutDesignPurpose';
 import AboutProcess from '../component/about/AboutProcess';
 import AboutStandDesign from '../component/about/AboutStandDesign';
-import AboutGallery from '../component/about/AboutGallery';
 import AboutExecution from '../component/about/AboutExecution';
-import AboutLeadership from '../component/about/AboutLeadership';
 import AboutCommitment from '../component/about/AboutCommitment';
 
 const About = () => {

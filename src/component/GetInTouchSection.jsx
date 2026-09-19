@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Mail, MapPin, Send, CheckCircle2, Navigation } from 'lucide-react';
+import { ArrowRight, Mail, MapPin, Send, CheckCircle2, Navigation, AlertCircle } from 'lucide-react';
 
 const GetInTouchSection = () => {
   const [formData, setFormData] = useState({
@@ -8,16 +8,53 @@ const GetInTouchSection = () => {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [focusedField, setFocusedField] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email) return;
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 4000);
+    setSubmitting(true);
+    setErrorMessage('');
+
+    try {
+      let response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      // Fallback to PHP endpoint if on Hostinger / Apache server where /api/contact is 404/405
+      if (response.status === 404 || response.status === 405) {
+        response = await fetch('/api/contact.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+      }
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: '', email: '', message: '' });
+        }, 5000);
+      } else {
+        setErrorMessage(data.message || 'Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMessage('Could not connect to server. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -139,15 +176,32 @@ const GetInTouchSection = () => {
                       />
                     </div>
 
+                    {errorMessage && (
+                      <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4 shrink-0 text-red-500" />
+                        <span>{errorMessage}</span>
+                      </div>
+                    )}
+
                     {/* Submit */}
                     <div className="pt-1">
                       <button
                         type="submit"
-                        className="group/btn relative w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-white font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-all cursor-pointer flex items-center justify-center gap-2 overflow-hidden shadow-lg shadow-amber-500/20"
+                        disabled={submitting}
+                        className="group/btn relative w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-white font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-all cursor-pointer flex items-center justify-center gap-2 overflow-hidden shadow-lg shadow-amber-500/20 disabled:opacity-75 disabled:cursor-not-allowed"
                       >
                         <span className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
-                        <span className="relative">Send Message</span>
-                        <Send className="relative w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                        {submitting ? (
+                          <>
+                            <div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                            <span>Sending...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="relative">Send Message</span>
+                            <Send className="relative w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                          </>
+                        )}
                       </button>
                     </div>
                   </form>

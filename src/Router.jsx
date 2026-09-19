@@ -4,12 +4,14 @@ import Contact from "./pages/Contact"
 import About from "./pages/About"
 import ServiceDetail from "./pages/ServiceDetail"
 import NotFound from "./pages/NotFound"
+import Gallery from "./pages/Gallery"
+import TermsPrivacy from "./pages/TermsPrivacy"
 
 const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      
+
       <Route path="/contact" element={<Contact />} />
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/contactus" element={<Contact />} />
@@ -30,7 +32,15 @@ const Router = () => {
       <Route path="/3d-design-visualization" element={<ServiceDetail defaultSlug="3d-design-visualization" />} />
       <Route path="/modular-exhibition-stands" element={<ServiceDetail defaultSlug="modular-exhibition-stands" />} />
 
-      {/* Not Found */}
+      <Route path="/gallery" element={<Gallery />} />
+
+      {/* Terms & Conditions & Privacy Policy */}
+      <Route path="/terms-and-conditions" element={<TermsPrivacy />} />
+      <Route path="/terms" element={<TermsPrivacy />} />
+      <Route path="/terms-and-privacy" element={<TermsPrivacy />} />
+      <Route path="/privacy-policy" element={<TermsPrivacy />} />
+      <Route path="/privacy" element={<TermsPrivacy />} />
+
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

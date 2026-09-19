@@ -23,9 +23,9 @@ import {
   Lightbulb,
   ChevronRight,
   ChevronDown,
-  MapPin
+  MapPin,
+  AlertCircle
 } from 'lucide-react';
-import Footer from '../component/Footer';
 
 const standTypes = [
   {
@@ -80,11 +80,10 @@ const featureAddons = [
   { id: 'storage', label: 'Secure Storage & Lockable Pantry', icon: ShieldCheck }
 ];
 
-
-
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
@@ -98,7 +97,6 @@ const Contact = () => {
     eventDate: '',
     eventLocation: '',
     budget: '$15k - $30k',
-    contactPreference: 'WhatsApp',
     message: ''
   });
 
@@ -115,18 +113,55 @@ const Contact = () => {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
+    setErrorMessage('');
+
+    try {
+      const payload = {
+        ...formData,
+        selectedFeatures,
+      };
+
+      let response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      // Fallback to PHP endpoint if on Hostinger / Apache server where /api/contact is 404/405
+      if (response.status === 404 || response.status === 405) {
+        response = await fetch('/api/contact.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+      }
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setErrorMessage(data.message || 'Failed to submit inquiry. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMessage('Could not connect to server. Please check your connection and try again.');
+    } finally {
       setSubmitting(false);
-      setSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 800);
+    }
   };
 
   const handleReset = () => {
     setSubmitted(false);
+    setErrorMessage('');
     setFormData({
       name: '',
       email: '',
@@ -139,7 +174,6 @@ const Contact = () => {
       eventDate: '',
       eventLocation: '',
       budget: '$15k - $30k',
-      contactPreference: 'WhatsApp',
       message: ''
     });
     setSelectedFeatures([]);
@@ -406,14 +440,14 @@ const Contact = () => {
                               type="button"
                               onClick={() => setFormData((prev) => ({ ...prev, standType: type.name }))}
                               className={`p-4 rounded-2xl border text-left transition-all duration-200 flex items-start gap-3.5 cursor-pointer ${isSelected
-                                  ? 'border-[#D49942] bg-amber-50/50 shadow-md shadow-amber-500/10 ring-2 ring-[#D49942]/20'
-                                  : 'border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50/50'
+                                ? 'border-[#D49942] bg-amber-50/50 shadow-md shadow-amber-500/10 ring-2 ring-[#D49942]/20'
+                                : 'border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50/50'
                                 }`}
                             >
                               <div
                                 className={`p-2.5 rounded-xl shrink-0 transition-colors ${isSelected
-                                    ? 'bg-[#D49942] text-white'
-                                    : 'bg-gray-100 text-gray-600'
+                                  ? 'bg-[#D49942] text-white'
+                                  : 'bg-gray-100 text-gray-600'
                                   }`}
                               >
                                 <Icon size={20} />
@@ -569,8 +603,8 @@ const Contact = () => {
                               type="button"
                               onClick={() => toggleFeature(feat.label)}
                               className={`p-3 rounded-xl border text-left flex items-center gap-2.5 text-xs font-bold transition-all cursor-pointer ${isChecked
-                                  ? 'border-[#D49942] bg-amber-50 text-gray-950 shadow-xs'
-                                  : 'border-gray-200 bg-gray-50 text-gray-700 hover:bg-white hover:border-gray-300'
+                                ? 'border-[#D49942] bg-amber-50 text-gray-950 shadow-xs'
+                                : 'border-gray-200 bg-gray-50 text-gray-700 hover:bg-white hover:border-gray-300'
                                 }`}
                             >
                               <div
@@ -601,53 +635,21 @@ const Contact = () => {
                       />
                     </div>
 
-                    {/* Preferred Response Method */}
-                    <div className="pt-2">
-                      <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
-                        Preferred Contact Method for 3D Proposal
-                      </label>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        {['WhatsApp', 'Email', 'Phone Call'].map((method) => {
-                          const isSelected = formData.contactPreference === method;
-                          return (
-                            <label
-                              key={method}
-                              className={`flex items-center gap-3 px-4 py-3 rounded-xl border text-xs font-bold cursor-pointer transition-all duration-200 ${
-                                isSelected
-                                  ? 'border-[#D49942] bg-gradient-to-r from-amber-50/90 to-orange-50/50 text-[#965e0f] ring-2 ring-[#D49942]/30 shadow-sm'
-                                  : 'border-gray-200 bg-gray-50/70 text-gray-700 hover:border-amber-300/80 hover:bg-amber-50/30'
-                              }`}
-                            >
-                              {/* Custom Gold Radio Circle */}
-                              <div
-                                className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${
-                                  isSelected
-                                    ? 'border-[#D49942] bg-white'
-                                    : 'border-gray-300 bg-white'
-                                }`}
-                              >
-                                {isSelected && (
-                                  <div className="w-2 h-2 rounded-full bg-gradient-to-tr from-[#C78326] to-[#E6AA4D]" />
-                                )}
-                              </div>
-                              <input
-                                type="radio"
-                                name="contactPreference"
-                                value={method}
-                                checked={isSelected}
-                                onChange={handleChange}
-                                className="sr-only"
-                              />
-                              <span className="leading-none">{method}</span>
-                            </label>
-                          );
-                        })}
-                      </div>
-                    </div>
+                 
                   </div>
 
                   {/* Submit Button */}
-                  <div className="pt-4 border-t border-gray-100">
+                  <div className="pt-4 border-t border-gray-100 space-y-4">
+                    {errorMessage && (
+                      <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 shrink-0 text-red-500 mt-0.5" />
+                        <div className="flex-1">
+                          <strong className="block font-bold">Submission Notice:</strong>
+                          <span>{errorMessage}</span>
+                        </div>
+                      </div>
+                    )}
+
                     <button
                       type="submit"
                       disabled={submitting}
