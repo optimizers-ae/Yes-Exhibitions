@@ -87,7 +87,9 @@ const AboutProcess = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="pr-0 lg:pr-4"
+              className="pr-0 lg:pr-4 
+                flex flex-col items-center text-center
+                lg:items-start lg:text-left"
             >
               {/* Eyebrow Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D49942]/10 border border-[#D49942]/20 mb-6">
@@ -98,7 +100,7 @@ const AboutProcess = () => {
               </div>
 
               {/* Main Heading */}
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-gray-900 leading-[1.12]">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-gray-900 leading-[1.12] text-center lg:text-left">
                 From a <br className="hidden sm:inline" />
                 Single <br className="hidden sm:inline" />
                 Client to a <br className="hidden sm:inline" />
@@ -111,7 +113,11 @@ const AboutProcess = () => {
               </h2>
 
               {/* Description Paragraph with Accent Border */}
-              <p className="text-gray-600 text-base sm:text-lg mt-6 leading-relaxed max-w-md border-l-2 border-[#D49942] pl-4 py-0.5">
+              <p className="text-gray-600 text-base sm:text-lg mt-6 leading-relaxed max-w-md 
+                border-l-0 lg:border-l-2 border-[#D49942] 
+                pl-0 lg:pl-4 py-0.5
+                text-center lg:text-left"
+              >
                 Every milestone in our journey was driven by one thing: client results that speak for themselves.
               </p>
             </motion.div>

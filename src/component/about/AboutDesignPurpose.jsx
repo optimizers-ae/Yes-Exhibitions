@@ -107,35 +107,47 @@ const AboutDesignPurpose = () => {
             whileInView="visible"
             viewport={{ once: true, margin: '-50px' }}
             variants={staggerContainer}
-            className="lg:col-span-7 order-1 lg:order-2 space-y-8"
+            className="lg:col-span-7 order-1 lg:order-2 space-y-8 
+              text-center items-center
+              lg:text-left lg:items-start
+              flex flex-col"
           >
-            <motion.div variants={fadeInUp} className="space-y-3">
-              <div className="flex items-center gap-3">
+            <motion.div 
+              variants={fadeInUp} 
+              className="space-y-3 flex flex-col items-center lg:items-start w-full"
+            >
+              <div className="flex items-center gap-3 justify-center lg:justify-start">
                 <span className="h-px w-10 bg-[#D49942]" />
                 <span className="text-xs font-extrabold tracking-[0.25em] text-[#D49942] uppercase">
                   DESIGN APPROACH
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-gray-950 leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-gray-950 leading-tight text-center lg:text-left">
                 DESIGN WITH <span className="text-[#D49942]">PURPOSE</span>
               </h2>
-              <div className="text-sm sm:text-base font-bold text-gray-500 tracking-wider uppercase">
+              <div className="text-sm sm:text-base font-bold text-gray-500 tracking-wider uppercase text-center lg:text-left">
                 VISUAL IMPACT + PRACTICAL EXPERIENCE
               </div>
             </motion.div>
 
-            <motion.p variants={fadeInUp} className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl">
+            <motion.p 
+              variants={fadeInUp} 
+              className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl text-center lg:text-left"
+            >
               An exhibition stand should do more than look impressive. It should tell your story, make your brand recognizable, guide visitors naturally through the space, and create an environment where meaningful conversations and commercial partnerships happen.
             </motion.p>
 
             {/* 4 Pillars Grid — numbered editorial style */}
-            <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <motion.div 
+              variants={fadeInUp} 
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full"
+            >
               {designFactors.map((f, idx) => {
                 const Icon = f.icon;
                 return (
                   <div
                     key={idx}
-                    className="relative p-5 rounded-2xl bg-white border border-gray-200/90 hover:border-[#D49942] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group overflow-hidden"
+                    className="relative p-5 rounded-2xl bg-white border border-gray-200/90 hover:border-[#D49942] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group overflow-hidden text-left"
                   >
                     {/* subtle gold corner glow */}
                     <div className="absolute -top-10 -right-10 w-24 h-24 bg-[#D49942]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

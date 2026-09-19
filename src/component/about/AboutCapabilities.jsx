@@ -106,9 +106,14 @@ const AboutCapabilities = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 sm:mb-16"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 sm:mb-16 
+            text-center items-center
+            md:text-left md:items-end"
         >
-          <motion.div variants={headerVariants}>
+          <motion.div 
+            variants={headerVariants}
+            className="flex flex-col items-center md:items-start w-full md:w-auto"
+          >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -123,7 +128,7 @@ const AboutCapabilities = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-gray-950"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-gray-950 text-center md:text-left"
             >
               WHAT WE DO
             </motion.h2>
@@ -132,7 +137,7 @@ const AboutCapabilities = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-sm sm:text-base text-[#D49942] font-bold uppercase tracking-wider mt-1"
+              className="text-sm sm:text-base text-[#D49942] font-bold uppercase tracking-wider mt-1 text-center md:text-left"
             >
               FROM CONCEPT TO COMPLETION
             </motion.p>
@@ -143,6 +148,7 @@ const AboutCapabilities = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.35 }}
+            className="flex justify-center md:justify-start w-full md:w-auto"
           >
             <Link
               to="/contact-us"
