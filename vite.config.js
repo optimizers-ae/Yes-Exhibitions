@@ -8,7 +8,7 @@ function apiDevPlugin() {
     name: 'api-dev-server',
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
-        if (req.url === '/api/contact' && req.method === 'POST') {
+        if ((req.url === '/api/contact' || req.url === '/api/contact.php') && req.method === 'POST') {
           let body = ''
           req.on('data', (chunk) => {
             body += chunk

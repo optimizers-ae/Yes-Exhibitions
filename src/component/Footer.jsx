@@ -294,19 +294,19 @@ const Footer = () => {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-gray-500">
-            <a
-              href="#privacy"
+            <Link
+              to="/privacy-policy"
               className="hover:text-[#D49942] transition-colors"
             >
               Privacy Policy
-            </a>
+            </Link>
             <span className="w-1 h-1 rounded-full bg-gray-300" />
-            <a
-              href="#terms"
+            <Link
+              to="/terms-and-conditions"
               className="hover:text-[#D49942] transition-colors"
             >
-              Terms of Service
-            </a>
+              Terms & Conditions
+            </Link>
           </div>
         </motion.div>
 

@@ -4,6 +4,7 @@ import Contact from "./pages/Contact"
 import About from "./pages/About"
 import NotFound from "./pages/NotFound"
 import Gallery from "./pages/Gallery"
+import TermsPrivacy from "./pages/TermsPrivacy"
 
 const Router = () => {
   return (
@@ -19,6 +20,13 @@ const Router = () => {
       <Route path="/aboutus" element={<About />} />
 
       <Route path="/gallery" element={<Gallery />} />
+
+      {/* Terms & Conditions & Privacy Policy */}
+      <Route path="/terms-and-conditions" element={<TermsPrivacy />} />
+      <Route path="/terms" element={<TermsPrivacy />} />
+      <Route path="/terms-and-privacy" element={<TermsPrivacy />} />
+      <Route path="/privacy-policy" element={<TermsPrivacy />} />
+      <Route path="/privacy" element={<TermsPrivacy />} />
 
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<NotFound />} />
