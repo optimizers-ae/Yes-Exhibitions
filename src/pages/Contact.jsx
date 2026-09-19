@@ -23,7 +23,8 @@ import {
   Lightbulb,
   ChevronRight,
   ChevronDown,
-  MapPin
+  MapPin,
+  AlertCircle
 } from 'lucide-react';
 
 const standTypes = [
@@ -79,11 +80,10 @@ const featureAddons = [
   { id: 'storage', label: 'Secure Storage & Lockable Pantry', icon: ShieldCheck }
 ];
 
-
-
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
@@ -113,18 +113,42 @@ const Contact = () => {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          selectedFeatures,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setErrorMessage(data.message || 'Failed to submit inquiry. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMessage('Could not connect to server. Please check your connection and try again.');
+    } finally {
       setSubmitting(false);
-      setSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 800);
+    }
   };
 
   const handleReset = () => {
     setSubmitted(false);
+    setErrorMessage('');
     setFormData({
       name: '',
       email: '',
@@ -602,7 +626,17 @@ const Contact = () => {
                   </div>
 
                   {/* Submit Button */}
-                  <div className="pt-4 border-t border-gray-100">
+                  <div className="pt-4 border-t border-gray-100 space-y-4">
+                    {errorMessage && (
+                      <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 shrink-0 text-red-500 mt-0.5" />
+                        <div className="flex-1">
+                          <strong className="block font-bold">Submission Notice:</strong>
+                          <span>{errorMessage}</span>
+                        </div>
+                      </div>
+                    )}
+
                     <button
                       type="submit"
                       disabled={submitting}
