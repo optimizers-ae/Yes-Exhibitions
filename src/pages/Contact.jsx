@@ -97,7 +97,6 @@ const Contact = () => {
     eventDate: '',
     eventLocation: '',
     budget: '$15k - $30k',
-    contactPreference: 'WhatsApp',
     message: ''
   });
 
@@ -138,7 +137,6 @@ const Contact = () => {
       eventDate: '',
       eventLocation: '',
       budget: '$15k - $30k',
-      contactPreference: 'WhatsApp',
       message: ''
     });
     setSelectedFeatures([]);
@@ -600,47 +598,7 @@ const Contact = () => {
                       />
                     </div>
 
-                    {/* Preferred Response Method */}
-                    <div className="pt-2">
-                      <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
-                        Preferred Contact Method for 3D Proposal
-                      </label>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        {['WhatsApp', 'Email', 'Phone Call'].map((method) => {
-                          const isSelected = formData.contactPreference === method;
-                          return (
-                            <label
-                              key={method}
-                              className={`flex items-center gap-3 px-4 py-3 rounded-xl border text-xs font-bold cursor-pointer transition-all duration-200 ${isSelected
-                                  ? 'border-[#D49942] bg-gradient-to-r from-amber-50/90 to-orange-50/50 text-[#965e0f] ring-2 ring-[#D49942]/30 shadow-sm'
-                                  : 'border-gray-200 bg-gray-50/70 text-gray-700 hover:border-amber-300/80 hover:bg-amber-50/30'
-                                }`}
-                            >
-                              {/* Custom Gold Radio Circle */}
-                              <div
-                                className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${isSelected
-                                    ? 'border-[#D49942] bg-white'
-                                    : 'border-gray-300 bg-white'
-                                  }`}
-                              >
-                                {isSelected && (
-                                  <div className="w-2 h-2 rounded-full bg-gradient-to-tr from-[#C78326] to-[#E6AA4D]" />
-                                )}
-                              </div>
-                              <input
-                                type="radio"
-                                name="contactPreference"
-                                value={method}
-                                checked={isSelected}
-                                onChange={handleChange}
-                                className="sr-only"
-                              />
-                              <span className="leading-none">{method}</span>
-                            </label>
-                          );
-                        })}
-                      </div>
-                    </div>
+                 
                   </div>
 
                   {/* Submit Button */}
