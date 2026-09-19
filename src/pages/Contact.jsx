@@ -114,42 +114,14 @@ const Contact = () => {
     );
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitting(true);
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          message: `Stand Type: ${formData.standType} | Size: ${formData.standSize} | Budget: ${formData.budget} | Event: ${formData.eventName || 'N/A'} (${formData.eventDate || 'N/A'}, ${formData.eventLocation || 'N/A'}) | Features: ${selectedFeatures.join(', ') || 'None'} | Message: ${formData.message || 'N/A'}`,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setSubmitted(true);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        // If API fails or in static dev mode
-        setSubmitted(true);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    } catch (error) {
-      console.error('Contact submission error:', error);
+    setTimeout(() => {
+      setSubmitting(false);
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } finally {
-      setSubmitting(false);
-    }
+    }, 800);
   };
 
   const handleReset = () => {
@@ -433,14 +405,14 @@ const Contact = () => {
                               type="button"
                               onClick={() => setFormData((prev) => ({ ...prev, standType: type.name }))}
                               className={`p-4 rounded-2xl border text-left transition-all duration-200 flex items-start gap-3.5 cursor-pointer ${isSelected
-                                  ? 'border-[#D49942] bg-amber-50/50 shadow-md shadow-amber-500/10 ring-2 ring-[#D49942]/20'
-                                  : 'border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50/50'
+                                ? 'border-[#D49942] bg-amber-50/50 shadow-md shadow-amber-500/10 ring-2 ring-[#D49942]/20'
+                                : 'border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50/50'
                                 }`}
                             >
                               <div
                                 className={`p-2.5 rounded-xl shrink-0 transition-colors ${isSelected
-                                    ? 'bg-[#D49942] text-white'
-                                    : 'bg-gray-100 text-gray-600'
+                                  ? 'bg-[#D49942] text-white'
+                                  : 'bg-gray-100 text-gray-600'
                                   }`}
                               >
                                 <Icon size={20} />
@@ -596,8 +568,8 @@ const Contact = () => {
                               type="button"
                               onClick={() => toggleFeature(feat.label)}
                               className={`p-3 rounded-xl border text-left flex items-center gap-2.5 text-xs font-bold transition-all cursor-pointer ${isChecked
-                                  ? 'border-[#D49942] bg-amber-50 text-gray-950 shadow-xs'
-                                  : 'border-gray-200 bg-gray-50 text-gray-700 hover:bg-white hover:border-gray-300'
+                                ? 'border-[#D49942] bg-amber-50 text-gray-950 shadow-xs'
+                                : 'border-gray-200 bg-gray-50 text-gray-700 hover:bg-white hover:border-gray-300'
                                 }`}
                             >
                               <div
@@ -639,19 +611,17 @@ const Contact = () => {
                           return (
                             <label
                               key={method}
-                              className={`flex items-center gap-3 px-4 py-3 rounded-xl border text-xs font-bold cursor-pointer transition-all duration-200 ${
-                                isSelected
+                              className={`flex items-center gap-3 px-4 py-3 rounded-xl border text-xs font-bold cursor-pointer transition-all duration-200 ${isSelected
                                   ? 'border-[#D49942] bg-gradient-to-r from-amber-50/90 to-orange-50/50 text-[#965e0f] ring-2 ring-[#D49942]/30 shadow-sm'
                                   : 'border-gray-200 bg-gray-50/70 text-gray-700 hover:border-amber-300/80 hover:bg-amber-50/30'
-                              }`}
+                                }`}
                             >
                               {/* Custom Gold Radio Circle */}
                               <div
-                                className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${
-                                  isSelected
+                                className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${isSelected
                                     ? 'border-[#D49942] bg-white'
                                     : 'border-gray-300 bg-white'
-                                }`}
+                                  }`}
                               >
                                 {isSelected && (
                                   <div className="w-2 h-2 rounded-full bg-gradient-to-tr from-[#C78326] to-[#E6AA4D]" />
