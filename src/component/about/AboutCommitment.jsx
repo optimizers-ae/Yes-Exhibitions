@@ -5,7 +5,7 @@ const AboutCommitment = () => {
   return (
     <section className="py-20 sm:py-28 bg-gradient-to-b from-[#FAFAFA] via-amber-50/25 to-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Commitment Heading (Slide 15) */}
         <div className="max-w-4xl mx-auto text-center space-y-5 mb-16">
           <span className="text-xs font-extrabold tracking-[0.25em] text-[#D49942] uppercase block">
@@ -35,7 +35,7 @@ const AboutCommitment = () => {
           <div className="absolute top-0 right-0 w-80 h-80 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
-            
+
             <div className="lg:col-span-7 space-y-4">
               <span className="text-xs font-extrabold tracking-[0.2em] text-[#D49942] uppercase block">
                 LET'S CREATE
@@ -57,11 +57,11 @@ const AboutCommitment = () => {
                   <span>+971 55 594 0879</span>
                 </a>
                 <a
-                  href="mailto:yes.exhibitions@gmail.com"
+                  href="mailto:info@yes-exhibitions.com"
                   className="p-3.5 rounded-xl bg-gray-50 hover:bg-amber-50/70 border border-gray-200/80 hover:border-amber-300 flex items-center gap-3 transition-colors text-gray-900 font-bold"
                 >
                   <Mail size={16} className="text-[#D49942]" />
-                  <span>yes.exhibitions@gmail.com</span>
+                  <span>info@yes-exhibitions.com</span>
                 </a>
                 <div className="p-3.5 rounded-xl bg-gray-50 border border-gray-200/80 flex items-center gap-3 text-gray-700 font-medium">
                   <MapPin size={16} className="text-[#D49942]" />

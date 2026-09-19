@@ -3,12 +3,13 @@ import Home from "./pages/Home"
 import Contact from "./pages/Contact"
 import About from "./pages/About"
 import NotFound from "./pages/NotFound"
+import Gallery from "./pages/Gallery"
 
 const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      
+
       <Route path="/contact" element={<Contact />} />
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/contactus" element={<Contact />} />
@@ -17,7 +18,8 @@ const Router = () => {
       <Route path="/about-us" element={<About />} />
       <Route path="/aboutus" element={<About />} />
 
-      {/* Not Found */}
+      <Route path="/gallery" element={<Gallery />} />
+
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

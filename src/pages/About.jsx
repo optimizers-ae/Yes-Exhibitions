@@ -6,9 +6,7 @@ import AboutCapabilities from '../component/about/AboutCapabilities';
 import AboutDesignPurpose from '../component/about/AboutDesignPurpose';
 import AboutProcess from '../component/about/AboutProcess';
 import AboutStandDesign from '../component/about/AboutStandDesign';
-import AboutGallery from '../component/about/AboutGallery';
 import AboutExecution from '../component/about/AboutExecution';
-import AboutLeadership from '../component/about/AboutLeadership';
 import AboutCommitment from '../component/about/AboutCommitment';
 
 const About = () => {
@@ -40,13 +38,10 @@ const About = () => {
       {/* 7. Stand Design Concepts & Spaces (Slide 07 & Slide 09) */}
       <AboutStandDesign />
 
-      {/* 8. Selected Concepts: Stand Gallery (Slide 08) */}
-      <AboutGallery />
-
-      {/* 9. Quality & Execution: From 3D to Reality (Slide 10) */}
+      {/* 8. Quality & Execution: From 3D to Reality (Slide 10) */}
       <AboutExecution />
 
-      {/* 10. Our Commitment & CTA (Slide 15 & Slide 16) */}
+      {/* 9. Our Commitment & CTA (Slide 15 & Slide 16) */}
       <AboutCommitment />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, ChevronDown, Menu, X, Building2, Layers, Globe, Shield } from 'lucide-react';
 import logoImg from '../assets/logo.jpeg';
@@ -33,6 +33,7 @@ const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
+  const isGalleryPage = location.pathname.startsWith('/gallery');
   const isAboutPage = location.pathname.startsWith('/about');
   const isContactPage = location.pathname.startsWith('/contact');
 
@@ -155,10 +156,16 @@ const Navbar = () => {
             </div>
 
             <Link
-              to="/#portfolio"
-              className="text-sm font-semibold text-gray-700 hover:text-[#D49942] transition-colors py-1"
+              to="/gallery"
+              className={`relative text-sm font-semibold transition-colors py-1 ${
+                isGalleryPage ? 'text-[#D49942] font-bold' : 'text-gray-700 hover:text-[#D49942]'
+              }`}
+              aria-current={isGalleryPage ? 'page' : undefined}
             >
-              Portfolio
+              Gallery
+              {isGalleryPage && (
+                <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#D49942] rounded-full"></span>
+              )}
             </Link>
 
             <Link
@@ -240,11 +247,13 @@ const Navbar = () => {
                 Services
               </Link>
               <Link
-                to="/#portfolio"
+                to="/gallery"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-800 font-semibold text-sm"
+                className={`px-3 py-2 rounded-lg font-semibold text-sm ${
+                  isGalleryPage ? 'bg-amber-50 text-[#D49942] font-bold' : 'text-gray-800 hover:bg-gray-50'
+                }`}
               >
-                Portfolio
+                Gallery
               </Link>
               <Link
                 to="/about"

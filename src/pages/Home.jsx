@@ -1,15 +1,11 @@
-import { useState } from 'react';
 import Hero from '../component/Hero';
 import AboutSection from '../component/AboutSection';
 import ServicesSection from '../component/ServicesSection';
 import ImpactResultsSection from '../component/ImpactResultsSection';
 import Faq from '../component/Faq';
 import GetInTouchSection from '../component/GetInTouchSection';
-import WorkModal from '../component/WorkModal';
 
 const Home = () => {
-  const [isWorkOpen, setIsWorkOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sansation relative flex flex-col selection:bg-[#D49942]/30 selection:text-gray-950">
       {/* Skip to main content for accessibility */}
@@ -23,7 +19,7 @@ const Home = () => {
       
       {/* Main Content Area */}
       <main id="main-content" className="flex-1 w-full" role="main">
-        <Hero onOpenWork={() => setIsWorkOpen(true)} />
+        <Hero />
 
         {/* About Section */}
         <AboutSection />
@@ -40,13 +36,6 @@ const Home = () => {
         {/* Get In Touch & Map Section */}
         <GetInTouchSection />
       </main>
-
-      
-      {/* Work Portfolio Modal */}
-      <WorkModal
-        isOpen={isWorkOpen}
-        onClose={() => setIsWorkOpen(false)}
-      />
     </div>
   );
 };

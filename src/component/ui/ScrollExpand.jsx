@@ -111,13 +111,31 @@ const ScrollExpand = ({
 
         const measure = () => {
             const c = propsRef.current;
-            stageH = c.useWindowScroll ? window.innerHeight : root.clientHeight;
+
+            const isMobile = window.innerWidth < 640;
+
+            if (c.useWindowScroll) {
+                stageH = isMobile
+                    ? window.innerHeight * 0.65
+                    : window.innerHeight;
+            } else {
+                stageH = root.clientHeight;
+            }
+
             if (stageH <= 0) return;
+
             stage.style.height = `${stageH}px`;
-            track.style.height = `${stageH * (1 + Math.max(0, c.scrollDistance) + Math.max(0, c.holdDistance))}px`;
+
+            track.style.height = `${stageH *
+                (1 + Math.max(0, c.scrollDistance) + Math.max(0, c.holdDistance))
+                }px`;
 
             const w = root.clientWidth || stageH;
-            stage.style.setProperty('--se-title-size', `${clamp(w * 0.075, 20, 84)}px`);
+
+            stage.style.setProperty(
+                '--se-title-size',
+                `${clamp(w * 0.075, 20, 84)}px`
+            );
         };
 
         const readProgress = () => {
