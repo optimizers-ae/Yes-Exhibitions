@@ -7,22 +7,26 @@ const services = [
   {
     title: 'Custom Exhibition Stands',
     desc: 'Bespoke stand architecture tailored to your brand identity',
-    icon: Building2
+    icon: Building2,
+    path: '/services/custom-exhibition-stands'
   },
   {
     title: 'Double Decker Stands',
     desc: 'Two-story exhibition structures for maximum presence',
-    icon: Layers
+    icon: Layers,
+    path: '/services/double-decker-stands'
   },
   {
     title: 'Country & Trade Pavilions',
     desc: 'National pavilions and large-scale group exhibition spaces',
-    icon: Globe
+    icon: Globe,
+    path: '/services/country-trade-pavilions'
   },
   {
     title: 'Turnkey Project Management',
     desc: '3D design, engineering, approvals, fabrication & on-site build',
-    icon: Shield
+    icon: Shield,
+    path: '/services/turnkey-project-management'
   }
 ];
 
@@ -131,7 +135,7 @@ const Navbar = () => {
                       return (
                         <Link
                           key={idx}
-                          to="/#services"
+                          to={item.path || "/#services"}
                           onClick={() => setServicesDropdownOpen(false)}
                           className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-amber-50/70 transition-colors group"
                         >

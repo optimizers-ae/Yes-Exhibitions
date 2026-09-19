@@ -36,18 +36,7 @@ const About = () => {
 
       {/* 6. Our Process: From Idea to Impact (Slide 06) */}
       <AboutProcess />
-
-      {/* 7. Stand Design Concepts & Spaces (Slide 07 & Slide 09) */}
-      <AboutStandDesign />
-
-      {/* 8. Selected Concepts: Stand Gallery (Slide 08) */}
-      <AboutGallery />
-
-      {/* 9. Quality & Execution: From 3D to Reality (Slide 10) */}
-      <AboutExecution />
-
-      {/* 10. Our Commitment & CTA (Slide 15 & Slide 16) */}
-      <AboutCommitment />
+        
     </div>
   );
 };

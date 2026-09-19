@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Target, Lightbulb, Compass, ShieldCheck } from 'lucide-react';
-import aboutBannerImg from '../../assets/about_banner.png';
+import aboutBannerImg from '../../assets/AboutBanner.jpeg';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 22 },
@@ -51,104 +51,88 @@ const pillars = [
 
 const AboutWhoWeAre = () => {
   return (
-    <section id="who-we-are" className="py-20 sm:py-28 bg-white relative overflow-hidden border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          {/* Left Column: Story & 4 Pillars */}
+    <section
+      id="who-we-are"
+      className="relative bg-[#fcfbf9] overflow-hidden border-b border-gray-100"
+    >
+      {/* Giant Background Watermark - Now in Golden Tone */}
+      {/* <div className="absolute inset-x-0 top-0 pointer-events-none select-none overflow-hidden">
+        <span className="block text-center text-[22vw] sm:text-[18vw] lg:text-[14vw] font-black leading-none text-[#D49942]/5 tracking-tighter whitespace-nowrap">
+          WHO WE ARE
+        </span>
+      </div> */}
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+
+        {/* ============ TOP: LIGHT GOLDEN FEATURE PANEL ============ */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden border border-[#D49942]/20 shadow-xl bg-white mb-16 lg:mb-24"
+        >
+          {/* Image side */}
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-            variants={staggerContainer}
-            className="lg:col-span-7 space-y-8"
+            variants={fadeInUp}
+            className="lg:col-span-5 relative min-h-[320px] sm:min-h-[420px] lg:min-h-full"
           >
-            <motion.div variants={fadeInUp} className="space-y-2">
-              <span className="text-xs font-extrabold tracking-[0.25em] text-[#D49942] uppercase block">
-                YES EXHIBITION STANDS
+            <img
+              src={aboutBannerImg}
+              alt="YES Exhibition Booth - Creative Thinking & Practical Execution"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+            {/* Light golden gradient overlay instead of black */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#D49942]/20 via-transparent to-white/80 lg:bg-gradient-to-r lg:from-[#D49942]/10 lg:to-white" />
+
+            {/* Corner accent badge - THEME COLOR MATCHED */}
+            <div className="absolute top-6 left-6 flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-full border border-[#D49942]/30 shadow-lg">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D49942] via-[#D49942] to-[#B2771D] text-white flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+              <span className="text-[10px] font-extrabold tracking-widest text-gray-900 uppercase">
+                PRECISE CRAFTSMANSHIP
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-gray-950 uppercase leading-tight">
-                WHO WE ARE
+            </div>
+          </motion.div>
+
+          {/* Text side - Now light theme */}
+          <motion.div
+            variants={fadeInUp}
+            className="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6 bg-white"
+          >
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                {/* THEME COLOR */}
+                <span className="w-8 h-px bg-[#D49942]" />
+                <span className="text-[11px] font-extrabold tracking-[0.25em] text-[#D49942] uppercase">
+                  YES EXHIBITION STANDS
+                </span>
+              </div>
+
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 uppercase leading-[0.95]">
+                WHO
+                <br />
+                {/* THEME COLOR */}
+                <span className="text-[#D49942]">WE ARE</span>
               </h2>
-              <div className="text-sm sm:text-base font-bold text-[#D49942] tracking-wider uppercase">
+
+              <div className="text-xs sm:text-sm font-bold text-gray-500 tracking-[0.2em] uppercase pt-1">
                 CREATIVE THINKING. PRACTICAL EXECUTION.
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeInUp} className="space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed">
+            <div className="space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed max-w-xl">
               <p>
-                <strong className="text-gray-950 font-bold">YES Exhibition Stands</strong> is an exhibition stand design and execution company focused on creating distinctive, high-impact environments for brands participating in exhibitions, trade shows, and business events across the UAE and globally.
+                <strong className="text-gray-900 font-bold">YES Exhibition Stands</strong> is an exhibition stand design and execution company focused on creating distinctive, high-impact environments for brands participating in exhibitions, trade shows, and business events across the UAE and globally.
               </p>
               <p>
                 We combine creative design, practical thinking, and professional execution to transform ideas into exhibition spaces that represent the character, stature, and commercial ambition of each brand.
               </p>
-            </motion.div>
-
-            {/* 4 Core Pillars Grid */}
-            <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              {pillars.map((p, idx) => {
-                const Icon = p.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="p-5 rounded-2xl bg-gradient-to-br from-white to-amber-50/20 border border-gray-200/90 shadow-xs hover:border-[#D49942] hover:shadow-md transition-all duration-300 group"
-                  >
-                    <div className="flex items-center gap-3 mb-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-amber-50 text-[#D49942] border border-amber-200/70 flex items-center justify-center font-bold text-xs group-hover:bg-[#D49942] group-hover:text-white transition-colors">
-                        <Icon size={16} />
-                      </div>
-                      <h4 className="text-xs sm:text-sm font-extrabold uppercase tracking-wide text-gray-950 group-hover:text-[#B2771D] transition-colors">
-                        {p.title}
-                      </h4>
-                    </div>
-                    <p className="text-xs text-gray-600 leading-relaxed">
-                      {p.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column: Visual Showcase Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 relative"
-          >
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 group bg-white">
-              <img
-                src={aboutBannerImg}
-                alt="YES Exhibition Booth - Creative Thinking & Practical Execution"
-                className="w-full h-[480px] sm:h-[580px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-
-              {/* Floating "PRECISE" Badge */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-white/80 shadow-xl">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#E6AA4D] via-[#DF9B34] to-[#C78326] text-white flex items-center justify-center shadow-md shrink-0">
-                    <ShieldCheck className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-extrabold tracking-widest text-[#D49942] uppercase block">
-                      PRECISE CRAFTSMANSHIP
-                    </span>
-                    <h4 className="text-sm font-bold text-gray-950 leading-tight">
-                      Attention to Detail in Every Element
-                    </h4>
-                    <p className="text-[11px] text-gray-500 mt-0.5">
-                      Turning approved concepts into exceptional real-life exhibition spaces.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </motion.div>
+        </motion.div>
 
-        </div>
       </div>
     </section>
   );

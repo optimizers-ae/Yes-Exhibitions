@@ -1,60 +1,74 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Building2, Globe, Layers, LayoutGrid, Monitor, ShieldCheck, Sparkles } from 'lucide-react';
 
+// Import local hero & showcase images from assets
+import hero1 from '../assets/hero_1.png';
+import hero2 from '../assets/hero_2.png';
+import hero3 from '../assets/hero_3.png';
+import aboutBannerJpg from '../assets/AboutBanner.jpeg';
+import aboutBannerPng from '../assets/about_banner.png';
+
 const servicesList = [
   {
     id: '01',
+    slug: 'custom-exhibition-stands',
     title: 'Custom Exhibition Stands',
     category: 'Bespoke Stand Design',
     desc: 'Custom-designed exhibition stands created around your brand, objectives, space, and visitor experience — from concept to final build.',
     icon: Building2,
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
+    image: hero1,
     tags: ['Custom Design', 'Branding', 'Lighting', 'Turnkey Build']
   },
   {
     id: '02',
+    slug: 'double-decker-stands',
     title: 'Double Decker Stands',
     category: 'Multi-Level Exhibition',
     desc: 'Striking two-level exhibition stands designed to maximize your floor space while providing dedicated areas for meetings, hospitality, and brand engagement.',
     icon: Layers,
-    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80',
+    image: hero2,
     tags: ['Two-Level Design', 'Meeting Areas', 'Hospitality', 'Space Optimization']
   },
   {
     id: '03',
+    slug: 'country-trade-pavilions',
     title: 'Country & Trade Pavilions',
     category: 'Large-Scale Exhibition',
     desc: 'Large-scale pavilion solutions designed to bring multiple brands, organizations, or exhibitors together within a cohesive and impactful exhibition environment.',
     icon: Globe,
-    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80',
+    image: hero3,
     tags: ['Trade Pavilions', 'Multi-Exhibitor', 'Brand Integration', 'Turnkey Delivery']
   },
   {
     id: '04',
+    slug: 'turnkey-project-management',
     title: 'Turnkey Exhibition Solutions',
     category: 'End-to-End Service',
     desc: 'A complete exhibition journey covering stand design, planning, fabrication, logistics, installation, on-site coordination, and final handover.',
     icon: ShieldCheck,
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
+    image: aboutBannerJpg,
     tags: ['Project Management', 'Fabrication', 'Installation', 'Final Handover']
   },
   {
     id: '05',
+    slug: '3d-design-visualization',
     title: '3D Design & Visualization',
     category: 'Creative & Visualization',
     desc: 'Detailed 3D concepts and visualizations that allow you to preview your exhibition stand, refine the design, and approve the final vision before production.',
     icon: Monitor,
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    image: hero1,
     tags: ['3D Concepts', 'Visualizations', 'CAD Design', 'Design Approval']
   },
   {
     id: '06',
+    slug: 'modular-exhibition-stands',
     title: 'Modular Exhibition Stands',
     category: 'Flexible Exhibition Solutions',
     desc: 'Flexible modular stand systems designed for brands looking for practical, adaptable, and efficient exhibition solutions across different events and locations.',
     icon: LayoutGrid,
-    image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80',
+    image: aboutBannerPng,
     tags: ['Modular Systems', 'Reusable Design', 'Flexible Layouts', 'Easy Installation']
   }
 ];
@@ -95,7 +109,8 @@ const ServicesSection = () => {
             Elevate Your Brand With <span className="gold-gradient-text">Bespoke Excellence</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
-From creative stand design and 3D visualization to fabrication, installation, and complete turnkey delivery, we provide end-to-end exhibition solutions designed to make your brand stand out.          </p>
+            From creative stand design and 3D visualization to fabrication, installation, and complete turnkey delivery, we provide end-to-end exhibition solutions designed to make your brand stand out.
+          </p>
         </motion.div>
 
         {/* Card Stacking Container */}
@@ -114,18 +129,17 @@ From creative stand design and 3D visualization to fabrication, installation, an
                 }}
                 className="sticky mb-16 sm:mb-24 last:mb-0"
               >
-                <div className="bg-white rounded-3xl border border-gray-200/90 shadow-[0_15px_50px_rgba(0,0,0,0.10)] hover:shadow-[0_25px_65px_rgba(212,153,66,0.22)] transition-all duration-300 overflow-hidden">
+                <div className="bg-white rounded-3xl border border-gray-200/90 shadow-[0_15px_50px_rgba(0,0,0,0.10)] hover:shadow-[0_25px_65px_rgba(212,153,66,0.22)] transition-all duration-300 overflow-hidden group">
 
                   {/* Top Subtle Gold Accent Line */}
                   <div className="h-2 w-full bg-gradient-to-r from-amber-300 via-[#D49942] to-amber-500" />
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
 
-                    {/* Left Side: Image Showcase */}
-                    <div
-                      data-cursor="view"
-                      data-cursor-text="STAND"
-                      className="lg:col-span-6 relative h-64 sm:h-80 lg:h-full min-h-[280px] sm:min-h-[380px] bg-gray-950 overflow-hidden group cursor-pointer"
+                    {/* Left Side: Clickable Image Showcase */}
+                    <Link
+                      to={`/services/${service.slug}`}
+                      className="lg:col-span-6 relative h-64 sm:h-80 lg:h-full min-h-[280px] sm:min-h-[380px] bg-gray-950 overflow-hidden block cursor-pointer"
                     >
                       <img
                         src={service.image}
@@ -153,7 +167,7 @@ From creative stand design and 3D visualization to fabrication, installation, an
                       <div className="absolute bottom-5 left-5 w-13 h-13 rounded-2xl bg-gradient-to-br from-[#1E1E1E] to-[#0A0A0A] border-2 border-[#D49942] text-[#E6AA4D] flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                         <Icon className="w-6 h-6" />
                       </div>
-                    </div>
+                    </Link>
 
                     {/* Right Side: Content & Actions */}
                     <div className="lg:col-span-6 p-7 sm:p-10 flex flex-col justify-between bg-gradient-to-br from-white via-amber-50/20 to-white">
@@ -163,9 +177,12 @@ From creative stand design and 3D visualization to fabrication, installation, an
                           <span>Service {service.id} of 06</span>
                         </div>
 
-                        <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-950 group-hover:text-[#B2771D] transition-colors leading-tight">
-                          {service.title}
-                        </h3>
+                        {/* Clickable Title Link */}
+                        <Link to={`/services/${service.slug}`} className="block">
+                          <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-950 group-hover:text-[#B2771D] transition-colors leading-tight">
+                            {service.title}
+                          </h3>
+                        </Link>
 
                         <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
                           {service.desc}
@@ -187,10 +204,10 @@ From creative stand design and 3D visualization to fabrication, installation, an
                       {/* Card Footer with CTA */}
                       <div className="pt-8 mt-6 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4">
                         <Link
-                          to="/contact-us"
+                          to={`/services/${service.slug}`}
                           className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#E6AA4D] via-[#DF9B34] to-[#C78326] hover:from-[#EBB257] hover:to-[#D18F33] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
                         >
-                          <span>Inquire This Stand</span>
+                          <span>View Service Details</span>
                           <ArrowUpRight className="w-4 h-4" />
                         </Link>
 
