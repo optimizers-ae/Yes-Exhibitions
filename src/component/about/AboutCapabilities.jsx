@@ -13,8 +13,8 @@ import {
 
 const capabilities = [
   {
-    title: 'EXHIBITION STAND DESIGN',
-    desc: 'Creative concepts developed around your brand identity, business objectives, and specific exhibition hall space.',
+    title: 'EXHIBITIONS STAND DESIGN',
+    desc: 'Creative concepts developed around your brand identity, business objectives, and specific exhibitions hall space.',
     icon: Building2
   },
   {
@@ -24,7 +24,7 @@ const capabilities = [
   },
   {
     title: 'STAND PRODUCTION',
-    desc: 'Turning approved designs into physical exhibition environments with in-house craftsmanship, premium materials, and flawless finishes.',
+    desc: 'Turning approved designs into physical exhibitions environments with in-house craftsmanship, premium materials, and flawless finishes.',
     icon: Layers
   },
   {
@@ -154,7 +154,7 @@ const AboutCapabilities = () => {
               to="/contact-us"
               className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#E6AA4D] to-[#C78326] text-white hover:from-[#EBB257] hover:to-[#D18F33] shadow-md hover:shadow-lg transition-all self-start md:self-auto relative overflow-hidden"
             >
-              <span className="relative z-10">Discuss Your Exhibition Brief</span>
+              <span className="relative z-10">Discuss Your Exhibitions Brief</span>
               <ArrowRight size={15} className="relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
               <motion.span
                 className="absolute inset-0 bg-gradient-to-r from-[#EBB257] to-[#D18F33]"

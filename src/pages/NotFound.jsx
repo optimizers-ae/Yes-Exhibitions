@@ -17,7 +17,7 @@ import Footer from '../component/Footer';
 
 const helpfulLinks = [
   {
-    title: 'Custom Exhibition Stands',
+    title: 'Custom Exhibitions Stands',
     desc: 'Award-winning bespoke booth architecture and fabrication.',
     href: '/#services',
     icon: Building2
@@ -46,7 +46,7 @@ const NotFound = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = '404 - Page Not Found | YES Exhibition Stands';
+    document.title = '404 - Page Not Found | YES Exhibitions Stands';
     window.scrollTo(0, 0);
   }, []);
 
@@ -87,7 +87,7 @@ const NotFound = () => {
                   Booth Not Found on the Floor Plan
                 </h2>
                 <p className="text-sm sm:text-base text-gray-900 leading-relaxed max-w-xl mx-auto">
-                  The page or exhibition brief you are looking for might have been moved, renamed, or is currently undergoing a complete booth redesign.
+                  The page or Exhibitions brief you are looking for might have been moved, renamed, or is currently undergoing a complete booth redesign.
                 </p>
               </div>
 
@@ -111,7 +111,7 @@ const NotFound = () => {
                 </button>
 
                 <a
-                  href="https://wa.me/971500000000?text=Hi%20YES%20Exhibition%20Team,%20I%20could%20not%20find%20a%20page%20on%20your%20website%20and%20need%20assistance."
+                  href="https://wa.me/971500000000?text=Hi%20YES%20Exhibitions%20Team,%20I%20could%20not%20find%20a%20page%20on%20your%20website%20and%20need%20assistance."
                   target="_blank"
                   rel="noreferrer"
                   className="px-5 py-3.5 rounded-xl text-white bg-emerald-600/90 hover:bg-emerald-500  font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 shadow-md hover:shadow-emerald-600/30 transition-all"

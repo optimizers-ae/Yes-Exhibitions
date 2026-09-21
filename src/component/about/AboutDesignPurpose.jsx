@@ -23,7 +23,7 @@ const designFactors = [
   {
     num: '01',
     title: 'VISIBILITY',
-    desc: 'Create a commanding visual presence that attracts attention and footfall from across the entire exhibition floor.',
+    desc: 'Create a commanding visual presence that attracts attention and footfall from across the entire exhibitions floor.',
     icon: Eye
   },
   {
@@ -72,7 +72,7 @@ const AboutDesignPurpose = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 group bg-white">
               <img
                 src={hero3Img}
-                alt="YES Exhibition Stand Design With Purpose"
+                alt="YES Exhibitions Stand Design With Purpose"
                 className="w-full h-[480px] sm:h-[580px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent pointer-events-none" />
@@ -134,7 +134,7 @@ const AboutDesignPurpose = () => {
               variants={fadeInUp} 
               className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl text-center lg:text-left"
             >
-              An exhibition stand should do more than look impressive. It should tell your story, make your brand recognizable, guide visitors naturally through the space, and create an environment where meaningful conversations and commercial partnerships happen.
+              An exhibitions stand should do more than look impressive. It should tell your story, make your brand recognizable, guide visitors naturally through the space, and create an environment where meaningful conversations and commercial partnerships happen.
             </motion.p>
 
             {/* 4 Pillars Grid — numbered editorial style */}

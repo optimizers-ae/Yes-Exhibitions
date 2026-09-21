@@ -49,7 +49,7 @@ const AboutVisionMission = () => {
                 OUR VISION
               </h3>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                To become a trusted exhibition stand partner for brands in the UAE and the wider region, recognized for creative thinking, quality execution, and a client-focused approach.
+                To become a trusted exhibitions stand partner for brands in the UAE and the wider region, recognized for creative thinking, quality execution, and a client-focused approach.
               </p>
             </div>
 
@@ -75,7 +75,7 @@ const AboutVisionMission = () => {
                 OUR MISSION
               </h3>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                To create exhibition environments that bring our clients' brands, stories, and ambitions to life through thoughtful design and disciplined execution.
+                To create exhibitions environments that bring our clients' brands, stories, and ambitions to life through thoughtful design and disciplined execution.
               </p>
             </div>
 

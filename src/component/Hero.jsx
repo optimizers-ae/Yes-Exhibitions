@@ -12,19 +12,19 @@ const carouselImages = [
     id: 1,
     image: hero1,
     title: 'Modern Island Stand',
-    alt: 'YES Exhibition Stands - premium custom island exhibition stand',
+    alt: 'YES Exhibitions Stands - premium custom island exhibitions stand',
   },
   {
     id: 2,
     image: hero2,
     title: 'Double Decker Stand',
-    alt: 'YES Exhibition Stands - premium double deck exhibition stand',
+    alt: 'YES Exhibitions Stands - premium double deck exhibitions stand',
   },
   {
     id: 3,
     image: hero3,
     title: 'Custom Brand Pavilion',
-    alt: 'YES Exhibition Stands - premium custom brand pavilion',
+    alt: 'YES Exhibitions Stands - premium custom brand exhibitions pavilion',
   },
 ];
 
@@ -178,7 +178,7 @@ const Hero = () => {
   return (
     <section
       className="relative isolate overflow-hidden bg-white min-h-screen lg:min-h-[100dvh] flex flex-col justify-center pt-20 sm:pt-24 lg:pt-24 xl:pt-28 pb-6 sm:pb-8 lg:pb-10 xl:pb-12"
-      aria-label="YES Exhibition Stands hero"
+      aria-label="YES Exhibitions Stands hero"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocusCapture={() => setIsPaused(true)}
@@ -203,7 +203,7 @@ const Hero = () => {
               className="mb-3 sm:mb-4 flex items-center justify-center lg:justify-start gap-3 sm:gap-4"
             >
               <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.24em] sm:tracking-[0.30em] text-slate-500">
-                Custom Exhibition Stands
+                Custom Exhibitions Stands
               </span>
               <span className="h-px w-10 shrink-0 bg-[#D89A2B] sm:w-14" />
             </motion.div>
@@ -215,7 +215,7 @@ const Hero = () => {
               animate="visible"
               className="text-[clamp(2.3rem,6vw,4.25rem)] sm:text-5xl lg:text-[46px] xl:text-[58px] 2xl:text-[72px] font-bold leading-[1.03] sm:leading-[1.01] lg:leading-[1.02] xl:leading-[0.98] tracking-[-0.04em] text-[#101010]"
             >
-              Build exhibition
+              Build exhibitions
               <span className="block">stands with</span>
               <span className="block text-[#D28C1C]">confidence.</span>
             </motion.h1>
@@ -227,7 +227,7 @@ const Hero = () => {
               animate="visible"
               className="mt-4 sm:mt-5 lg:mt-5 xl:mt-6 text-[14px] font-normal leading-6 text-slate-600 sm:text-base sm:leading-7 lg:text-[15px] lg:leading-relaxed xl:text-[17px] xl:leading-relaxed max-w-[560px] mx-auto lg:mx-0"
             >
-              We help brands design, build and deliver premium custom exhibition
+              We help brands design, build and deliver premium custom exhibitions
               stands that attract attention, create meaningful experiences and
               deliver real impact at events worldwide.
             </motion.p>
@@ -285,7 +285,7 @@ const Hero = () => {
           <div
             className="relative mx-auto w-full max-w-[950px] lg:max-w-none"
             aria-roledescription="carousel"
-            aria-label="Exhibition stand showcase"
+            aria-label="Exhibitions stand showcase"
           >
             <div
               className="relative aspect-[4/3] min-[500px]:aspect-[16/10] lg:aspect-[1.25/1] xl:aspect-[1.32/1] 2xl:aspect-[1.40/1] w-full max-h-[500px] xl:max-h-[580px] 2xl:max-h-[660px] touch-pan-y overflow-hidden rounded-2xl border border-slate-200 bg-[#f5f5f5] shadow-[0_16px_45px_rgba(15,23,42,0.10)] sm:rounded-[24px] lg:rounded-[26px] xl:rounded-[30px] cursor-pointer"
@@ -321,7 +321,7 @@ const Hero = () => {
             <div
               className="mt-4 sm:mt-5 flex items-center justify-center gap-2.5 sm:gap-3"
               role="tablist"
-              aria-label="Choose exhibition stand image"
+              aria-label="Choose exhibitions stand image"
             >
               {carouselImages.map((item, index) => (
                 <button

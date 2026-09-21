@@ -41,7 +41,7 @@ const temp = () => {
             >
               <motion.div variants={fadeInUp} className="space-y-3">
                 <span className="text-xs sm:text-sm font-extrabold tracking-[0.25em] text-[#D49942] uppercase block">
-                  YES EXHIBITION STANDS
+                  YES EXHIBITIONS STANDS
                 </span>
 
                 <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-gray-950 leading-[1.1]">
@@ -114,7 +114,7 @@ const temp = () => {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200/90 bg-white group">
                 <img
                   src={aboutBannerImg}
-                  alt="YES Exhibition Stand - Design Build Inspire"
+                  alt="YES Exhibitions Stand - Design Build Inspire"
                   className="w-full h-[460px] sm:h-[560px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
@@ -122,7 +122,7 @@ const temp = () => {
                 {/* Top Floating Badge */}
                 <div className="absolute top-5 left-5 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/80 shadow-md flex items-center gap-2 text-xs font-bold text-gray-900">
                   <Sparkles size={14} className="text-[#D49942]" />
-                  <span>Turnkey Exhibition Stand Architecture</span>
+                  <span>Turnkey Exhibitions Stand Architecture</span>
                 </div>
 
                 {/* Bottom Floating Info Card */}

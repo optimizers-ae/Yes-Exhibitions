@@ -5,20 +5,20 @@ import logoImg from '../assets/logo.jpeg';
 
 const services = [
   {
-    title: 'Custom Exhibition Stands',
+    title: 'Custom Exhibitions Stands',
     desc: 'Bespoke stand architecture tailored to your brand identity',
     icon: Building2,
-    path: '/services/custom-exhibition-stands'
+    path: '/services/custom-Exhibitions-stands'
   },
   {
     title: 'Double Decker Stands',
-    desc: 'Two-story exhibition structures for maximum presence',
+    desc: 'Two-story Exhibitions structures for maximum presence',
     icon: Layers,
     path: '/services/double-decker-stands'
   },
   {
     title: 'Country & Trade Pavilions',
-    desc: 'National pavilions and large-scale group exhibition spaces',
+    desc: 'National pavilions and large-scale group Exhibitions spaces',
     icon: Globe,
     path: '/services/country-trade-pavilions'
   },
@@ -35,10 +35,10 @@ const services = [
     path: '/services/3d-design-visualization'
   },
   {
-    title: 'Modular Exhibition Stands',
+    title: 'Modular Exhibitions Stands',
     desc: 'Flexible and sustainable modular stand architecture',
     icon: LayoutGrid,
-    path: '/services/modular-exhibition-stands'
+    path: '/services/modular-Exhibitions-stands'
   }
 ];
 
@@ -56,12 +56,12 @@ const Navbar = () => {
   const isServicePage =
     location.pathname.startsWith('/services') ||
     [
-      '/custom-exhibition-stands',
+      '/custom-Exhibitions-stands',
       '/double-decker-stands',
       '/country-trade-pavilions',
       '/turnkey-project-management',
       '/3d-design-visualization',
-      '/modular-exhibition-stands'
+      '/modular-Exhibitions-stands'
     ].includes(location.pathname);
 
   useEffect(() => {
@@ -96,11 +96,11 @@ const Navbar = () => {
           <Link
             to="/"
             className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-[#D49942] focus-visible:outline-none rounded-lg"
-            aria-label="YES Exhibition Stands Homepage"
+            aria-label="YES Exhibitions Stands Homepage"
           >
             <img
               src={logoImg}
-              alt="YES Exhibition Stands Logo - Design • Build • Inspire"
+              alt="YES Exhibitions Stands Logo - Design • Build • Inspire"
               className="h-10 sm:h-12 w-auto object-contain rounded-full shadow-sm group-hover:scale-105 transition-transform ring-2 ring-[#D49942]/40"
               width="48"
               height="48"
@@ -112,7 +112,7 @@ const Navbar = () => {
                   isDarkHero ? 'text-white' : 'text-gray-900'
                 }`}
               >
-                YES <span className="text-[#D49942]">EXHIBITION</span>
+                YES <span className="text-[#D49942]">Exhibitions</span>
               </span>
               <span
                 className={`text-[9px] tracking-[0.2em] font-semibold uppercase mt-0.5 transition-colors ${

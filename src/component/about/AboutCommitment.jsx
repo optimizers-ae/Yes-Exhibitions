@@ -15,7 +15,7 @@ const AboutCommitment = () => {
             YOUR SUCCESS IS THE PURPOSE BEHIND THE PROJECT
           </h2>
           <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            We believe a successful exhibition project begins with understanding: Understanding your brand. Understanding your audience. Understanding your objectives. Understanding the exhibition environment. And understanding what success means to you.
+            We believe a successful exhibitions project begins with understanding: Understanding your brand. Understanding your audience. Understanding your objectives. Understanding the exhibitions environment. And understanding what success means to you.
           </p>
 
           {/* 4 Pillars Mantra */}
@@ -44,7 +44,7 @@ const AboutCommitment = () => {
                 SOMETHING EXTRAORDINARY TOGETHER
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-xl">
-                Whether you are preparing for an upcoming exhibition, launching a new product, or looking to strengthen your brand presence, YES Exhibition Stands is ready to work with you.
+                Whether you are preparing for an upcoming exhibitions, launching a new product, or looking to strengthen your brand presence, YES Exhibitions Stands is ready to work with you.
               </p>
 
               {/* Direct Contact Points */}

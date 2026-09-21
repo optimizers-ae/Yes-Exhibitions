@@ -25,12 +25,12 @@ const staggerContainer = {
 
 const capabilities = [
   {
-    title: 'Creative Exhibition Stand Design',
-    desc: 'Custom exhibition concepts designed to bring your brand vision to life and create engaging spaces.'
+    title: 'Creative Exhibitions Stand Design',
+    desc: 'Custom exhibitions concepts designed to bring your brand vision to life and create engaging spaces.'
   },
   {
     title: '3D Visualization',
-    desc: 'Detailed 3D visualizations that help you experience and refine your exhibition stand before it is built.'
+    desc: 'Detailed 3D visualizations that help you experience and refine your exhibitions stand before it is built.'
   },
   {
     title: 'Precision Fabrication',
@@ -45,8 +45,8 @@ const capabilities = [
     desc: 'Dedicated support throughout the project, from the first conversation to final handover.'
   },
   {
-    title: 'End-to-End Exhibition Solutions',
-    desc: 'Complete exhibition solutions covering design, visualization, fabrication, installation, and support.'
+    title: 'End-to-End Exhibitions Solutions',
+    desc: 'Complete exhibitions solutions covering design, visualization, fabrication, installation, and support.'
   }
 ];
 
@@ -81,7 +81,7 @@ const AboutSection = () => {
               >
                 <img
                   src={founderImg}
-                  alt="YES Exhibition Stands - Design, Fabrication & Construction"
+                  alt="YES Exhibitions Stands - Design, Fabrication & Construction"
                   className="w-full h-145 sm:h-185 object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
                   loading="lazy"
                 />
@@ -126,7 +126,7 @@ const AboutSection = () => {
               <div className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/80 border border-amber-300/70 shadow-2xs">
                 <Sparkles className="w-4 h-4 text-[#D49942]" />
                 <span className="text-xs font-bold uppercase tracking-widest text-[#B2771D]">
-                  ABOUT YES EXHIBITION STANDS
+                  ABOUT YES EXHIBITIONS STANDS
                 </span>
               </div>
 
@@ -135,7 +135,7 @@ const AboutSection = () => {
               </h2>
 
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl font-normal mx-auto lg:mx-0">
-                YES Exhibition Stands specializes in designing and building custom exhibition stands that bring your brand to life. From concept and design to fabrication, installation and on-site support, we create impactful environments that combine creativity, functionality and precision.
+                YES Exhibitions Stands specializes in designing and building custom exhibitions stands that bring your brand to life. From concept and design to fabrication, installation and on-site support, we create impactful environments that combine creativity, functionality and precision.
               </p>
             </motion.div>
 

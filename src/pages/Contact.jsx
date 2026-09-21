@@ -37,7 +37,7 @@ const standTypes = [
   {
     id: 'double-decker',
     name: 'Double Decker Stand',
-    desc: 'Two-story exhibition structure to double your floor presence & VIP space',
+    desc: 'Two-story Exhibitions structure to double your floor presence & VIP space',
     icon: Layers
   },
   {
@@ -211,7 +211,7 @@ const Contact = () => {
 
             <div className="relative z-10 max-w-3xl">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#E2A243] bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full mb-4 border border-[#E2A243]/30">
-                <Sparkles size={14} className="text-[#E2A243]" /> Turnkey Exhibition Solutions
+                <Sparkles size={14} className="text-[#E2A243]" /> Turnkey Exhibitions Solutions
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.1]">
@@ -219,7 +219,7 @@ const Contact = () => {
               </h1>
 
               <p className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl">
-                Partner with YES Exhibition for award-winning booth architecture, precision in-house fabrication, and turnkey on-site delivery for your next global event.
+                Partner with YES Exhibitions for award-winning booth architecture, precision in-house fabrication, and turnkey on-site delivery for your next global event.
               </p>
 
               {/* Quick Highlight Pills */}
@@ -262,7 +262,7 @@ const Contact = () => {
                       Thank You, {formData.name || 'Valued Partner'}!
                     </h2>
                     <p className="text-gray-600 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
-                      We have received your exhibition brief for <strong className="text-gray-900">{formData.eventName || 'your upcoming exhibition'}</strong>. Our senior stand architect is already reviewing your specs and will prepare a tailored 3D proposal within 24 hours.
+                      We have received your Exhibitions brief for <strong className="text-gray-900">{formData.eventName || 'your upcoming Exhibitions'}</strong>. Our senior stand architect is already reviewing your specs and will prepare a tailored 3D proposal within 24 hours.
                     </p>
                   </div>
 
@@ -513,7 +513,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Step 3: Event & Exhibition Details */}
+                  {/* Step 3: Event & Exhibitions Details */}
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 border-b border-gray-100 pb-3">
                       <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#E6AA4D] to-[#C78326] text-white text-xs font-bold flex items-center justify-center shadow-xs">
@@ -527,7 +527,7 @@ const Contact = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <div className="sm:col-span-1">
                         <label htmlFor="eventName" className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
-                          Exhibition / Show Name
+                          Exhibitions / Show Name
                         </label>
                         <input
                           type="text"
@@ -699,10 +699,10 @@ const Contact = () => {
                   Need an Urgent Stand Consultation?
                 </h3>
                 <p className="text-xs text-emerald-100 mt-2 leading-relaxed">
-                  Chat directly with our senior exhibition project director on WhatsApp for immediate availability and venue estimates.
+                  Chat directly with our senior Exhibitions project director on WhatsApp for immediate availability and venue estimates.
                 </p>
                 <a
-                  href="https://wa.me/971500000000?text=Hi%20YES%20Exhibition%20Team,%20I%20would%20like%20to%20discuss%20an%20exhibition%20stand."
+                  href="https://wa.me/971500000000?text=Hi%20YES%20Exhibitions%20Team,%20I%20would%20like%20to%20discuss%20an%20Exhibitions%20stand."
                   target="_blank"
                   rel="noreferrer"
                   className="mt-4 w-full py-3 px-4 bg-white hover:bg-emerald-50 text-emerald-900 font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center gap-2"
@@ -712,7 +712,7 @@ const Contact = () => {
                 </a>
               </div>
 
-              {/* Why Choose YES Exhibition */}
+              {/* Why Choose YES Exhibitions */}
               <div className="bg-white rounded-3xl p-6 sm:p-7 border border-gray-200/90 shadow-md space-y-5">
                 <div className="border-b border-gray-100 pb-3">
                   <span className="text-[10px] font-bold tracking-[0.2em] text-[#D49942] uppercase block mb-1">
@@ -772,7 +772,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <strong className="block text-gray-900 font-bold text-sm">
-                        Global Exhibition Reach
+                        Global Exhibitions Reach
                       </strong>
                       <span className="text-gray-500 leading-snug">
                         Proven capability across Dubai, Abu Dhabi, Riyadh, Frankfurt, Las Vegas, Paris, and Singapore.

@@ -2,7 +2,7 @@ import { Building2, Globe, Layers, Sparkles, Tv, Users, Coffee, ShieldCheck } fr
 
 const standFormats = [
   {
-    title: 'Custom Exhibition Stands',
+    title: 'Custom Exhibitions Stands',
     desc: 'Unique bespoke concepts created specifically around your brand identity, products, and commercial vision.',
     icon: Building2
   },
@@ -18,7 +18,7 @@ const standFormats = [
   },
   {
     title: 'Modular & Flexible Concepts',
-    desc: 'Scalable, reconfigurable high-end exhibition systems designed for multi-event international exhibition tours.',
+    desc: 'Scalable, reconfigurable high-end exhibitions systems designed for multi-event international exhibitions tours.',
     icon: Sparkles
   },
   {
@@ -69,7 +69,7 @@ const AboutStandDesign = () => {
             YOUR SPACE. YOUR BRAND. YOUR STATEMENT.
           </h2>
           <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-            Every exhibition space presents a different opportunity. Whether your objective is a focused business environment or a high-impact presence designed to attract attention, your stand should be designed around the experience you want to create.
+            Every exhibitions space presents a different opportunity. Whether your objective is a focused business environment or a high-impact presence designed to attract attention, your stand should be designed around the experience you want to create.
           </p>
         </div>
 
@@ -106,7 +106,7 @@ const AboutStandDesign = () => {
               WHERE CREATIVITY MEETS FUNCTION
             </h3>
             <p className="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
-              Great exhibition design is a balance between visual impact and practical experience. We engineer dedicated functional zones inside every booth.
+              Great exhibitions design is a balance between visual impact and practical experience. We engineer dedicated functional zones inside every booth.
             </p>
           </div>
 

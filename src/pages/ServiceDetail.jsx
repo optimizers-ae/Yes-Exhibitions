@@ -15,7 +15,7 @@ const ServiceDetail = ({ defaultSlug }) => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentService) {
-      document.title = `${currentService.title} | YES Exhibition Stands`;
+      document.title = `${currentService.title} | YES Exhibitions Stands`;
     }
   }, [activeSlug, currentService]);
 
@@ -45,7 +45,7 @@ const ServiceDetail = ({ defaultSlug }) => {
           >
             <img
               src={currentService.bannerImage}
-              alt={`${currentService.title} - YES Exhibition Stands`}
+              alt={`${currentService.title} - YES Exhibitions Stands`}
               className="w-full h-full object-cover object-center filter brightness-[0.72] contrast-[1.08]"
             />
 

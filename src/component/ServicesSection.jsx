@@ -40,7 +40,7 @@ const ServicesSection = () => {
             Elevate Your Brand With <span className="gold-gradient-text">Bespoke Excellence</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
-            From creative stand design and 3D visualization to fabrication, installation, and complete turnkey delivery, we provide end-to-end exhibition solutions designed to make your brand stand out.
+            From creative stand design and 3D visualization to fabrication, installation, and complete turnkey delivery, we provide end-to-end Exhibitions solutions designed to make your brand stand out.
           </p>
         </motion.div>
 
@@ -75,7 +75,7 @@ const ServicesSection = () => {
                     >
                       <img
                         src={serviceImg}
-                        alt={`${service.title} - YES Exhibition`}
+                        alt={`${service.title} - YES Exhibitions`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
                         loading="lazy"
                       />

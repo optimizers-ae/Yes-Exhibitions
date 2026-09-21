@@ -11,7 +11,7 @@ import AboutCommitment from '../component/about/AboutCommitment';
 
 const About = () => {
   useEffect(() => {
-    document.title = 'About Us | YES Exhibition Stands - Design • Build • Inspire';
+    document.title = 'About Us | YES Exhibitions Stands - Design • Build • Inspire';
     window.scrollTo(0, 0);
   }, []);
 

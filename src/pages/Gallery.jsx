@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import AboutGallery from "../component/about/AboutGallery";
 const Gallery = () => {
   useEffect(() => {
-    document.title = "Stand Gallery | YES Exhibition Stands - Design • Build • Inspire";
+    document.title = "Stand Gallery | YES Exhibitions Stands - Design • Build • Inspire";
     window.scrollTo(0, 0);
   }, []);
 

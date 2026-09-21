@@ -34,14 +34,21 @@ const TermsPrivacy = () => {
     }
   }, [location.pathname]);
 
-  // Dynamic document title update for SEO
+  // SEO title and meta description
   useEffect(() => {
-    if (activeTab === 'terms') {
-      document.title = 'Terms & Conditions | Spectrum Exhibition Fixing LLC';
-    } else {
-      document.title = 'Privacy Policy | Spectrum Exhibition Fixing LLC';
+    document.title = 'Terms & Conditions and Privacy Policy | YES';
+
+    const metaDescription =
+      'Read the Terms & Conditions and Privacy Policy of YES, including quotation validity, payment terms, exhibition project conditions, personal data collection, data protection, cookies, and privacy practices.';
+
+    let metaTag = document.querySelector('meta[name="description"]');
+    if (!metaTag) {
+      metaTag = document.createElement('meta');
+      metaTag.setAttribute('name', 'description');
+      document.head.appendChild(metaTag);
     }
-  }, [activeTab]);
+    metaTag.setAttribute('content', metaDescription);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-gray-900 font-sansation flex flex-col selection:bg-[#D49942]/30 selection:text-gray-950">
@@ -76,7 +83,7 @@ const TermsPrivacy = () => {
 
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#E2A243] bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full mb-3 border border-[#E2A243]/30">
-                <ShieldCheck size={14} className="text-[#E2A243]" /> Spectrum Exhibition Fixing LLC
+                <ShieldCheck size={14} className="text-[#E2A243]" /> YES
               </div>
 
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight">
@@ -89,8 +96,8 @@ const TermsPrivacy = () => {
 
               <p className="mt-3 text-xs sm:text-sm md:text-base text-gray-300 max-w-2xl leading-relaxed">
                 {activeTab === 'terms'
-                  ? 'Please review the official business conditions, quotation validity, scope, and project terms of Spectrum Exhibition Fixing LLC.'
-                  : 'Learn how Spectrum Exhibition Fixing LLC protects your personal and business information when using our services.'}
+                  ? 'Please review the Terms & Conditions of YES, including quotation validity, payment terms, project scope, and exhibition requirements.'
+                  : 'Learn how YES collects, uses, protects, and manages personal and business information when you use our exhibition and event-related services.'}
               </p>
 
               {/* Navigation Tabs */}
@@ -132,12 +139,6 @@ const TermsPrivacy = () => {
             {/* TAB 1: TERMS & CONDITIONS */}
             {activeTab === 'terms' && (
               <div className="space-y-8">
-                {/* Introduction note */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/70 border border-[#D49942]/20 text-gray-700 text-xs sm:text-sm leading-relaxed">
-                  <strong className="text-gray-900 block font-bold mb-1">Spectrum Exhibition Fixing LLC</strong>
-                  The following terms and conditions govern all quotations, exhibition stand project proposals, design, fabrication, and handover contracts conducted by Spectrum Exhibition Fixing LLC.
-                </div>
-
                 {/* 1. Quotation Validity */}
                 <section className="space-y-3 border-b border-gray-100 pb-6">
                   <div className="flex items-center gap-3">
@@ -149,7 +150,7 @@ const TermsPrivacy = () => {
                     </h2>
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
-                    All quotations issued by <strong>Spectrum Exhibition Fixing LLC</strong> are valid for <strong>10 days</strong> from the quotation date, unless otherwise stated in writing.
+                    All quotations issued by <strong>YES</strong> are valid for <strong>10 days</strong> from the quotation date, unless otherwise stated in writing.
                   </p>
                 </section>
 
@@ -195,16 +196,8 @@ const TermsPrivacy = () => {
                     </p>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
                       {[
-                        'Model transportation, logistics, setup, modification, or fabrication',
-                        'Advertising fees',
-                        'Exhibition space booking',
-                        'Main power supply',
-                        'Water, sewage, and drainage',
-                        'Internet charges',
-                        'Catering',
-                        'Early move-in charges',
-                        'Freight',
-                        "Loading and offloading of the client's products",
+                        'Model transportation, logistics, setup, modification, or fabrication.',
+                        "Exhibition organizer or venue charges, including advertising fees, exhibition space booking, main power supply, water, sewage and drainage, internet charges, catering, early move-in charges, freight, and loading or offloading of the client's products.",
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2 bg-gray-50 p-2.5 rounded-xl border border-gray-100 text-xs sm:text-sm">
                           <span className="text-red-500 font-bold shrink-0">•</span>
@@ -227,13 +220,13 @@ const TermsPrivacy = () => {
                   </div>
                   <div className="space-y-2.5 text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
                     <p>
-                      <strong>Spectrum Exhibition Fixing LLC</strong> is not responsible for handling, installation, testing, or operation of the client's products unless specifically agreed in writing.
+                      <strong>YES</strong> is not responsible for handling, installation, testing, or operation of the client's products unless specifically agreed in writing.
                     </p>
                     <p>
-                      If assistance with product handling is requested during exhibition stand setup, a client representative should be present to supervise the process and ensure that products are handled appropriately.
+                      If assistance with product handling is requested during exhibition stand setup, a client representative should be present to supervise the process and ensure the products are handled appropriately.
                     </p>
                     <p>
-                      <strong>Spectrum Exhibition Fixing LLC</strong> will not be responsible for loss or damage arising from product handling outside the agreed scope of work.
+                      <strong>YES</strong> will not be responsible for loss or damage arising from product handling outside the agreed scope of work.
                     </p>
                   </div>
                 </section>
@@ -248,23 +241,9 @@ const TermsPrivacy = () => {
                       5. Project Confirmation
                     </h2>
                   </div>
-                  <div className="text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11 space-y-2">
-                    <p>The project will be considered officially confirmed and active once:</p>
-                    <ul className="space-y-2 pt-1">
-                      <li className="flex items-center gap-2">
-                        <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
-                        <span>The quotation and project summary have been signed by the authorized person.</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
-                        <span>The required 70% advance payment has been received.</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
-                        <span>Any required purchase order or LPO has been submitted.</span>
-                      </li>
-                    </ul>
-                  </div>
+                  <p className="text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
+                    The project will be considered officially confirmed and active once the quotation and project summary have been signed by the authorized person, the required <strong>70% advance payment</strong> has been received, and any required purchase order or LPO has been submitted.
+                  </p>
                 </section>
 
                 {/* 6. Product Installation & Testing */}
@@ -319,8 +298,8 @@ const TermsPrivacy = () => {
               <div className="space-y-8">
                 {/* Intro */}
                 <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/70 border border-[#D49942]/20 text-gray-700 text-xs sm:text-sm leading-relaxed">
-                  <strong className="text-gray-900 block font-bold mb-1">Privacy Policy – Spectrum Exhibition Fixing LLC</strong>
-                  At <strong>Spectrum Exhibition Fixing LLC</strong>, we respect your privacy and are committed to protecting the personal and business information you provide when contacting us, requesting a quotation, or using our exhibition stand and event-related services.
+                  <strong className="text-gray-900 block font-bold mb-1">Privacy Policy – YES</strong>
+                  At <strong>YES</strong>, we respect your privacy and are committed to protecting the personal and business information you provide when contacting us, requesting a quotation, or using our exhibition and event-related services.
                 </div>
 
                 {/* 1. Information We Collect */}
@@ -334,17 +313,17 @@ const TermsPrivacy = () => {
                     </h2>
                   </div>
                   <div className="text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11 space-y-2">
-                    <p>We may collect information such as:</p>
+                    <p>We may collect:</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
                       {[
                         'Name',
                         'Company name',
                         'Email address',
                         'Phone number',
-                        'Project or exhibition details',
-                        'Billing and quotation information',
+                        'Project details and exhibition information',
+                        'Billing details',
                         'Business requirements',
-                        'Documents, drawings, designs, or other materials submitted for a project',
+                        'Submitted documents, drawings, and designs',
                         'Website enquiry information',
                       ].map((item, idx) => (
                         <div key={idx} className="flex items-center gap-2 bg-gray-50 p-2.5 rounded-xl border border-gray-100 text-xs sm:text-sm">
@@ -370,14 +349,14 @@ const TermsPrivacy = () => {
                     <p>The information collected may be used to:</p>
                     <ul className="space-y-2 pt-1">
                       {[
-                        'Respond to enquiries and quotation requests',
-                        'Prepare exhibition stand proposals and project estimates',
-                        'Communicate regarding exhibition stand design, fabrication, installation, and related services',
-                        'Process project documentation and payments',
-                        'Coordinate project delivery and exhibition setup',
+                        'Respond to enquiries',
+                        'Prepare quotations and proposals',
+                        'Communicate regarding exhibition projects',
+                        'Process documentation and payments',
+                        'Coordinate project delivery',
                         'Provide customer support',
-                        'Improve our website, services, and customer experience',
-                        'Send service-related or promotional communications where permitted',
+                        'Improve our services and website',
+                        'Send relevant business communications where permitted',
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#D49942] mt-2 shrink-0" />
@@ -400,10 +379,10 @@ const TermsPrivacy = () => {
                   </div>
                   <div className="space-y-2 text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
                     <p>
-                      <strong>Spectrum Exhibition Fixing LLC</strong> does not sell or rent customers' personal information.
+                      <strong>YES</strong> does not sell or rent customers' personal information.
                     </p>
                     <p>
-                      Information may only be shared with trusted employees, contractors, suppliers, logistics providers, exhibition organizers, or service providers when necessary to complete an approved project or comply with applicable legal requirements.
+                      Information may only be shared with trusted employees, contractors, suppliers, logistics providers, exhibition organizers, or service providers where necessary to complete a project or comply with legal requirements.
                     </p>
                   </div>
                 </section>
@@ -419,7 +398,7 @@ const TermsPrivacy = () => {
                     </h2>
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
-                    We take reasonable administrative and technical measures to protect personal and business information against unauthorized access, loss, misuse, alteration, or disclosure.
+                    YES takes reasonable administrative and technical measures to protect personal and business information against unauthorized access, loss, misuse, alteration, or disclosure.
                   </p>
                 </section>
 
@@ -433,12 +412,9 @@ const TermsPrivacy = () => {
                       Cookies & Website Analytics
                     </h2>
                   </div>
-                  <div className="space-y-2 text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
-                    <p>
-                      Our website may use cookies and analytics technologies to understand website usage, improve performance, measure visitor activity, and enhance the user experience.
-                    </p>
-                    <p>Users may control or disable cookies through their browser settings.</p>
-                  </div>
+                  <p className="text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
+                    Our website may use cookies and analytics technologies to understand website usage, improve performance, measure visitor activity, and enhance user experience.
+                  </p>
                 </section>
 
                 {/* 6. Third-Party Websites */}
@@ -452,7 +428,7 @@ const TermsPrivacy = () => {
                     </h2>
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
-                    Our website may contain links to external websites or services. <strong>Spectrum Exhibition Fixing LLC</strong> is not responsible for the privacy practices, security, or content of third-party websites.
+                    Our website may contain links to external websites or services. <strong>YES</strong> is not responsible for the privacy practices, security, or content of third-party websites.
                   </p>
                 </section>
 
@@ -467,7 +443,7 @@ const TermsPrivacy = () => {
                     </h2>
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
-                    Personal and project-related information may be retained for as long as reasonably necessary to provide our services, maintain business and financial records, resolve disputes, or comply with applicable legal obligations.
+                    Personal and project-related information may be retained for as long as reasonably necessary to provide our services, maintain business records, resolve disputes, or comply with applicable legal obligations.
                   </p>
                 </section>
 
@@ -478,26 +454,26 @@ const TermsPrivacy = () => {
                       <ShieldCheck size={20} />
                     </div>
                     <h2 className="text-lg sm:text-xl font-bold text-gray-900">
-                      Your Information & Access Rights
+                      Your Data Rights
                     </h2>
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
-                    You may contact us if you wish to request access to, correction of, or deletion of personal information held by us, subject to applicable legal and business record-keeping requirements.
+                    You may contact YES to request access to, correction of, or deletion of your personal information, subject to applicable legal and business record-keeping requirements.
                   </p>
                 </section>
 
-                {/* 9. Updates to This Privacy Policy */}
+                {/* 9. Privacy Policy Updates */}
                 <section className="space-y-3 border-b border-gray-100 pb-6">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-xl bg-amber-100/70 text-[#D49942]">
                       <Clock size={20} />
                     </div>
                     <h2 className="text-lg sm:text-xl font-bold text-gray-900">
-                      Updates to This Privacy Policy
+                      Privacy Policy Updates
                     </h2>
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
-                    <strong>Spectrum Exhibition Fixing LLC</strong> may update this Privacy Policy periodically to reflect changes in our services, business practices, or applicable requirements.
+                    <strong>YES</strong> may update this Privacy Policy periodically to reflect changes in our services, business practices, or applicable requirements.
                   </p>
                 </section>
 
@@ -512,10 +488,7 @@ const TermsPrivacy = () => {
                     </h2>
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed pl-1 sm:pl-11">
-                    For questions regarding this Privacy Policy, quotations, exhibition stand services, or the handling of your information, please contact <strong>Spectrum Exhibition Fixing LLC</strong> through the contact details provided on our official website or via our{' '}
-                    <Link to="/contact" className="text-[#D49942] font-bold hover:underline">
-                      Contact Page
-                    </Link>.
+                    For questions regarding this Privacy Policy, Terms &amp; Conditions, quotations, exhibition services, or your personal information, please contact <strong>YES</strong> through the contact details provided on our official website.
                   </p>
                 </section>
               </div>

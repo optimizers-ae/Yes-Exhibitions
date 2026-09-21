@@ -5,7 +5,7 @@ const WhatsAppButton = () => {
 
   // Aapna WhatsApp number yahan likhein (Country code ke saath, bina '+' ya spaces ke)
   const phoneNumber = "971555940879"; // Example number
-  const defaultMessage = "Hello! I am interested in your exhibition stand services.";
+  const defaultMessage = "Hello! I am interested in your Exhibitions stand services.";
 
   const handleSendMessage = () => {
     const encodedMessage = encodeURIComponent(defaultMessage);

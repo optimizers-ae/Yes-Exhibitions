@@ -5,7 +5,7 @@ const ImpactResultsSection = () => {
   return (
     <ScrollExpand
       src={hero1Img}
-      alt="YES Exhibition Stand"
+      alt="YES Exhibitions Stand"
       title="FROM IDEA TO IMPACT"
       scrollHint="Scroll to explore"
       useWindowScroll
@@ -33,7 +33,7 @@ const ImpactResultsSection = () => {
               </h2>
 
               <p className="mt-5 max-w-2xl text-sm leading-7 text-white/75 sm:text-base">
-                We create exhibition environments that strengthen brand presence,
+                We create exhibitions environments that strengthen brand presence,
                 attract attention and create meaningful spaces for people to
                 connect with your brand.
               </p>
@@ -49,7 +49,7 @@ const ImpactResultsSection = () => {
                   Visibility
                 </h3>
                 <p className="mt-1 text-sm leading-6 text-white/65">
-                  A stronger presence across the exhibition floor.
+                  A stronger presence across the exhibitions floor.
                 </p>
               </div>
 

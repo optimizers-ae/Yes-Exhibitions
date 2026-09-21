@@ -39,7 +39,7 @@ const AboutLeadership = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200/90 bg-gradient-to-b from-amber-50/40 via-white to-gray-100 flex justify-center pt-8">
               <img
                 src={founderImg}
-                alt="Sherif Mostafa - Managing Director of YES Exhibition Stands"
+                alt="Sherif Mostafa - Managing Director of YES Exhibitions Stands"
                 className="w-full max-w-[340px] h-[480px] sm:h-[560px] object-contain object-bottom hover:scale-105 transition-transform duration-500"
               />
 
@@ -79,7 +79,7 @@ const AboutLeadership = () => {
             <motion.div variants={fadeInUp} className="p-6 sm:p-8 rounded-3xl bg-amber-50/70 border border-amber-200/80 shadow-xs relative">
               <Quote className="w-10 h-10 text-[#D49942]/25 absolute top-4 right-4 pointer-events-none" />
               <p className="text-sm sm:text-base text-gray-800 leading-relaxed italic">
-                "At YES Exhibition Stands, I believe an exhibition stand should be more than a structure inside an exhibition hall. It should represent the brand, create a strong first impression, and provide an environment where businesses can connect with customers and partners."
+                "At YES Exhibitions Stands, I believe an exhibitions stand should be more than a structure inside an exhibitions hall. It should represent the brand, create a strong first impression, and provide an environment where businesses can connect with customers and partners."
               </p>
               <p className="text-sm sm:text-base text-gray-800 leading-relaxed mt-4 italic">
                 "My focus is to build YES around creativity, professionalism, attention to detail, and genuine client relationships."
@@ -102,10 +102,10 @@ const AboutLeadership = () => {
                 A MESSAGE FROM YES:
               </h4>
               <p>
-                Every exhibition is an opportunity — an opportunity to introduce your brand, meet new customers, strengthen relationships, launch something new, create conversations, and make a lasting impression.
+                Every exhibitions is an opportunity — an opportunity to introduce your brand, meet new customers, strengthen relationships, launch something new, create conversations, and make a lasting impression.
               </p>
               <p>
-                At YES, we want to help our clients make the most of that opportunity by creating exhibition environments that are visually powerful, functional, and true to their brand.
+                At YES, we want to help our clients make the most of that opportunity by creating exhibitions environments that are visually powerful, functional, and true to their brand.
               </p>
             </motion.div>
 

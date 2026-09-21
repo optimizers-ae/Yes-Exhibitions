@@ -44,14 +44,14 @@ import {
 } from 'lucide-react';
 
 export const servicesData = {
-  'custom-exhibition-stands': {
+  'custom-exhibitions-stands': {
     id: '01',
-    slug: 'custom-exhibition-stands',
-    title: 'Custom Exhibition Stands',
+    slug: 'custom-exhibitions-stands',
+    title: 'Custom Exhibitions Stands',
     highlightTitle: 'Stands Architecture',
     subtitle: 'Bespoke stand architecture tailored to your brand identity',
     category: 'Bespoke Stand Design',
-    desc: 'Custom-designed exhibition stands created around your brand, objectives, space, and visitor experience — from concept to final build.',
+    desc: 'Custom-designed exhibitions stands created around your brand, objectives, space, and visitor experience — from concept to final build.',
     icon: Building2,
     bannerImage: customStandsBg,
     cardImage: customStandsBg,
@@ -61,7 +61,7 @@ export const servicesData = {
     tags: ['Custom Design', 'Branding', 'Lighting', 'Turnkey Build'],
     heading: 'Tailored Architecture for Maximum Brand Impact',
     description:
-      'At YES Exhibition, we design and construct bespoke custom exhibition stands crafted around your exact brand identity, product showcase requirements, and visitor engagement strategy. Combining high-end fabrication, precision spatial engineering, and custom branding solutions, we transform floor space into immersive branded environments that attract foot traffic and deliver measurable event ROI.',
+      'At YES Exhibitions, we design and construct bespoke custom exhibitions stands crafted around your exact brand identity, product showcase requirements, and visitor engagement strategy. Combining high-end fabrication, precision spatial engineering, and custom branding solutions, we transform floor space into immersive branded environments that attract foot traffic and deliver measurable event ROI.',
     bulletFeatures: [
       {
         title: '3D Concept & Spatial Design',
@@ -92,7 +92,7 @@ export const servicesData = {
     ],
     faqs: [
       {
-        q: 'What is included in a turnkey custom exhibition stand project?',
+        q: 'What is included in a turnkey custom exhibitions stand project?',
         a: 'Our turnkey service covers everything from initial spatial concept, detailed 3D renderings, venue organizer approvals, structural engineering, workshop fabrication, graphics printing, transport, on-site installation, technical support, and post-show dismantling.'
       },
       {
@@ -100,7 +100,7 @@ export const servicesData = {
         a: 'We recommend starting 6 to 10 weeks before your event date to allow ample time for 3D revisions, venue approvals, custom fabrication, and pre-assembly testing.'
       },
       {
-        q: 'Can custom exhibition stand components be reused for future shows?',
+        q: 'Can custom exhibitions stand components be reused for future shows?',
         a: 'Yes! We design custom stands with modular, smart structural engineering, allowing key architectural structures, LED lighting elements, and printed graphics to be reconfigured for different booth sizes at future exhibitions.'
       }
     ]
@@ -111,9 +111,9 @@ export const servicesData = {
     slug: 'double-decker-stands',
     title: 'Double Decker Stands',
     highlightTitle: 'Multi-Level Presence',
-    subtitle: 'Two-story exhibition structures designed for maximum brand presence and footprint utilization',
+    subtitle: 'Two-story exhibitions structures designed for maximum brand presence and footprint utilization',
     category: 'Multi-Level Architecture',
-    desc: 'Striking two-level exhibition stands designed to maximize your floor space while providing dedicated areas for meetings, hospitality, and brand engagement.',
+    desc: 'Striking two-level exhibitions stands designed to maximize your floor space while providing dedicated areas for meetings, hospitality, and brand engagement.',
     icon: Layers,
     bannerImage: doubleDeckerBg,
     cardImage: doubleDeckerBg,
@@ -121,7 +121,7 @@ export const servicesData = {
     showcaseImage: showcase2,
     secondaryImage: showcase3,
     tags: ['Two-Level Design', 'VIP Lounge', 'Space Optimization', 'Structural Steel'],
-    heading: 'Expand Vertically to Dominate the Exhibition Floor',
+    heading: 'Expand Vertically to Dominate the Exhibitions Floor',
     description:
       'Double decker stands double your available floor area without doubling your booth footprint fees. Create executive VIP meeting suites, private hospitality lounges, and elevated product demonstration stages that command attention across the entire hall.',
     bulletFeatures: [
@@ -154,8 +154,8 @@ export const servicesData = {
     ],
     faqs: [
       {
-        q: 'Are double decker stands permitted at all exhibition venues?',
-        a: 'Double decker stands require venue ceiling clearance (usually 6m+) and organizer approval. YES Exhibition handles all structural engineering calculations and venue approvals.'
+        q: 'Are double decker stands permitted at all exhibitions venues?',
+        a: 'Double decker stands require venue ceiling clearance (usually 6m+) and organizer approval. YES Exhibitions handles all structural engineering calculations and venue approvals.'
       },
       {
         q: 'How long does it take to assemble a double decker stand on site?',
@@ -169,9 +169,9 @@ export const servicesData = {
     slug: 'country-trade-pavilions',
     title: 'Country & Trade Pavilions',
     highlightTitle: 'Global Pavilion Solutions',
-    subtitle: 'National pavilions and large-scale group exhibition spaces uniting global brands',
-    category: 'Large-Scale Group Exhibition',
-    desc: 'Large-scale pavilion solutions designed to bring multiple brands, organizations, or exhibitors together within a cohesive and impactful exhibition environment.',
+    subtitle: 'National pavilions and large-scale group s spaces uniting global brands',
+    category: 'Large-Scale Group Exhibitions',
+    desc: 'Large-scale pavilion solutions designed to bring multiple brands, organizations, or exhibitors together within a cohesive and impactful exhibitions environment.',
     icon: Globe,
     bannerImage: countryPavilionBg,
     cardImage: countryPavilionBg,
@@ -181,7 +181,7 @@ export const servicesData = {
     tags: ['Trade Pavilions', 'Multi-Exhibitor', 'National Identity', 'Turnkey Delivery'],
     heading: 'Unified Architectural Identity for Group Exhibitors',
     description:
-      'We conceptualize, engineer, and build large-scale country pavilions and group exhibition areas for governments, export councils, and industry trade associations. Our designs balance strong unified national branding with individualized exhibitor sub-booths.',
+      'We conceptualize, engineer, and build large-scale country pavilions and group exhibitions areas for governments, export councils, and industry trade associations. Our designs balance strong unified national branding with individualized exhibitor sub-booths.',
     bulletFeatures: [
       {
         title: 'Unified Overhead Pavilion Branding',
@@ -225,7 +225,7 @@ export const servicesData = {
     highlightTitle: 'End-to-End Execution',
     subtitle: '3D design, engineering, approvals, fabrication & complete on-site build',
     category: 'Full Service Project Management',
-    desc: 'A complete exhibition journey covering stand design, planning, fabrication, logistics, installation, on-site coordination, and final handover.',
+    desc: 'A complete exhibitions journey covering stand design, planning, fabrication, logistics, installation, on-site coordination, and final handover.',
     icon: ShieldCheck,
     bannerImage: turnkeyBg,
     cardImage: turnkeyBg,
@@ -233,9 +233,9 @@ export const servicesData = {
     showcaseImage: showcase4,
     secondaryImage: showcase5,
     tags: ['Project Management', 'Fabrication', 'Installation', 'Final Handover'],
-    heading: 'Zero-Stress Exhibition Execution from Concept to Handover',
+    heading: 'Zero-Stress Exhibitions Execution from Concept to Handover',
     description:
-      'Our turnkey service gives you a single dedicated project manager handling 100% of your exhibition project — design renderings, venue documentation, structural calculations, fabrication, freight logistics, build-up, and final show handover.',
+      'Our turnkey service gives you a single dedicated project manager handling 100% of your exhibitions project — design renderings, venue documentation, structural calculations, fabrication, freight logistics, build-up, and final show handover.',
     bulletFeatures: [
       {
         title: 'Single Point of Contact',
@@ -260,7 +260,7 @@ export const servicesData = {
     ],
     technicalSpecs: [
       { title: 'Pre-Build Assembly', desc: 'Full workshop pre-rigging guarantees 0% error rate on event venue floor.', icon: Wrench },
-      { title: 'Logistics Fleet', desc: 'Dedicated air, sea, and land freight tracking to global exhibition halls.', icon: Globe },
+      { title: 'Logistics Fleet', desc: 'Dedicated air, sea, and land freight tracking to global exhibitions halls.', icon: Globe },
       { title: 'On-Site Technicians', desc: 'Electricians, audio-visual engineers, and carpenters on standby throughout the event.', icon: ShieldCheck },
       { title: 'Post-Show Dismantling', desc: 'Eco-friendly breakdown, component recycling, or secure warehouse storage.', icon: Box }
     ],
@@ -279,7 +279,7 @@ export const servicesData = {
     highlightTitle: 'Photorealistic 3D Renders',
     subtitle: 'Detailed 3D concepts and visualizations allowing you to preview your stand before build',
     category: 'Creative Design & CAD',
-    desc: 'Detailed 3D concepts and visualizations that allow you to preview your exhibition stand, refine the design, and approve the final vision before production.',
+    desc: 'Detailed 3D concepts and visualizations that allow you to preview your exhibitions stand, refine the design, and approve the final vision before production.',
     icon: Monitor,
     bannerImage: threeDDesignBg,
     cardImage: threeDDesignBg,
@@ -326,14 +326,14 @@ export const servicesData = {
     ]
   },
 
-  'modular-exhibition-stands': {
+  'modular-exhibitions-stands': {
     id: '06',
-    slug: 'modular-exhibition-stands',
-    title: 'Modular Exhibition Stands',
+    slug: 'modular-exhibitions-stands',
+    title: 'Modular Exhibitions Stands',
     highlightTitle: 'Flexible & Reusable',
     subtitle: 'Adaptable modular stand systems engineered for multi-event efficiency and sustainability',
-    category: 'Flexible Exhibition Systems',
-    desc: 'Flexible modular stand systems designed for brands looking for practical, adaptable, and efficient exhibition solutions across different events and locations.',
+    category: 'Flexible Exhibitions Systems',
+    desc: 'Flexible modular stand systems designed for brands looking for practical, adaptable, and efficient exhibitions solutions across different events and locations.',
     icon: LayoutGrid,
     bannerImage: modularStandsBg,
     cardImage: modularStandsBg,
@@ -382,4 +382,4 @@ export const servicesData = {
 };
 
 export const servicesList = Object.values(servicesData);
-export const defaultServiceSlug = 'custom-exhibition-stands';
+export const defaultServiceSlug = 'custom-exhibitions-stands';

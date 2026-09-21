@@ -6,16 +6,16 @@ const faqData = [
   {
     questions: [
       {
-        q: "What services does YES Exhibition Stands provide?",
-        a: "We provide end-to-end exhibition solutions, including Concept & Design, 3D Visualization, Fabrication, Installation, and On-Site Support."
+        q: "What services does YES Exhibitions Stands provide?",
+        a: "We provide end-to-end exhibitions solutions, including Concept & Design, 3D Visualization, Fabrication, Installation, and On-Site Support."
       },
       {
         q: "What is the company's workflow or process?",
         a: "Our process consists of 5 structured steps: Discovery (understanding your goals), Concept & Design, Fabrication (quality craftsmanship), Installation (on-time execution), and Final Handover."
       },
       {
-        q: "Do you work on events or brand activations apart from exhibition stands?",
-        a: "Yes, in addition to custom exhibition stands, we design and build impactful environments for global trade shows, brand activations, and events."
+        q: "Do you work on events or brand activations apart from exhibitions stands?",
+        a: "Yes, in addition to custom exhibitions stands, we design and build impactful environments for global trade shows, brand activations, and events."
       }
     ]
   },
@@ -68,7 +68,7 @@ const FAQSection = () => {
             FREQUENTLY ASKED <span className="text-[#D4A353]">QUESTIONS</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Find answers to common questions about our exhibition stand services, process, and support.
+            Find answers to common questions about our exhibitions stand services, process, and support.
           </p>
         </div>
 

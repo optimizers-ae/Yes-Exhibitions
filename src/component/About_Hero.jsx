@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ShieldCheck, Lightbulb, Users } from 'lucide-react';
-import aboutBannerImg from '../assets/AboutBanner.jpeg';
+import aboutBannerImg from '../assets/AboutBanner.png';
 
 const About_Hero = () => {
   // ================= ANIMATION VARIANTS =================
@@ -98,7 +98,7 @@ const About_Hero = () => {
       >
         <img
           src={aboutBannerImg}
-          alt="YES Exhibition Stands Design"
+          alt="YES Exhibitions Stands Design"
           className="w-full h-full object-cover object-center sm:object-contain sm:object-right opacity-30 sm:opacity-100"
         />
         {/* Mobile overlay for readability */}

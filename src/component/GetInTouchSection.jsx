@@ -95,7 +95,7 @@ const GetInTouchSection = () => {
                 GET IN <span className="gold-gradient-text">TOUCH</span>
               </h2>
               <p className="mt-4 text-sm text-gray-600 max-w-md mx-auto lg:mx-0 leading-relaxed">
-                Let's craft an unforgettable exhibition experience together. Reach out and our
+                Let's craft an unforgettable exhibitions experience together. Reach out and our
                 team will respond within 24 hours.
               </p>
             </div>
@@ -111,7 +111,7 @@ const GetInTouchSection = () => {
                     </div>
                     <h3 className="text-xl font-bold text-gray-900">Thank You!</h3>
                     <p className="text-sm text-gray-500 max-w-xs mx-auto">
-                      Your message has been received. Our exhibition team will get back to you shortly.
+                      Your message has been received. Our exhibitions team will get back to you shortly.
                     </p>
                   </div>
                 ) : (
@@ -224,7 +224,7 @@ const GetInTouchSection = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-sm sm:text-base tracking-wider uppercase text-gray-900">
-                        YES Exhibition Stands
+                        YES Exhibitions Stands
                       </h4>
                       <p className="text-[11px] text-gray-500 font-medium mt-0.5 flex items-center gap-1.5">
                         <Navigation className="w-3 h-3 text-[#D49942]" />
@@ -254,7 +254,7 @@ const GetInTouchSection = () => {
               {/* Map Iframe with Overlay */}
               <div className="relative w-full h-[320px] sm:h-[420px] lg:h-[500px]">
                 <iframe
-                  title="YES Exhibition Stands Location Map"
+                  title="YES Exhibitions Stands Location Map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115494.61918342417!2d55.15570077712396!3d25.13710778401314!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1c5e2!2sDubai%20World%20Trade%20Centre!5e0!3m2!1sen!2sae!4v1710000000000!5m2!1sen!2sae"
                   width="100%"
                   height="100%"

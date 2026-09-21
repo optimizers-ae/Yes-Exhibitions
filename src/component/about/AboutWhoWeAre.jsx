@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Target, Lightbulb, Compass, ShieldCheck } from 'lucide-react';
-import aboutBannerImg from '../../assets/AboutBanner.jpeg';
+import aboutBannerImg from '../../assets/AboutBanner.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 22 },
@@ -26,7 +26,7 @@ const pillars = [
   {
     number: '01',
     title: 'STRATEGIC',
-    desc: 'We begin by understanding the purpose behind your exhibition presence and aligning design with your business goals.',
+    desc: 'We begin by understanding the purpose behind your exhibitions presence and aligning design with your business goals.',
     icon: Target
   },
   {
@@ -72,7 +72,7 @@ const AboutWhoWeAre = () => {
           >
             <img
               src={aboutBannerImg}
-              alt="YES Exhibition Booth - Creative Thinking & Practical Execution"
+              alt="YES Exhibitions Booth - Creative Thinking & Practical Execution"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#D49942]/20 via-transparent to-white/80 lg:bg-gradient-to-r lg:from-[#D49942]/10 lg:to-white" />
@@ -100,7 +100,7 @@ const AboutWhoWeAre = () => {
                 {/* THEME COLOR */}
                 <span className="w-8 h-px bg-[#D49942]" />
                 <span className="text-[11px] font-extrabold tracking-[0.25em] text-[#D49942] uppercase">
-                  YES EXHIBITION STANDS
+                  YES EXHIBITIONS STANDS
                 </span>
               </div>
 
@@ -117,10 +117,10 @@ const AboutWhoWeAre = () => {
 
             <div className="space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed max-w-xl text-center sm:text-left">
               <p>
-                <strong className="text-gray-900 font-bold">YES Exhibition Stands</strong> is an exhibition stand design and execution company focused on creating distinctive, high-impact environments for brands participating in exhibitions, trade shows, and business events across the UAE and globally.
+                <strong className="text-gray-900 font-bold">YES Exhibitions Stands</strong> is an exhibitions stand design and execution company focused on creating distinctive, high-impact environments for brands participating in exhibitions, trade shows, and business events across the UAE and globally.
               </p>
               <p>
-                We combine creative design, practical thinking, and professional execution to transform ideas into exhibition spaces that represent the character, stature, and commercial ambition of each brand.
+                We combine creative design, practical thinking, and professional execution to transform ideas into exhibitions spaces that represent the character, stature, and commercial ambition of each brand.
               </p>
             </div>
           </motion.div>

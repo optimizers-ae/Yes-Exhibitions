@@ -52,14 +52,14 @@ const Footer = () => {
                 <div className="absolute inset-0 rounded-full bg-[#D49942]/25 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
                 <img
                   src={logoImg}
-                  alt="YES Exhibition Stands Logo"
+                  alt="YES Exhibitions Stands Logo"
                   className="relative h-11 w-11 sm:h-13 sm:w-13 object-contain rounded-full ring-1 ring-[#D49942]/40 p-0.5 bg-white shadow-xs"
                 />
               </div>
 
               <div className="flex flex-col min-w-0 text-left">
                 <span className="text-base sm:text-lg font-bold tracking-tight text-gray-900 leading-none">
-                  YES <span className="text-[#D49942]">EXHIBITION</span>
+                  YES <span className="text-[#D49942]">EXHIBITIONS</span>
                 </span>
                 <span className="text-[8px] sm:text-[9px] tracking-[0.22em] font-semibold text-gray-500 uppercase mt-1.5">
                   Design • Build • Inspire
@@ -68,7 +68,7 @@ const Footer = () => {
             </a>
 
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-sm">
-              Turning ideas into impactful spaces. Premier custom exhibition stand design, fabrication, and seamless on-site execution worldwide.
+              Turning ideas into impactful spaces. Premier custom exhibitions stand design, fabrication, and seamless on-site execution worldwide.
             </p>
 
             {/* Social Icons - Centered on Mobile */}
@@ -290,7 +290,7 @@ const Footer = () => {
           className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-medium text-center sm:text-left"
         >
           <p className="leading-relaxed">
-            © {new Date().getFullYear()} YES Exhibition Stands. All Rights Reserved.
+            © {new Date().getFullYear()} YES Exhibitions Stands. All Rights Reserved.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-gray-500">
