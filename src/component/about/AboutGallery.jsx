@@ -254,7 +254,7 @@ const AboutGallery = () => {
             </h2>
 
             <p className="mt-2 max-w-xl text-xs text-gray-600 sm:text-sm">
-              Explore YES exhibition stands, custom projects and our in-house production process.
+              Explore YES exhibitions stands, custom projects and our in-house production process.
             </p>
           </div>
 

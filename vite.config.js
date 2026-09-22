@@ -39,10 +39,10 @@ function apiDevPlugin() {
               const toEmail = env.CONTACT_TO_EMAIL || process.env.CONTACT_TO_EMAIL || 'optimizersae@gmail.com'
 
               const { data, error } = await resend.emails.send({
-                from: 'YES Exhibition <onboarding@resend.dev>',
+                from: 'YES Exhibitions <onboarding@resend.dev>',
                 to: toEmail,
                 replyTo: email || undefined,
-                subject: `New Website Inquiry - ${name || 'Client'} (${company || 'Exhibition Inquiry'})`,
+                subject: `New Website Inquiry - ${name || 'Client'} (${company || 'Exhibitions Inquiry'})`,
                 html: `
                   <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 10px;">
                     <h2 style="color: #D49942; border-bottom: 2px solid #D49942; padding-bottom: 10px; margin-top: 0;">New Exhibition Inquiry</h2>
@@ -61,7 +61,7 @@ function apiDevPlugin() {
                       ${selectedFeatures && selectedFeatures.length > 0 ? `<tr><td style="padding: 8px 12px; border: 1px solid #eee; background-color: #f9f9f9; font-weight: bold;">Requested Features:</td><td style="padding: 8px 12px; border: 1px solid #eee;">${Array.isArray(selectedFeatures) ? selectedFeatures.join(', ') : selectedFeatures}</td></tr>` : ''}
                       <tr><td style="padding: 8px 12px; border: 1px solid #eee; background-color: #f9f9f9; font-weight: bold;">Project Brief / Message:</td><td style="padding: 8px 12px; border: 1px solid #eee;">${message || 'No message provided'}</td></tr>
                     </table>
-                    <p style="font-size: 11px; color: #888; margin-top: 20px; text-align: center;">Sent from YES Exhibition Website Inquiry System</p>
+                    <p style="font-size: 11px; color: #888; margin-top: 20px; text-align: center;">Sent from YES Exhibitions Website Inquiry System</p>
                   </div>
                 `,
               })

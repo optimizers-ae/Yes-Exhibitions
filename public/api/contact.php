@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Configuration
 $resend_api_key = getenv('RESEND_API_KEY') ?: '';
 $to_email = getenv('CONTACT_TO_EMAIL') ?: 'optimizersae@gmail.com';
-$from_email = 'YES Exhibition <onboarding@resend.dev>'; // Change to your verified domain (e.g. info@yourdomain.com)
+$from_email = 'YES Exhibitions <onboarding@resend.dev>'; // Change to your verified domain (e.g. info@yourdomain.com)
 
 // Load from .env if running in PHP environment without global env vars
 if (empty($resend_api_key)) {
@@ -101,7 +101,7 @@ $html_body = '
     ' . ($features_str ? '<tr><td style="padding: 8px 12px; border: 1px solid #eee; background-color: #f9f9f9; font-weight: bold;">Requested Features:</td><td style="padding: 8px 12px; border: 1px solid #eee;">' . $features_str . '</td></tr>' : '') . '
     <tr><td style="padding: 8px 12px; border: 1px solid #eee; background-color: #f9f9f9; font-weight: bold;">Project Brief / Message:</td><td style="padding: 8px 12px; border: 1px solid #eee;">' . $message . '</td></tr>
   </table>
-  <p style="font-size: 11px; color: #888; margin-top: 20px; text-align: center;">Sent from YES Exhibition Website Inquiry System (Hostinger PHP)</p>
+  <p style="font-size: 11px; color: #888; margin-top: 20px; text-align: center;">Sent from YES Exhibitions Website Inquiry System (Hostinger PHP)</p>
 </div>
 ';
 
@@ -109,7 +109,7 @@ $html_body = '
 $payload = [
     'from' => $from_email,
     'to' => [$to_email],
-    'subject' => 'New Website Inquiry - ' . ($name !== 'N/A' ? $name : 'Client') . ' (' . ($company !== 'N/A' ? $company : 'Exhibition Inquiry') . ')',
+    'subject' => 'New Website Inquiry - ' . ($name !== 'N/A' ? $name : 'Client') . ' (' . ($company !== 'N/A' ? $company : 'Exhibitions Inquiry') . ')',
     'html' => $html_body
 ];
 

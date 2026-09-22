@@ -257,10 +257,10 @@ const Footer = () => {
                   <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D49942] group-hover:text-white transition-colors" />
                 </span>
                 <a
-                  href="tel:+971501234567"
+                  href="tel:+971555940879"
                   className="hover:text-gray-950 transition-colors text-gray-600 font-medium"
                 >
-                  +055 59 40 879
+                  +971 55 594 0879
                 </a>
               </li>
 

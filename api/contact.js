@@ -26,11 +26,11 @@ export default async function handler(req, res) {
     } = body;
 
     const { data, error } = await resend.emails.send({
-      from: "YES Exhibition <onboarding@resend.dev>",
+      from: "YES Exhibitions <onboarding@resend.dev>",
       // NOTE: With onboarding@resend.dev, this must be your Resend account email
       to: process.env.CONTACT_TO_EMAIL || "optimizersae@gmail.com",
       replyTo: email || undefined,
-      subject: `New Website Inquiry - ${name || "Client"} (${company || "Exhibition Inquiry"})`,
+      subject: `New Website Inquiry - ${name || "Client"} (${company || "Exhibitions Inquiry"})`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 10px;">
           <h2 style="color: #D49942; border-bottom: 2px solid #D49942; padding-bottom: 10px; margin-top: 0;">New Exhibition Inquiry</h2>

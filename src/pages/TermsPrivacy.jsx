@@ -39,7 +39,7 @@ const TermsPrivacy = () => {
     document.title = 'Terms & Conditions and Privacy Policy | YES';
 
     const metaDescription =
-      'Read the Terms & Conditions and Privacy Policy of YES, including quotation validity, payment terms, exhibition project conditions, personal data collection, data protection, cookies, and privacy practices.';
+      'Read the Terms & Conditions and Privacy Policy of YES, including quotation validity, payment terms, exhibitions project conditions, personal data collection, data protection, cookies, and privacy practices.';
 
     let metaTag = document.querySelector('meta[name="description"]');
     if (!metaTag) {

@@ -1,385 +1,917 @@
-// Dynamically import all real event images from assets/evet_images
-const rawEventImages = import.meta.glob('../assets/evet_images/*.jpeg', {
-  eager: true,
-  import: 'default',
-});
+// Dynamically import all exhibition images
+const rawEventImages = import.meta.glob(
+  [
+    '../assets/evet_images/*.jpeg',
+    '../assets/evet_images/*.jpg',
+    '../assets/evet_images/*.png',
+    '../assets/evet_images/*.webp'
+  ],
+  {
+    eager: true,
+    import: 'default'
+  }
+);
+
 const eventImageList = Object.values(rawEventImages);
 
 const getEventImage = (pattern, fallbackIdx = 0) => {
-  const matchKey = Object.keys(rawEventImages).find((key) => key.includes(pattern));
-  return matchKey ? rawEventImages[matchKey] : (eventImageList[fallbackIdx] || '');
+  const matchKey = Object.keys(rawEventImages).find((key) =>
+    key.includes(pattern)
+  );
+
+  return matchKey
+    ? rawEventImages[matchKey]
+    : eventImageList[fallbackIdx] || '';
 };
 
-// Select distinct event images for each service
-const customStandsBg = getEventImage('9.58.07 PM.jpeg', 11);
-const doubleDeckerBg = getEventImage('9.58.30 PM (1)', 20);
-const countryPavilionBg = getEventImage('9.58.35 PM.jpeg', 33);
-const turnkeyBg = getEventImage('9.58.32 PM (1)', 25);
-const threeDDesignBg = getEventImage('9.58.30 PM.jpeg', 21);
-const modularStandsBg = getEventImage('11.13.34 AM', 53);
 
-const showcase1 = getEventImage('9.58.03 PM.jpeg', 8);
-const showcase2 = getEventImage('9.58.09 PM (2)', 15);
-const showcase3 = getEventImage('9.58.10 PM (1)', 17);
-const showcase4 = getEventImage('9.58.08 PM.jpeg', 13);
-const showcase5 = getEventImage('11.13.55 AM', 54);
-const showcase6 = getEventImage('9.58.33 PM.jpeg', 29);
+// ======================================================
+// SERVICE IMAGE MAPPING
+// ======================================================
+
+const standDesignBg = getEventImage(
+  '9.58.10 PM (1).jpeg',
+  16
+);
+
+const visualizationBg = getEventImage(
+  'images 1 (1).jpg',
+  0
+);
+
+const productionBg = getEventImage(
+  '11.13.34 AM.jpeg',
+  56
+);
+
+const brandingGraphicsBg = getEventImage(
+  '11.15.06 AM.jpeg',
+  60
+);
+
+const installationBg = getEventImage(
+  '9.58.33 PM (1).jpeg',
+  34
+);
+
+const coordinationBg = getEventImage(
+  'images 1 (6).jpg',
+  5
+);
+
+
+// ======================================================
+// EXTRA SHOWCASE IMAGES
+// ======================================================
+
+const showcase1 = getEventImage(
+  '9.58.07 PM.jpeg',
+  11
+);
+
+const showcase2 = getEventImage(
+  '9.58.09 PM (2).jpeg',
+  15
+);
+
+const showcase3 = getEventImage(
+  '9.58.35 PM.jpeg',
+  33
+);
+
+const showcase4 = getEventImage(
+  '11.13.55 AM.jpeg',
+  57
+);
+
+const showcase5 = getEventImage(
+  '11.14.25 AM.jpeg',
+  59
+);
+
+const showcase6 = getEventImage(
+  '11.16.00 AM.jpeg',
+  62
+);
+
+
+// ======================================================
+// ICONS
+// ======================================================
 
 import {
   Building2,
-  Layers,
-  Globe,
-  ShieldCheck,
   Monitor,
-  LayoutGrid,
-  Box,
-  Lightbulb,
   Wrench,
-  Ruler,
-  CheckCircle2,
-  Award,
   Sparkles,
-  Zap,
-  Cpu
+  Layers,
+  ShieldCheck,
+  Box,
+  Ruler,
+  LayoutGrid,
+  Lightbulb
 } from 'lucide-react';
 
+
+// ======================================================
+// SERVICES DATA
+// ======================================================
+
 export const servicesData = {
-  'custom-exhibitions-stands': {
+
+  // ====================================================
+  // 01 — EXHIBITION STAND DESIGN
+  // ====================================================
+
+  'exhibition-stand-design': {
     id: '01',
-    slug: 'custom-exhibitions-stands',
-    title: 'Custom Exhibitions Stands',
-    highlightTitle: 'Stands Architecture',
-    subtitle: 'Bespoke stand architecture tailored to your brand identity',
-    category: 'Bespoke Stand Design',
-    desc: 'Custom-designed exhibitions stands created around your brand, objectives, space, and visitor experience — from concept to final build.',
+
+    slug: 'exhibition-stand-design',
+
+    title: 'Exhibition Stand Design',
+
+    highlightTitle: 'Stand Design',
+
+    subtitle:
+      'Creative concepts developed around your brand identity, objectives and exhibition space.',
+
+    category: 'Creative Stand Design',
+
+    desc:
+      'Creative exhibition stand concepts developed around your brand identity, objectives, available space and visitor experience.',
+
     icon: Building2,
-    bannerImage: customStandsBg,
-    cardImage: customStandsBg,
-    image: customStandsBg,
+
+    bannerImage: standDesignBg,
+    cardImage: standDesignBg,
+    image: standDesignBg,
+
     showcaseImage: showcase1,
     secondaryImage: showcase2,
-    tags: ['Custom Design', 'Branding', 'Lighting', 'Turnkey Build'],
-    heading: 'Tailored Architecture for Maximum Brand Impact',
-    description:
-      'At YES Exhibitions, we design and construct bespoke custom exhibitions stands crafted around your exact brand identity, product showcase requirements, and visitor engagement strategy. Combining high-end fabrication, precision spatial engineering, and custom branding solutions, we transform floor space into immersive branded environments that attract foot traffic and deliver measurable event ROI.',
-    bulletFeatures: [
-      {
-        title: '3D Concept & Spatial Design',
-        desc: 'Photorealistic 3D renderings and spatial floor planning tailored to visitor traffic flow, brand sightlines, and interactive engagement zones.',
-        icon: Box
-      },
-      {
-        title: 'Premium Material Selection & Fabrication',
-        desc: 'Precision craftsmanship using sustainable high-grade timber, structural aluminum matrix, high-gloss finishes, and custom millwork.',
-        icon: Layers
-      },
-      {
-        title: 'Complete On-Site Installation & Dismantling',
-        desc: 'Seamless end-to-end logistics with certified venue installation teams, on-site supervision, and rapid post-event dismantling.',
-        icon: Wrench
-      },
-      {
-        title: 'Integrated AV & Lighting Solutions',
-        desc: 'High-impact LED backlight walls, ambient architectural ceiling halos, interactive touch kiosks, and dynamic sound integration.',
-        icon: Lightbulb
-      }
-    ],
-    technicalSpecs: [
-      { title: 'Spatial Geometry', desc: 'Optimized layouts engineered for 9 sqm to 500+ sqm spaces, maximizing height allowances.', icon: Ruler },
-      { title: 'Architectural Lighting', desc: 'Integrated COB LED strip lighting, back-lit tension fabric walls, and overhead halo rings.', icon: Lightbulb },
-      { title: 'Custom Millwork', desc: 'Bespoke reception desks, display pedestals, VIP lounges, and lockable storage rooms.', icon: Layers },
-      { title: 'AV & Smart Displays', desc: 'Seamless video walls, interactive touchscreen kiosks, and spatial sound integration.', icon: Monitor }
-    ],
-    faqs: [
-      {
-        q: 'What is included in a turnkey custom exhibitions stand project?',
-        a: 'Our turnkey service covers everything from initial spatial concept, detailed 3D renderings, venue organizer approvals, structural engineering, workshop fabrication, graphics printing, transport, on-site installation, technical support, and post-show dismantling.'
-      },
-      {
-        q: 'How far in advance should we start designing our custom stand?',
-        a: 'We recommend starting 6 to 10 weeks before your event date to allow ample time for 3D revisions, venue approvals, custom fabrication, and pre-assembly testing.'
-      },
-      {
-        q: 'Can custom exhibitions stand components be reused for future shows?',
-        a: 'Yes! We design custom stands with modular, smart structural engineering, allowing key architectural structures, LED lighting elements, and printed graphics to be reconfigured for different booth sizes at future exhibitions.'
-      }
-    ]
-  },
 
-  'double-decker-stands': {
-    id: '02',
-    slug: 'double-decker-stands',
-    title: 'Double Decker Stands',
-    highlightTitle: 'Multi-Level Presence',
-    subtitle: 'Two-story exhibitions structures designed for maximum brand presence and footprint utilization',
-    category: 'Multi-Level Architecture',
-    desc: 'Striking two-level exhibitions stands designed to maximize your floor space while providing dedicated areas for meetings, hospitality, and brand engagement.',
-    icon: Layers,
-    bannerImage: doubleDeckerBg,
-    cardImage: doubleDeckerBg,
-    image: doubleDeckerBg,
-    showcaseImage: showcase2,
-    secondaryImage: showcase3,
-    tags: ['Two-Level Design', 'VIP Lounge', 'Space Optimization', 'Structural Steel'],
-    heading: 'Expand Vertically to Dominate the Exhibitions Floor',
+    tags: [
+      'Concept Development',
+      'Space Planning',
+      'Brand Integration',
+      'Visitor Experience'
+    ],
+
+    heading:
+      'Exhibition Spaces Designed Around Your Brand',
+
     description:
-      'Double decker stands double your available floor area without doubling your booth footprint fees. Create executive VIP meeting suites, private hospitality lounges, and elevated product demonstration stages that command attention across the entire hall.',
+      'We develop exhibition stand concepts around your brief, brand identity, objectives and allocated space, creating a clear visual direction before the project moves into visualization and production.',
+
     bulletFeatures: [
       {
-        title: 'Structural Steel Engineering & Certification',
-        desc: 'Engineered multi-tier structural frames certified by venue safety engineers to withstand heavy weight capacities and high foot traffic.',
-        icon: ShieldCheck
-      },
-      {
-        title: 'Private Executive VIP Lounges',
-        desc: 'Dedicated sound-isolated upper deck meeting areas equipped with luxury seating, hospitality bars, and private discussion zones.',
-        icon: Building2
-      },
-      {
-        title: 'Commanding Architectural Height',
-        desc: 'Elevated brand visibility featuring towering LED lightboxes and high-level graphic branding visible from all hall entrances.',
+        title: 'Brand-Led Concepts',
+
+        desc:
+          'Stand concepts shaped around your visual identity, campaign message and exhibition goals.',
+
         icon: Sparkles
       },
-      {
-        title: 'Turnkey Multi-Level Logistics',
-        desc: 'Complete venue permit management, structural calculation sign-offs, specialized rigging, and rapid double-decker assembly.',
-        icon: Wrench
-      }
-    ],
-    technicalSpecs: [
-      { title: 'Structural Capacity', desc: 'Heavy-duty certified steel matrix engineered for up to 500 kg/m² upper deck loading.', icon: ShieldCheck },
-      { title: 'Staircase Architecture', desc: 'Bespoke floating or spiral staircases with integrated LED step illumination and glass handrails.', icon: Layers },
-      { title: 'Acoustic Soundproofing', desc: 'Acoustically insulated meeting pod walls for confidential executive client discussions.', icon: Box },
-      { title: 'Elevated Branding', desc: '360-degree top perimeter graphics and illuminated halo logos elevated up to 6 meters high.', icon: Sparkles }
-    ],
-    faqs: [
-      {
-        q: 'Are double decker stands permitted at all exhibitions venues?',
-        a: 'Double decker stands require venue ceiling clearance (usually 6m+) and organizer approval. YES Exhibitions handles all structural engineering calculations and venue approvals.'
-      },
-      {
-        q: 'How long does it take to assemble a double decker stand on site?',
-        a: 'Typical assembly takes 3 to 4 days, depending on venue access. Pre-assembly in our workshop guarantees rapid, flawless on-site installation.'
-      }
-    ]
-  },
 
-  'country-trade-pavilions': {
-    id: '03',
-    slug: 'country-trade-pavilions',
-    title: 'Country & Trade Pavilions',
-    highlightTitle: 'Global Pavilion Solutions',
-    subtitle: 'National pavilions and large-scale group s spaces uniting global brands',
-    category: 'Large-Scale Group Exhibitions',
-    desc: 'Large-scale pavilion solutions designed to bring multiple brands, organizations, or exhibitors together within a cohesive and impactful exhibitions environment.',
-    icon: Globe,
-    bannerImage: countryPavilionBg,
-    cardImage: countryPavilionBg,
-    image: countryPavilionBg,
-    showcaseImage: showcase3,
-    secondaryImage: showcase4,
-    tags: ['Trade Pavilions', 'Multi-Exhibitor', 'National Identity', 'Turnkey Delivery'],
-    heading: 'Unified Architectural Identity for Group Exhibitors',
-    description:
-      'We conceptualize, engineer, and build large-scale country pavilions and group exhibitions areas for governments, export councils, and industry trade associations. Our designs balance strong unified national branding with individualized exhibitor sub-booths.',
-    bulletFeatures: [
       {
-        title: 'Unified Overhead Pavilion Branding',
-        desc: 'Imposing national archways, suspended glowing canopies, and high-impact pavilion entrance gateways.',
-        icon: Globe
-      },
-      {
-        title: 'Modular Multi-Exhibitor Kiosks',
-        desc: 'Flexible individual exhibitor pods complete with branded graphics, product displays, counters, and power hookups.',
-        icon: LayoutGrid
-      },
-      {
-        title: 'Central Reception & Trade Lounge',
-        desc: 'Shared networking lounges, delegation reception desks, press conference stages, and VIP hospitality services.',
-        icon: Building2
-      },
-      {
-        title: 'Full Delegation Management',
-        desc: 'End-to-end coordination for 10 to 100+ co-exhibitors including graphics intake, power distribution, and on-site support.',
-        icon: ShieldCheck
-      }
-    ],
-    technicalSpecs: [
-      { title: 'Total Pavilion Scale', desc: 'Scalable solutions designed for 100 sqm to 2,000+ sqm multi-exhibitor footprints.', icon: Ruler },
-      { title: 'Individual Pod Systems', desc: 'Standardized or custom sub-booths with lockable storage and independent branding.', icon: Box },
-      { title: 'Central Hospitality Hub', desc: 'Integrated coffee bars, catering service zones, and delegate meeting spaces.', icon: Building2 },
-      { title: 'Multi-lingual Graphics', desc: 'High-resolution tension fabric printing with crisp typography and international compliance.', icon: Monitor }
-    ],
-    faqs: [
-      {
-        q: 'Can co-exhibitors customize their individual booth areas within the pavilion?',
-        a: 'Yes, we provide customizable graphic inserts, counter options, and digital screen upgrades for each participating company while keeping overall pavilion harmony.'
-      }
-    ]
-  },
+        title: 'Space Planning',
 
-  'turnkey-project-management': {
-    id: '04',
-    slug: 'turnkey-project-management',
-    title: 'Turnkey Project Management',
-    highlightTitle: 'End-to-End Execution',
-    subtitle: '3D design, engineering, approvals, fabrication & complete on-site build',
-    category: 'Full Service Project Management',
-    desc: 'A complete exhibitions journey covering stand design, planning, fabrication, logistics, installation, on-site coordination, and final handover.',
-    icon: ShieldCheck,
-    bannerImage: turnkeyBg,
-    cardImage: turnkeyBg,
-    image: turnkeyBg,
-    showcaseImage: showcase4,
-    secondaryImage: showcase5,
-    tags: ['Project Management', 'Fabrication', 'Installation', 'Final Handover'],
-    heading: 'Zero-Stress Exhibitions Execution from Concept to Handover',
-    description:
-      'Our turnkey service gives you a single dedicated project manager handling 100% of your exhibitions project — design renderings, venue documentation, structural calculations, fabrication, freight logistics, build-up, and final show handover.',
-    bulletFeatures: [
-      {
-        title: 'Single Point of Contact',
-        desc: 'Dedicated Senior Project Manager overseeing timelines, venue coordination, budget, and daily progress updates.',
-        icon: ShieldCheck
-      },
-      {
-        title: '100% Venue Approvals & RAMS',
-        desc: 'Complete management of Risk Assessments, Method Statements, structural calculations, and electrical submissions.',
-        icon: Award
-      },
-      {
-        title: 'Workshop Pre-Build Inspection',
-        desc: 'We pre-assemble your custom booth in our workshop for visual preview and quality check before event shipping.',
-        icon: Wrench
-      },
-      {
-        title: '24/7 On-Site Stand Supervision',
-        desc: 'Dedicated stand standby technicians available throughout show days to assist with lighting, AV, or last-minute needs.',
-        icon: Zap
-      }
-    ],
-    technicalSpecs: [
-      { title: 'Pre-Build Assembly', desc: 'Full workshop pre-rigging guarantees 0% error rate on event venue floor.', icon: Wrench },
-      { title: 'Logistics Fleet', desc: 'Dedicated air, sea, and land freight tracking to global exhibitions halls.', icon: Globe },
-      { title: 'On-Site Technicians', desc: 'Electricians, audio-visual engineers, and carpenters on standby throughout the event.', icon: ShieldCheck },
-      { title: 'Post-Show Dismantling', desc: 'Eco-friendly breakdown, component recycling, or secure warehouse storage.', icon: Box }
-    ],
-    faqs: [
-      {
-        q: 'What is required from our side during a turnkey project?',
-        a: 'Simply provide your brand assets and stand preferences. We take care of design, venue paperwork, build-up, and handover.'
-      }
-    ]
-  },
+        desc:
+          'Layouts planned around available floor area, visitor movement and the functions required inside the stand.',
 
-  '3d-design-visualization': {
-    id: '05',
-    slug: '3d-design-visualization',
-    title: '3D Design & Visualization',
-    highlightTitle: 'Photorealistic 3D Renders',
-    subtitle: 'Detailed 3D concepts and visualizations allowing you to preview your stand before build',
-    category: 'Creative Design & CAD',
-    desc: 'Detailed 3D concepts and visualizations that allow you to preview your exhibitions stand, refine the design, and approve the final vision before production.',
-    icon: Monitor,
-    bannerImage: threeDDesignBg,
-    cardImage: threeDDesignBg,
-    image: threeDDesignBg,
-    showcaseImage: showcase5,
-    secondaryImage: showcase6,
-    tags: ['3D Concepts', 'Photorealistic Renders', 'CAD Blueprints', 'Design Approval'],
-    heading: 'Experience Your Exhibition Stand in Photorealistic 3D',
-    description:
-      'Our architectural design studio creates hyper-realistic 3D renders, spatial floor plans, and 360-degree fly-through animations. Preview lighting effects, material textures, graphic placements, and visitor sightlines before a single panel is built.',
-    bulletFeatures: [
-      {
-        title: 'Photorealistic 4K Renders',
-        desc: 'Accurate material textures, glass reflections, ambient lighting simulations, and exact brand pantone matching.',
-        icon: Monitor
-      },
-      {
-        title: 'Spatial CAD & Floor Plans',
-        desc: 'Dimensioned technical architectural drawings optimized for exhibitor approval and venue organizer submission.',
         icon: Ruler
       },
+
       {
-        title: '360° Virtual Walkthroughs',
-        desc: 'Immersive digital walkthroughs allowing internal stakeholders to experience visitor flow and booth sightlines.',
-        icon: Cpu
+        title: 'Functional Zones',
+
+        desc:
+          'Reception, display, meeting, storage and hospitality areas arranged according to the project brief.',
+
+        icon: LayoutGrid
       },
+
       {
-        title: 'Unlimited Design Iterations',
-        desc: 'Collaborative refinement process until your team achieves 100% design alignment and satisfaction.',
-        icon: Sparkles
+        title: 'Design Development',
+
+        desc:
+          'Concept refinement before the approved direction moves into 3D visualization and production.',
+
+        icon: Building2
       }
     ],
+
     technicalSpecs: [
-      { title: 'Render Resolution', desc: 'Ultra High Definition 4K renders from multiple camera perspectives.', icon: Monitor },
-      { title: 'Technical CAD Package', desc: 'Complete dimensioned elevation plans, lighting layouts, and exploded structural diagrams.', icon: Ruler },
-      { title: 'VR Preview Ready', desc: 'Compatible 3D model formats for virtual reality headsets and interactive web viewers.', icon: Cpu },
-      { title: 'Material Samples', desc: 'Physical sample swatches dispatched to your office alongside digital 3D renders.', icon: Layers }
+      {
+        title: 'Brand Integration',
+
+        desc:
+          'Architecture, finishes and graphics developed as one consistent brand environment.',
+
+        icon: Sparkles
+      },
+
+      {
+        title: 'Spatial Layout',
+
+        desc:
+          'Planning adapted to the assigned stand size and exhibition requirements.',
+
+        icon: Ruler
+      },
+
+      {
+        title: 'Display Planning',
+
+        desc:
+          'Product, screen and communication areas positioned as part of the overall concept.',
+
+        icon: Monitor
+      },
+
+      {
+        title: 'Production Ready',
+
+        desc:
+          'Approved concepts are prepared for visualization, detailing and fabrication.',
+
+        icon: Wrench
+      }
     ],
+
     faqs: [
       {
-        q: 'How long does a 3D design concept take?',
-        a: 'Initial 3D design concepts are typically delivered within 3 to 5 business days after receiving your design brief.'
+        q:
+          'What information do you need to start an exhibition stand design?',
+
+        a:
+          'The starting point is your brand material, exhibition space, project objectives and the functions you want the stand to support.'
       }
     ]
   },
 
-  'modular-exhibitions-stands': {
-    id: '06',
-    slug: 'modular-exhibitions-stands',
-    title: 'Modular Exhibitions Stands',
-    highlightTitle: 'Flexible & Reusable',
-    subtitle: 'Adaptable modular stand systems engineered for multi-event efficiency and sustainability',
-    category: 'Flexible Exhibitions Systems',
-    desc: 'Flexible modular stand systems designed for brands looking for practical, adaptable, and efficient exhibitions solutions across different events and locations.',
-    icon: LayoutGrid,
-    bannerImage: modularStandsBg,
-    cardImage: modularStandsBg,
-    image: modularStandsBg,
-    showcaseImage: showcase6,
-    secondaryImage: showcase1,
-    tags: ['Modular Systems', 'Reusable Architecture', 'Tension Fabric', 'Fast Assembly'],
-    heading: 'Smart Reusable Stand Architecture for Multiple Events',
+
+  // ====================================================
+  // 02 — 3D VISUALIZATION
+  // ====================================================
+
+  '3d-visualization': {
+    id: '02',
+
+    slug: '3d-visualization',
+
+    title: '3D Visualization',
+
+    highlightTitle: 'Visualization',
+
+    subtitle:
+      'Detailed visual concepts that allow you to experience the proposed stand before production.',
+
+    category: '3D Design Preview',
+
+    desc:
+      'Detailed 3D visuals help you understand the proposed stand, review key design elements and approve the direction before production.',
+
+    icon: Monitor,
+
+    bannerImage: visualizationBg,
+    cardImage: visualizationBg,
+    image: visualizationBg,
+
+    showcaseImage: visualizationBg,
+    secondaryImage: showcase3,
+
+    tags: [
+      '3D Concepts',
+      'Material Preview',
+      'Lighting Preview',
+      'Design Approval'
+    ],
+
+    heading:
+      'See the Stand Before It Is Built',
+
     description:
-      'For brands exhibiting across multiple trade shows per year, our modular stand systems offer reusable, reconfigurable, and eco-friendly booth designs. Reframe components to fit 3x3m, 6x3m, or 6x6m spaces effortlessly while cutting cost per show.',
+      '3D visualization translates the approved concept into a clear visual preview so the layout, materials, graphics, lighting and overall appearance can be reviewed before fabrication begins.',
+
     bulletFeatures: [
       {
-        title: 'Reconfigurable Aluminum Matrix',
-        desc: 'Interlocking structural frame systems that re-shape into diverse booth layouts and sizes for future events.',
-        icon: LayoutGrid
+        title: 'Detailed 3D Views',
+
+        desc:
+          'Visual perspectives that communicate the proposed stand design from useful viewing angles.',
+
+        icon: Monitor
       },
+
       {
-        title: 'Seamless Tension Fabric Graphics',
-        desc: 'Lightweight, washable, crease-resistant silicone edge graphics (SEG) that install rapidly and look pristine.',
+        title: 'Material & Finish Preview',
+
+        desc:
+          'A visual indication of proposed surfaces, finishes and key architectural elements.',
+
         icon: Layers
       },
+
       {
-        title: 'Compact Transport & Eco Savings',
-        desc: 'Packable into flight cases, significantly lowering shipping weight, carbon footprint, and logistics expenses.',
-        icon: ShieldCheck
+        title: 'Graphic Placement Review',
+
+        desc:
+          'Branding and visual communication can be reviewed within the proposed stand environment.',
+
+        icon: Sparkles
       },
+
       {
-        title: 'Tool-Free Rapid Assembly',
-        desc: 'Quick lock mechanisms ensuring fast build times and reduced venue labor hours.',
+        title: 'Pre-Production Approval',
+
+        desc:
+          'The visual direction can be reviewed and refined before it moves into production.',
+
+        icon: ShieldCheck
+      }
+    ],
+
+    technicalSpecs: [
+      {
+        title: 'Stand Views',
+
+        desc:
+          'Clear visual perspectives of the proposed exhibition environment.',
+
+        icon: Monitor
+      },
+
+      {
+        title: 'Layout Review',
+
+        desc:
+          'Space allocation and key functional areas can be checked before production.',
+
+        icon: Ruler
+      },
+
+      {
+        title: 'Brand Preview',
+
+        desc:
+          'Logos, graphics and communication elements shown within the design.',
+
+        icon: Sparkles
+      },
+
+      {
+        title: 'Design Sign-Off',
+
+        desc:
+          'Approved visuals provide a clear reference for the next project stage.',
+
+        icon: ShieldCheck
+      }
+    ],
+
+    faqs: [
+      {
+        q:
+          'Why is 3D visualization important before production?',
+
+        a:
+          'It gives the client a clear preview of the proposed stand and allows important design decisions to be reviewed before fabrication starts.'
+      }
+    ]
+  },
+
+
+  // ====================================================
+  // 03 — STAND PRODUCTION
+  // ====================================================
+
+  'stand-production': {
+    id: '03',
+
+    slug: 'stand-production',
+
+    title: 'Stand Production',
+
+    highlightTitle: 'Production',
+
+    subtitle:
+      'Turning approved designs into physical exhibition environments with attention to materials, finishes and details.',
+
+    category: 'Fabrication & Production',
+
+    desc:
+      'Approved stand designs are transformed into physical exhibition elements through fabrication, finishing and production preparation.',
+
+    icon: Wrench,
+
+    bannerImage: productionBg,
+    cardImage: productionBg,
+    image: productionBg,
+
+    showcaseImage: showcase4,
+    secondaryImage: showcase5,
+
+    tags: [
+      'Fabrication',
+      'Material Finishes',
+      'Joinery',
+      'Quality Control'
+    ],
+
+    heading:
+      'From Approved Design to Physical Build',
+
+    description:
+      'The production stage converts the approved design into the components required for the exhibition stand, with attention to materials, finishes, detailing and readiness for site installation.',
+
+    bulletFeatures: [
+      {
+        title: 'Fabrication',
+
+        desc:
+          'Production of the stand components according to the approved design direction.',
+
+        icon: Wrench
+      },
+
+      {
+        title: 'Material Preparation',
+
+        desc:
+          'Selected materials and surfaces prepared for the required visual and functional finish.',
+
+        icon: Layers
+      },
+
+      {
+        title: 'Detailed Finishing',
+
+        desc:
+          'Attention to visible edges, surfaces, counters, display elements and other stand details.',
+
+        icon: Box
+      },
+
+      {
+        title: 'Production Checks',
+
+        desc:
+          'Stand elements reviewed before they are prepared for delivery and site installation.',
+
+        icon: ShieldCheck
+      }
+    ],
+
+    technicalSpecs: [
+      {
+        title: 'Workshop Production',
+
+        desc:
+          'Stand elements fabricated and prepared in a controlled production environment.',
+
+        icon: Wrench
+      },
+
+      {
+        title: 'Finish Preparation',
+
+        desc:
+          'Surfaces prepared according to the approved visual direction.',
+
+        icon: Layers
+      },
+
+      {
+        title: 'Component Planning',
+
+        desc:
+          'Individual elements organized for transport and on-site assembly.',
+
+        icon: Box
+      },
+
+      {
+        title: 'Build Readiness',
+
+        desc:
+          'Completed production elements prepared for the installation stage.',
+
+        icon: ShieldCheck
+      }
+    ],
+
+    faqs: [
+      {
+        q:
+          'When does stand production begin?',
+
+        a:
+          'Production begins after the design direction and required project details have been approved.'
+      }
+    ]
+  },
+
+
+  // ====================================================
+  // 04 — BRANDING & GRAPHICS
+  // ====================================================
+
+  'branding-graphics': {
+    id: '04',
+
+    slug: 'branding-graphics',
+
+    title: 'Branding & Graphics',
+
+    highlightTitle: 'Graphics',
+
+    subtitle:
+      'Integrated visual communication that ensures your brand is clearly represented throughout the stand.',
+
+    category: 'Visual Communication',
+
+    desc:
+      'Branding, signage and exhibition graphics are integrated throughout the stand so the space communicates one clear and consistent identity.',
+
+    icon: Sparkles,
+
+    bannerImage: brandingGraphicsBg,
+    cardImage: brandingGraphicsBg,
+    image: brandingGraphicsBg,
+
+    showcaseImage: showcase3,
+    secondaryImage: showcase6,
+
+    tags: [
+      'Large-Format Graphics',
+      'Brand Application',
+      'Signage',
+      'Display Graphics'
+    ],
+
+    heading:
+      'Clear Brand Communication Across the Stand',
+
+    description:
+      'Branding and graphics connect the physical stand with your visual identity, helping logos, messages, product communication and display content appear consistently across the exhibition environment.',
+
+    bulletFeatures: [
+      {
+        title: 'Brand Application',
+
+        desc:
+          'Logo, colors and visual identity applied consistently across suitable stand surfaces.',
+
+        icon: Sparkles
+      },
+
+      {
+        title: 'Exhibition Graphics',
+
+        desc:
+          'Printed visual communication prepared for walls, panels, counters and display areas.',
+
+        icon: Monitor
+      },
+
+      {
+        title: 'Signage & Messaging',
+
+        desc:
+          'Key messages and directional communication positioned where they can be clearly seen.',
+
+        icon: Lightbulb
+      },
+
+      {
+        title: 'Production Coordination',
+
+        desc:
+          'Graphics prepared to work with the physical dimensions and finishes of the stand.',
+
         icon: Wrench
       }
     ],
+
     technicalSpecs: [
-      { title: 'Frame Modular Grid', desc: 'Precision engineered aluminum profile system with toolless connector locks.', icon: LayoutGrid },
-      { title: 'Graphic System', desc: 'Dye-sublimated fabric SEG graphics with vibrant edge-to-edge color saturation.', icon: Monitor },
-      { title: 'Case Storage', desc: 'Heavy-duty wheeled flight cases for easy transport and long-term storage.', icon: Box },
-      { title: 'Eco Certification', desc: '100% recyclable aluminum components and reusable fabric graphics.', icon: ShieldCheck }
+      {
+        title: 'Graphic Placement',
+
+        desc:
+          'Brand communication planned around the stand architecture.',
+
+        icon: LayoutGrid
+      },
+
+      {
+        title: 'Print Preparation',
+
+        desc:
+          'Artwork prepared for suitable exhibition graphic applications.',
+
+        icon: Monitor
+      },
+
+      {
+        title: 'Visual Consistency',
+
+        desc:
+          'Brand elements coordinated across multiple surfaces and touchpoints.',
+
+        icon: Sparkles
+      },
+
+      {
+        title: 'Stand Integration',
+
+        desc:
+          'Graphics aligned with production dimensions and installation requirements.',
+
+        icon: Ruler
+      }
     ],
+
     faqs: [
       {
-        q: 'Can modular stands look as custom as traditional timber booths?',
-        a: 'Yes! Our modern SEG backlit fabrics, custom wooden counters, and integrated AV elements give modular stands a sleek, high-end custom appearance.'
+        q:
+          'Can you apply our existing brand guidelines to the exhibition stand?',
+
+        a:
+          'Yes. The branding and graphics stage is designed to translate your approved visual identity into the exhibition environment.'
+      }
+    ]
+  },
+
+
+  // ====================================================
+  // 05 — INSTALLATION & DISMANTLING
+  // ====================================================
+
+  'installation-dismantling': {
+    id: '05',
+
+    slug: 'installation-dismantling',
+
+    title: 'Installation & Dismantling',
+
+    highlightTitle: 'Dismantling',
+
+    subtitle:
+      'Professional coordination of the installation and dismantling process.',
+
+    category: 'On-Site Execution',
+
+    desc:
+      'The stand is coordinated on site for installation before the exhibition and dismantling after the event.',
+
+    icon: Layers,
+
+    bannerImage: installationBg,
+    cardImage: installationBg,
+    image: installationBg,
+
+    showcaseImage: showcase2,
+    secondaryImage: showcase1,
+
+    tags: [
+      'On-Site Setup',
+      'Site Coordination',
+      'Final Checks',
+      'Dismantling'
+    ],
+
+    heading:
+      'Coordinated Build-Up and Breakdown on Site',
+
+    description:
+      'Installation and dismantling connect workshop production with the exhibition venue, coordinating the physical setup, final stand checks and post-event breakdown process.',
+
+    bulletFeatures: [
+      {
+        title: 'On-Site Installation',
+
+        desc:
+          'Stand components assembled and positioned at the exhibition venue.',
+
+        icon: Wrench
+      },
+
+      {
+        title: 'Site Coordination',
+
+        desc:
+          'Build activities coordinated around the project requirements and venue schedule.',
+
+        icon: ShieldCheck
+      },
+
+      {
+        title: 'Final Stand Checks',
+
+        desc:
+          'Key stand elements reviewed before project handover.',
+
+        icon: Building2
+      },
+
+      {
+        title: 'Post-Event Dismantling',
+
+        desc:
+          'The stand is taken down in a coordinated way after the exhibition closes.',
+
+        icon: Layers
+      }
+    ],
+
+    technicalSpecs: [
+      {
+        title: 'Build-Up',
+
+        desc:
+          'Assembly of production elements at the event location.',
+
+        icon: Wrench
+      },
+
+      {
+        title: 'Finishing',
+
+        desc:
+          'Final adjustments and presentation checks during site setup.',
+
+        icon: Sparkles
+      },
+
+      {
+        title: 'Handover',
+
+        desc:
+          'Stand prepared for client use before the exhibition begins.',
+
+        icon: ShieldCheck
+      },
+
+      {
+        title: 'Breakdown',
+
+        desc:
+          'Coordinated dismantling after the event.',
+
+        icon: Layers
+      }
+    ],
+
+    faqs: [
+      {
+        q:
+          'Does the service include both installation and dismantling?',
+
+        a:
+          'YES Exhibitions provides professional coordination of both the installation and dismantling process.'
+      }
+    ]
+  },
+
+
+  // ====================================================
+  // 06 — PROJECT COORDINATION
+  // ====================================================
+
+  'project-coordination': {
+    id: '06',
+
+    slug: 'project-coordination',
+
+    title: 'Project Coordination',
+
+    highlightTitle: 'Coordination',
+
+    subtitle:
+      'A structured process from initial briefing through design, production and final delivery.',
+
+    category: 'Project Delivery',
+
+    desc:
+      'A structured project process coordinates the brief, design, production, site execution and final delivery from beginning to completion.',
+
+    icon: ShieldCheck,
+
+    bannerImage: coordinationBg,
+    cardImage: coordinationBg,
+    image: coordinationBg,
+
+    showcaseImage: showcase6,
+    secondaryImage: showcase3,
+
+    tags: [
+      'Client Briefing',
+      'Timeline Management',
+      'Production Follow-Up',
+      'Final Delivery'
+    ],
+
+    heading:
+      'One Structured Process from Brief to Delivery',
+
+    description:
+      'Project coordination keeps the main stages connected, from the initial client brief through design development, production follow-up, site execution and final project delivery.',
+
+    bulletFeatures: [
+      {
+        title: 'Initial Briefing',
+
+        desc:
+          'Project requirements, objectives, stand needs and available information organized at the start.',
+
+        icon: Box
+      },
+
+      {
+        title: 'Design Coordination',
+
+        desc:
+          'Design decisions and approvals kept aligned with the wider project process.',
+
+        icon: Building2
+      },
+
+      {
+        title: 'Production Follow-Up',
+
+        desc:
+          'Approved design information carried through into fabrication and preparation.',
+
+        icon: Wrench
+      },
+
+      {
+        title: 'Final Delivery',
+
+        desc:
+          'Project stages coordinated through site execution and final handover.',
+
+        icon: ShieldCheck
+      }
+    ],
+
+    technicalSpecs: [
+      {
+        title: 'Brief Management',
+
+        desc:
+          'Core project requirements organized into a clear working direction.',
+
+        icon: Box
+      },
+
+      {
+        title: 'Stage Coordination',
+
+        desc:
+          'Design, production and site stages connected within one project flow.',
+
+        icon: LayoutGrid
+      },
+
+      {
+        title: 'Progress Follow-Up',
+
+        desc:
+          'Key project steps tracked through the delivery process.',
+
+        icon: ShieldCheck
+      },
+
+      {
+        title: 'Completion',
+
+        desc:
+          'Final delivery coordinated as the project reaches exhibition readiness.',
+
+        icon: Building2
+      }
+    ],
+
+    faqs: [
+      {
+        q:
+          'What does project coordination cover?',
+
+        a:
+          'It covers the structured flow from initial briefing through design, production and final delivery.'
       }
     ]
   }
 };
 
+
+// ======================================================
+// EXPORT LIST
+// ======================================================
+
 export const servicesList = Object.values(servicesData);
-export const defaultServiceSlug = 'custom-exhibitions-stands';
+
+
+// Default service opened when no slug exists
+export const defaultServiceSlug = 'exhibition-stand-design';
