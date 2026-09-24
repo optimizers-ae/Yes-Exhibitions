@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft,
@@ -113,47 +114,48 @@ const Contact = () => {
     );
   };
 
+  // ── EmailJS Configuration ──────────────────────────────────────────────────
+  // Fill in the three values below from your EmailJS dashboard:
+  //   https://dashboard.emailjs.com/
+  const EMAILJS_SERVICE_ID  = 'service_kmeh37d';
+  const EMAILJS_TEMPLATE_ID = 'template_pfz14mp';
+  const EMAILJS_PUBLIC_KEY  = 'UPfGbKoRYss7RSrqT';
+  // ───────────────────────────────────────────────────────────────────────────
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
     setErrorMessage('');
 
     try {
-      const payload = {
-        ...formData,
-        selectedFeatures,
+      const templateParams = {
+        from_name:        formData.name,
+        from_email:       formData.email,
+        phone:            formData.phone,
+        company:          formData.company,
+        city_country:     formData.cityCountry,
+        stand_type:       formData.standType,
+        stand_size:       formData.standSize,
+        event_name:       formData.eventName,
+        event_date:       formData.eventDate,
+        event_location:   formData.eventLocation,
+        budget:           formData.budget,
+        selected_features: selectedFeatures.length > 0 ? selectedFeatures.join(', ') : 'None selected',
+        message:          formData.message || 'No message provided',
       };
 
-      let response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
 
-      // Fallback to PHP endpoint if on Hostinger / Apache server where /api/contact is 404/405
-      if (response.status === 404 || response.status === 405) {
-        response = await fetch('/api/contact.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
-      }
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setSubmitted(true);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        setErrorMessage(data.message || 'Failed to submit inquiry. Please try again.');
-      }
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
-      console.error(err);
-      setErrorMessage('Could not connect to server. Please check your connection and try again.');
+      console.error('EmailJS error:', err);
+      setErrorMessage('Could not send your inquiry. Please check your connection and try again.');
     } finally {
       setSubmitting(false);
     }

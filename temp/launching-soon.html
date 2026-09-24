@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/jpeg" href="src/assets/logo.jpeg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO Meta Tags -->
+  <title>Launching Soon | YES Exhibitions Stands - Premium Custom Booths</title>
+  <meta name="title" content="Launching Soon | YES Exhibitions Stands - Premium Custom Booths" />
+  <meta name="description" content="Something extraordinary is in the works. YES Exhibitions Stands is launching an all-new digital experience for custom exhibition stands, double-decker pavilions, and turnkey booth design." />
+  <meta name="theme-color" content="#D49942" />
+
+  <!-- Google Fonts: Sansation -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- ======================================================== -->
+  <!-- INTERNAL CSS: LUXURY GOLD THEME FOR LAUNCHING SOON PAGE  -->
+  <!-- ======================================================== -->
+  <style>
+    /* Design Tokens from YES Exhibitions Homepage Theme */
+    :root {
+      --font-family: 'Sansation', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      --gold-primary: #D49942;
+      --gold-light: #E6AA4D;
+      --gold-dark: #DF9B34;
+      --gold-deep: #C78326;
+      --gold-darker: #B2771D;
+      --gold-accent: #D89422;
+      --gold-glow: 0 0 35px rgba(212, 153, 66, 0.4);
+      --gold-glow-subtle: 0 4px 25px rgba(212, 153, 66, 0.25);
+      
+      --gold-gradient: linear-gradient(135deg, #E6AA4D 0%, #DF9B34 50%, #C78326 100%);
+      --gold-gradient-hover: linear-gradient(135deg, #EBB257 0%, #E8A541 50%, #D18F33 100%);
+      --gold-text-gradient: linear-gradient(135deg, #F3C474 0%, #E2A243 40%, #D49942 70%, #B2771D 100%);
+
+      --bg-dark: #080A0E;
+      --bg-card: rgba(18, 22, 31, 0.75);
+      --bg-card-hover: rgba(26, 32, 44, 0.85);
+      --border-gold: rgba(212, 153, 66, 0.28);
+      --border-gold-bright: rgba(230, 170, 77, 0.6);
+
+      --text-white: #FFFFFF;
+      --text-light: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --text-dim: #6B7280;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 30px;
+      --radius-full: 9999px;
+    }
+
+    /* Reset & Base Setup */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: var(--font-family);
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: rgba(212, 153, 66, 0.35);
+      color: #FFFFFF;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0E14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold-primary);
+      border-radius: 4px;
+    }
+
+    /* Background Ambient Canvas & Lighting */
+    .bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bg-image {
+      position: absolute;
+      inset: 0;
+      background-image: url('src/assets/hero_1.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.16;
+      filter: saturate(1.2) contrast(1.1);
+      transform: scale(1.05);
+      animation: slowZoom 25s alternate infinite ease-in-out;
+    }
+
+    @keyframes slowZoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+
+    .bg-gradient-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 20%, rgba(212, 153, 66, 0.15) 0%, rgba(8, 10, 14, 0.85) 60%, #080A0E 100%);
+    }
+
+    .bg-mesh-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(212, 153, 66, 0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(212, 153, 66, 0.05) 1px, transparent 1px);
+      background-size: 70px 70px;
+      opacity: 0.7;
+    }
+
+    /* Floating Golden Glow Orbs */
+    .glow-orb-1 {
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 450px;
+      background: radial-gradient(ellipse at center, rgba(230, 170, 77, 0.28) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(90px);
+    }
+
+    .glow-orb-2 {
+      position: absolute;
+      bottom: 5%;
+      left: -120px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle at center, rgba(212, 153, 66, 0.18) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(100px);
+    }
+
+    .glow-orb-3 {
+      position: absolute;
+      top: 40%;
+      right: -120px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle at center, rgba(223, 155, 52, 0.16) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(110px);
+    }
+
+    /* Page Layout Container */
+    .launch-wrapper {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 30px 24px;
+    }
+
+    @media (min-width: 768px) {
+      .launch-wrapper {
+        padding: 40px 36px;
+      }
+    }
+
+    /* ======================================================== */
+    /* 1. TOP HEADER                                            */
+    /* ======================================================== */
+    .launch-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 24px;
+    }
+
+    .brand-logo-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: transform 0.25s ease;
+    }
+
+    .brand-logo-link:hover {
+      transform: scale(1.02);
+    }
+
+    .brand-logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(212, 153, 66, 0.6);
+      box-shadow: 0 0 20px rgba(212, 153, 66, 0.35);
+      background: #FFFFFF;
+      padding: 1px;
+    }
+
+    .brand-texts {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .brand-name span {
+      color: var(--gold-light);
+    }
+
+    .brand-motto {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      font-weight: 700;
+      color: var(--gold-primary);
+      margin-top: 5px;
+    }
+
+    .header-quick-action {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-header-inquiry {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-gold);
+      color: var(--text-light);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+    }
+
+    .btn-header-inquiry:hover {
+      background: var(--gold-gradient);
+      border-color: transparent;
+      color: #FFFFFF;
+      box-shadow: var(--gold-glow-subtle);
+      transform: translateY(-2px);
+    }
+
+    /* ======================================================== */
+    /* 2. MAIN HERO SECTION                                     */
+    /* ======================================================== */
+    .hero-main {
+      text-align: center;
+      max-width: 900px;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Launch Badge */
+    .launch-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(212, 153, 66, 0.12);
+      border: 1px solid rgba(230, 170, 77, 0.4);
+      padding: 8px 22px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #F6C878;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { border-color: rgba(230, 170, 77, 0.35); box-shadow: 0 0 15px rgba(212, 153, 66, 0.15); }
+      50% { border-color: rgba(230, 170, 77, 0.7); box-shadow: 0 0 25px rgba(212, 153, 66, 0.35); }
+    }
+
+    .launch-status-badge svg {
+      width: 14px;
+      height: 14px;
+      color: var(--gold-light);
+    }
+
+    .pulse-amber-dot {
+      width: 7px;
+      height: 7px;
+      background: #FBBF24;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #F59E0B;
+    }
+
+    /* Main Title */
+    .launch-title {
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: #FFFFFF;
+      margin-bottom: 22px;
+    }
+
+    .gold-gradient-text {
+      background: var(--gold-text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      filter: drop-shadow(0 2px 18px rgba(212, 153, 66, 0.25));
+    }
+
+    .launch-description {
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 44px auto;
+      font-weight: 400;
+    }
+
+    .launch-description strong {
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* ======================================================== */
+    /* 3. COUNTDOWN TIMER                                       */
+    /* ======================================================== */
+    .countdown-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto 48px auto;
+    }
+
+    @media (min-width: 640px) {
+      .countdown-container {
+        gap: 20px;
+      }
+    }
+
+    .timer-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: var(--radius-lg);
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .timer-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold-gradient);
+      opacity: 0.8;
+    }
+
+    .timer-card:hover {
+      border-color: var(--border-gold-bright);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(212, 153, 66, 0.25);
+    }
+
+    .timer-number {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      background: var(--gold-text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+    }
+
+    @media (min-width: 640px) {
+      .timer-label {
+        font-size: 11px;
+      }
+    }
+
+    /* ======================================================== */
+    /* 4. NOTIFY ME FORM                                        */
+    /* ======================================================== */
+    .notify-form-wrap {
+      width: 100%;
+      max-width: 580px;
+      margin: 0 auto 56px auto;
+    }
+
+    .notify-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: rgba(18, 22, 31, 0.85);
+      border: 1px solid var(--border-gold);
+      padding: 8px;
+      border-radius: var(--radius-xl);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      transition: all 0.3s ease;
+    }
+
+    @media (min-width: 640px) {
+      .notify-form {
+        flex-direction: row;
+        border-radius: var(--radius-full);
+        padding: 6px 8px 6px 20px;
+      }
+    }
+
+    .notify-form:focus-within {
+      border-color: var(--gold-light);
+      box-shadow: 0 0 30px rgba(212, 153, 66, 0.3);
+    }
+
+    .notify-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: #FFFFFF;
+      font-family: var(--font-family);
+    }
+
+    .notify-input::placeholder {
+      color: #6B7280;
+    }
+
+    .btn-notify {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--gold-gradient);
+      color: #FFFFFF;
+      border: none;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      box-shadow: var(--gold-glow-subtle);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-notify:hover {
+      background: var(--gold-gradient-hover);
+      box-shadow: 0 8px 25px rgba(212, 153, 66, 0.4);
+      transform: scale(1.02);
+    }
+
+    .notify-feedback {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 20px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: var(--radius-md);
+      color: #6EE7B7;
+      font-size: 13px;
+      font-weight: 600;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .notify-feedback.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ======================================================== */
+    /* 5. SNEAK PEEK PILLARS / SERVICES PREVIEW                 */
+    /* ======================================================== */
+    .sneak-peek-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .sneak-peek-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .sneak-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 26px 24px;
+      backdrop-filter: blur(14px);
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sneak-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-gold-bright);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), 0 0 25px rgba(212, 153, 66, 0.15);
+    }
+
+    .sneak-icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-md);
+      background: rgba(212, 153, 66, 0.12);
+      border: 1px solid rgba(230, 170, 77, 0.3);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .sneak-card:hover .sneak-icon-box {
+      background: var(--gold-gradient);
+      color: #FFFFFF;
+      box-shadow: 0 4px 15px rgba(212, 153, 66, 0.35);
+    }
+
+    .sneak-number {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font-size: 26px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.1);
+      letter-spacing: -0.05em;
+    }
+
+    .sneak-card:hover .sneak-number {
+      color: rgba(212, 153, 66, 0.3);
+    }
+
+    .sneak-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .sneak-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Urgent Booking Ribbon */
+    .urgent-banner {
+      width: 100%;
+      margin: 40px auto 0 auto;
+      background: linear-gradient(135deg, rgba(212, 153, 66, 0.15) 0%, rgba(18, 22, 31, 0.9) 100%);
+      border: 1px solid rgba(230, 170, 77, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 24px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      backdrop-filter: blur(16px);
+      text-align: center;
+    }
+
+    @media (min-width: 850px) {
+      .urgent-banner {
+        flex-direction: row;
+        text-align: left;
+      }
+    }
+
+    .urgent-text h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .urgent-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .urgent-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .btn-urgent-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold-gradient);
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: var(--gold-glow-subtle);
+      transition: all 0.2s ease;
+    }
+
+    .btn-urgent-call:hover {
+      background: var(--gold-gradient-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-urgent-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #10B981;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-urgent-whatsapp:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    /* ======================================================== */
+    /* 6. LAUNCH FOOTER                                         */
+    /* ======================================================== */
+    .launch-footer {
+      padding-top: 40px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    @media (min-width: 640px) {
+      .launch-footer {
+        flex-direction: row;
+      }
+    }
+
+    .footer-coords {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-coords a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-coords a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .footer-social-link:hover {
+      background: var(--gold-primary);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(212, 153, 66, 0.35);
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #10B981;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.1);
+      background: #059669;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Ambient Luxury Background Elements -->
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="bg-image"></div>
+    <div class="bg-gradient-vignette"></div>
+    <div class="bg-mesh-grid"></div>
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
+    <div class="glow-orb-3"></div>
+  </div>
+
+  <!-- Page Content Container -->
+  <div class="launch-wrapper">
+
+    <!-- Header Navigation -->
+    <header class="launch-header">
+      <a href="#" class="brand-logo-link" aria-label="YES Exhibitions Logo">
+        <img src="src/assets/logo.jpeg" alt="YES Exhibitions Logo" class="brand-logo-img" width="48" height="48" />
+        <div class="brand-texts">
+          <span class="brand-name">YES <span>EXHIBITIONS</span></span>
+          <span class="brand-motto">Design • Build • Inspire</span>
+        </div>
+      </a>
+
+      <div class="header-quick-action">
+        <a href="mailto:info@yes-exhibitions.com" class="btn-header-inquiry">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>Direct Brief</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Center Hero Section -->
+    <main class="hero-main">
+      
+      <!-- Pill Badge -->
+      <div class="launch-status-badge">
+        <span class="pulse-amber-dot"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        <span>LAUNCHING SOON • DUBAI & WORLDWIDE</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="launch-title">
+        A New Dimension of<br />
+        <span class="gold-gradient-text">Exhibition Architecture</span>
+      </h1>
+
+      <!-- Description -->
+      <p class="launch-description">
+        We are crafting an all-new digital experience. <strong>YES Exhibitions Stands</strong> designs, engineers, and fabricates world-class bespoke exhibition spaces, multi-level structures, and country pavilions that elevate premier global brands.
+      </p>
+
+      <!-- Live Dynamic Countdown -->
+      <div class="countdown-container" id="countdownBox">
+        <div class="timer-card">
+          <span class="timer-number" id="days">14</span>
+          <span class="timer-label">Days</span>
+        </div>
+        <div class="timer-card">
+          <span class="timer-number" id="hours">08</span>
+          <span class="timer-label">Hours</span>
+        </div>
+        <div class="timer-card">
+          <span class="timer-number" id="minutes">42</span>
+          <span class="timer-label">Minutes</span>
+        </div>
+        <div class="timer-card">
+          <span class="timer-number" id="seconds">19</span>
+          <span class="timer-label">Seconds</span>
+        </div>
+      </div>
+
+      <!-- VIP Launch Notification Form -->
+      <div class="notify-form-wrap">
+        <form class="notify-form" id="notifyForm">
+          <input
+            type="email"
+            class="notify-input"
+            id="notifyEmail"
+            required
+            placeholder="Enter your work email for launch preview..."
+          />
+          <button type="submit" class="btn-notify">
+            <span>Notify Me</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </form>
+
+        <div class="notify-feedback" id="notifyFeedback">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>You're on the priority list! We'll notify you the moment we go live.</span>
+        </div>
+      </div>
+
+      <!-- Sneak Peek Capabilities -->
+      <div class="sneak-peek-grid">
+        <div class="sneak-card">
+          <span class="sneak-number">01</span>
+          <div class="sneak-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/></svg>
+          </div>
+          <h3>Custom Stand Design</h3>
+          <p>Photorealistic 3D rendering and tailored bespoke stand architecture built around your brand identity.</p>
+        </div>
+
+        <div class="sneak-card">
+          <span class="sneak-number">02</span>
+          <div class="sneak-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h3>Double Decker Booths</h3>
+          <p>Engineered multi-level trade show structures with private VIP lounges for maximum presence and ROI.</p>
+        </div>
+
+        <div class="sneak-card">
+          <span class="sneak-number">03</span>
+          <div class="sneak-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Turnkey Execution</h3>
+          <p>Venue approvals, fabrication, graphics printing, and complete on-site build at Dubai World Trade Centre & globally.</p>
+        </div>
+      </div>
+
+      <!-- Urgent Booking Banner for Active Expos -->
+      <div class="urgent-banner">
+        <div class="urgent-text">
+          <h4>Have an upcoming trade show before our launch?</h4>
+          <p>Our fabrication workshop and 3D design team are active and booking upcoming exhibition slots.</p>
+        </div>
+
+        <div class="urgent-actions">
+          <a href="tel:+971555940879" class="btn-urgent-call">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+971 55 594 0879</span>
+          </a>
+
+          <a href="https://wa.me/971555940879?text=Hello%20YES%20Exhibitions,%20I%20have%20an%20urgent%20stand%20requirement" target="_blank" rel="noreferrer" class="btn-urgent-whatsapp">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>WhatsApp Us</span>
+          </a>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="launch-footer">
+      <div class="footer-coords">
+        <span>📍 Dubai World Trade Centre, UAE</span>
+        <span>•</span>
+        <a href="mailto:info@yes-exhibitions.com">info@yes-exhibitions.com</a>
+      </div>
+
+      <div class="footer-socials">
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/people/YesExhibitions/61593600787596/" target="_blank" rel="noreferrer" class="footer-social-link" aria-label="Facebook">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/yes.exhibitions" target="_blank" rel="noreferrer" class="footer-social-link" aria-label="Instagram">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+
+      <div style="font-size: 11px; opacity: 0.7;">
+        © 2026 YES Exhibitions Stands. All Rights Reserved.
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Floating Direct WhatsApp Action Button -->
+  <a href="https://wa.me/971555940879?text=Hello%20YES%20Exhibitions,%20I%20am%20interested%20in%20an%20exhibition%20stand" target="_blank" rel="noreferrer" class="floating-whatsapp" aria-label="Chat with YES Exhibitions on WhatsApp">
+    <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+
+  <!-- ======================================================== -->
+  <!-- JAVASCRIPT: COUNTDOWN & NOTIFICATION LOGIC               -->
+  <!-- ======================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Dynamic Countdown Timer (14 days from current date)
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + 14);
+      targetDate.setHours(targetDate.getHours() + 8);
+      targetDate.setMinutes(targetDate.getMinutes() + 45);
+
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate.getTime() - now;
+
+        if (distance <= 0) {
+          daysEl.textContent = '00';
+          hoursEl.textContent = '00';
+          minutesEl.textContent = '00';
+          secondsEl.textContent = '00';
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        daysEl.textContent = String(days).padStart(2, '0');
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // 2. VIP Notification Form Submission
+      const notifyForm = document.getElementById('notifyForm');
+      const notifyEmail = document.getElementById('notifyEmail');
+      const notifyFeedback = document.getElementById('notifyFeedback');
+
+      if (notifyForm) {
+        notifyForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const email = notifyEmail.value.trim();
+          if (!email) return;
+
+          const submitBtn = notifyForm.querySelector('.btn-notify');
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span>Saving...</span>';
+
+          setTimeout(() => {
+            notifyForm.style.display = 'none';
+            notifyFeedback.classList.add('active');
+          }, 600);
+        });
+      }
+
+    });
+  </script>
+
+</body>
+</html>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { ArrowRight, Mail, MapPin, Send, CheckCircle2, Navigation, AlertCircle } from 'lucide-react';
 
 const GetInTouchSection = () => {
@@ -12,6 +13,14 @@ const GetInTouchSection = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [focusedField, setFocusedField] = useState(null);
 
+  // ── EmailJS Configuration ──────────────────────────────────────────────────
+  // Fill in the three values below from your EmailJS dashboard:
+  //   https://dashboard.emailjs.com/
+  const EMAILJS_SERVICE_ID  = 'service_kmeh37d';
+  const EMAILJS_TEMPLATE_ID = 'template_iiainve';
+  const EMAILJS_PUBLIC_KEY  = 'UPfGbKoRYss7RSrqT';
+  // ───────────────────────────────────────────────────────────────────────────
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email) return;
@@ -19,39 +28,27 @@ const GetInTouchSection = () => {
     setErrorMessage('');
 
     try {
-      let response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const templateParams = {
+        from_name:  formData.name,
+        from_email: formData.email,
+        message:    formData.message || 'No message provided',
+      };
 
-      // Fallback to PHP endpoint if on Hostinger / Apache server where /api/contact is 404/405
-      if (response.status === 404 || response.status === 405) {
-        response = await fetch('/api/contact.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-      }
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setSubmitted(true);
-        setTimeout(() => {
-          setSubmitted(false);
-          setFormData({ name: '', email: '', message: '' });
-        }, 5000);
-      } else {
-        setErrorMessage(data.message || 'Failed to send message. Please try again.');
-      }
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: '', email: '', message: '' });
+      }, 5000);
     } catch (err) {
-      console.error(err);
-      setErrorMessage('Could not connect to server. Please try again.');
+      console.error('EmailJS error:', err);
+      setErrorMessage('Could not send message. Please try again.');
     } finally {
       setSubmitting(false);
     }
