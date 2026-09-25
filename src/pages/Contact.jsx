@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import emailjs from '@emailjs/browser';
 import { Link } from 'react-router-dom';
 import {
@@ -183,6 +184,33 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-gray-900 font-sansation flex flex-col selection:bg-[#D49942]/30 selection:text-gray-950">
+      <Helmet>
+        <title>Contact YES Exhibitions | Get a Free Exhibition Stand Quote</title>
+        <meta name="description" content="Contact YES Exhibitions for a free quote on custom exhibition stands, trade show booths and event spaces. Based in Dubai — serving brands at exhibitions worldwide." />
+        <link rel="canonical" href="https://yesexhibitions.com/contact" />
+        <meta property="og:title" content="Contact YES Exhibitions | Free Exhibition Stand Quote" />
+        <meta property="og:description" content="Get a free quote on custom exhibition stands and trade show booths. Based in Dubai — serving brands worldwide." />
+        <meta property="og:url" content="https://yesexhibitions.com/contact" />
+        <meta property="og:image" content="https://yesexhibitions.com/og-image.jpg" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact YES Exhibitions",
+          "url": "https://yesexhibitions.com/contact",
+          "description": "Request a free quote for custom exhibition stands and trade show booths.",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "YES Exhibitions",
+            "url": "https://yesexhibitions.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dubai",
+              "addressCountry": "AE"
+            }
+          }
+        })}</script>
+      </Helmet>
+
       {/* Main Content Area */}
       <main className="flex-1 pt-24 sm:pt-28 pb-16 sm:pb-24">
         {/* Top Breadcrumb & Back Link */}

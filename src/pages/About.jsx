@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import About_Hero from '../component/About_Hero';
 import AboutWhoWeAre from '../component/about/AboutWhoWeAre';
 import AboutVisionMission from '../component/about/AboutVisionMission';
@@ -11,12 +12,22 @@ import AboutCommitment from '../component/about/AboutCommitment';
 
 const About = () => {
   useEffect(() => {
-    document.title = 'About Us | YES Exhibitions Stands - Design • Build • Inspire';
     window.scrollTo(0, 0);
   }, []);
 
+
   return (
     <div className="">
+      <Helmet>
+        <title>About YES Exhibitions | Custom Exhibition Stand Builders in Dubai & UAE</title>
+        <meta name="description" content="Learn about YES Exhibitions — a Dubai-based team specialising in custom exhibition stand design, fabrication and installation for brands at trade shows worldwide." />
+        <link rel="canonical" href="https://yesexhibitions.com/about" />
+        <meta property="og:title" content="About YES Exhibitions | Custom Stand Builders in Dubai & UAE" />
+        <meta property="og:description" content="Learn about YES Exhibitions — a Dubai-based team specialising in custom exhibition stand design, fabrication and installation for brands at trade shows worldwide." />
+        <meta property="og:url" content="https://yesexhibitions.com/about" />
+        <meta property="og:image" content="https://yesexhibitions.com/og-image.jpg" />
+      </Helmet>
+
       {/* 1. Hero Section */}
       <About_Hero />
 

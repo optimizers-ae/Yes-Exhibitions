@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -11,12 +12,10 @@ const ServiceDetail = ({ defaultSlug }) => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (currentService) {
-      document.title = `${currentService.title} | YES Exhibitions`;
-    }
-  }, [activeSlug, currentService]);
+  }, [activeSlug]);
 
   if (!currentService) return null;
+
 
   const highlighted = currentService.highlightTitle || '';
   const normalTitle = highlighted
@@ -25,6 +24,43 @@ const ServiceDetail = ({ defaultSlug }) => {
 
   return (
     <div className="text-[#2D3748] font-sansation relative selection:bg-[#C68A2C]/20 selection:text-[#2D3748] bg-black">
+      <Helmet>
+        <title>{currentService.title} | YES Exhibitions — Exhibition Stand Builders Dubai</title>
+        <meta name="description" content={`${currentService.desc} Contact YES Exhibitions for a free quote on ${currentService.title.toLowerCase()} in Dubai, UAE and worldwide.`} />
+        <link rel="canonical" href={`https://yesexhibitions.com/${currentService.slug}`} />
+        <meta property="og:title" content={`${currentService.title} | YES Exhibitions`} />
+        <meta property="og:description" content={currentService.desc} />
+        <meta property="og:url" content={`https://yesexhibitions.com/${currentService.slug}`} />
+        <meta property="og:image" content="https://yesexhibitions.com/og-image.jpg" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": currentService.title,
+          "description": currentService.desc,
+          "provider": {
+            "@type": "Organization",
+            "name": "YES Exhibitions",
+            "url": "https://yesexhibitions.com"
+          },
+          "areaServed": ["Dubai", "UAE", "Middle East", "Worldwide"],
+          "serviceType": currentService.category
+        })}</script>
+        {currentService.faqs && currentService.faqs.length > 0 && (
+          <script type="application/ld+json">{JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": currentService.faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+              }
+            }))
+          })}</script>
+        )}
+      </Helmet>
+
       <a
         href="#main-service-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-[#D49942] text-white font-bold rounded-md shadow-lg"
