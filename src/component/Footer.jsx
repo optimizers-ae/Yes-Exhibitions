@@ -280,10 +280,10 @@ const Footer = () => {
                   <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D49942] group-hover:text-white transition-colors" />
                 </span>
                 <a
-                  href="mailto:info@yesexhibitionstands.com"
+                  href="mailto:info@yesexhibitions.com"
                   className="hover:text-gray-950 transition-colors text-gray-600 font-medium break-all"
                 >
-                  info@yes-exhibitions.com
+                  info@yesexhibitions.com
                 </a>
               </li>
             </ul>
